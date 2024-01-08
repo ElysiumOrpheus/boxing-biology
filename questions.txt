@@ -1,12 +1,12 @@
 # Commands:
 
 # Question
-# q <question number> <question text> <correct answer>
+# q <question text> <correct answer>
 
-# Answer
-# a <question number> <answer id> <answer text>
+# Answer (applies to previous question command)
+# a <answer id> <answer text>
 
-q 1 "Test Question ( answer is A )" a
-a 1 a "Answer A"
-a 1 b "Answer B"
-a 1 c "Answer C"
+q "Test Question ( answer is A )" a
+a a "Answer A"
+a b "Answer B"
+a c "Answer C"
