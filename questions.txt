@@ -1,0 +1,12 @@
+# Commands:
+
+# Question
+# q <question number> <question text> <correct answer>
+
+# Answer
+# a <question number> <answer id> <answer text>
+
+q 1 "Test Question ( answer is A )" a
+a 1 a "Answer A"
+a 1 b "Answer B"
+a 1 c "Answer C"
