@@ -1,6 +1,7 @@
 #include <raylib.h>
 #include <time.h> // For setting random seed
 #include <stdio.h> // For loading questions from file
+#include <stdlib.h> // exit() in LoadQuestions
 
 typedef enum GameState {
     GAMESTATE_MENU,
@@ -11,6 +12,7 @@ typedef struct Question {
     char *question;
     int answerCount;
     char **answers;
+    char *answerIds;
     int correctAnswer;
 } Question;
 
@@ -19,7 +21,51 @@ int questionCount;
 
 void LoadQuestions()
 {
+    FILE *questionFile = fopen("questions.txt", "r");
+    char buf[256];
+    Question currentQuestion = { 0 };
+    bool first = true;
 
+    if (questionFile == NULL)
+    {
+        perror("Could not load questions file");
+        exit(EXIT_FAILURE);
+    }
+
+    fgets(buf, 256, questionFile);
+    while (!feof(questionFile))
+    {
+        switch(buf[0])
+        {
+            case 'q':
+            {
+                if (!first)
+                {
+                    questionCount++;
+                    questions = MemRealloc(questions, sizeof(Question) * questionCount);
+                    questions[questionCount - 1] = currentQuestion;
+                    currentQuestion = (Question) { 0 };
+                }
+
+                currentQuestion.question = MemAlloc(512);
+                sscanf("q \"%s\" %c", currentQuestion.question, &(currentQuestion.correctAnswer));
+            } break;
+            case 'a':
+            {
+                currentQuestion.answerCount++;
+                currentQuestion.answerIds = MemRealloc(currentQuestion.answerIds, currentQuestion.answerCount);
+                currentQuestion.answers = MemRealloc(currentQuestion.answers, currentQuestion.answerCount * sizeof(char *));
+                currentQuestion.answers[currentQuestion.answerCount - 1] = MemAlloc(256);
+                sscanf("a %c \"%s\"", &(currentQuestion.answerIds[currentQuestion.answerCount - 1]), currentQuestion.answers[currentQuestion.answerCount - 1]);
+            } break;
+        }
+        fgets(buf, 256, questionFile);
+    }
+
+    questionCount++;
+    questions = MemRealloc(questions, sizeof(Question) * questionCount);
+    questions[questionCount - 1] = currentQuestion;
+    currentQuestion = (Question) { 0 };
 }
 
 typedef struct Game {
