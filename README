@@ -1,0 +1,11 @@
+Science Boxing Game
+
+2 players.
+
+Rules:
+Player 1 starts by answering a question related to science. If player 1 gets
+that question right, the other player loses 1 point of health. If player 1 gets
+that question wrong, nothing happens. Play then shifts to player 2, who is
+presented another question, and attacks player 1 in the same way. Play
+continues until one of the players loses all their health, in which the other
+player is the winner.
