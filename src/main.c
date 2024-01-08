@@ -95,23 +95,6 @@ int main()
     game.player1Health = maxHealth;
     game.player2Health = maxHealth;
 
-reroll:
-    int player1Roll = GetRandomValue(1, 6);
-    int player2Roll = GetRandomValue(1, 6);
-
-    if (player1Roll > player2Roll)
-    {
-        game.playerTurn = 1;
-    }
-    else if (player2Roll > player1Roll)
-    {
-        game.playerTurn = 2;
-    }
-    else
-    {
-        goto reroll;
-    }
-
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
