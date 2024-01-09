@@ -209,7 +209,7 @@ int main()
         {
             DrawText("PLAYER 1 HEALTH", 200, 570, 20, BLACK);
             DrawRectangle(200, 600, 250, 30, GRAY);
-            DrawRectangle(205, 605, (game.player1Health / maxHealth) * 240, 20, GREEN);
+            DrawRectangle(205, 605, (game.player1Health / (float)maxHealth) * 240.0f, 20, GREEN);
 
             if (game.playerHit == 1)
             {
@@ -232,7 +232,7 @@ int main()
 
             DrawText("PLAYER 2 HEALTH", 1050 - MeasureText("PLAYER 2 HEALTH", 20), 570, 20, BLACK);
             DrawRectangle(800, 600, 250, 30, GRAY);
-            DrawRectangle(805, 605, (game.player1Health / maxHealth) * 240, 20, GREEN);
+            DrawRectangle(805, 605, (game.player2Health / (float)maxHealth) * 240.0f, 20, GREEN);
 
             if (game.playerHit == 2)
             {
