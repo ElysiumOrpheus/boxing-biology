@@ -173,6 +173,7 @@ int main()
 
     Texture2D player1Texture = LoadPlayerTexture("assets/boxer_red.png");
     Texture2D player2Texture = LoadPlayerTexture("assets/boxer_blue.png");
+    Texture2D ringTexture = LoadTexture("assets/ring.png");
 
     SetRandomSeed(time(NULL));
     LoadQuestions();
@@ -195,9 +196,10 @@ int main()
         game.globalFrameTimer++;
         BeginDrawing(); 
         ClearBackground(RAYWHITE);
+        DrawTexturePro(ringTexture, (Rectangle){0, 0, ringTexture.width, ringTexture.height}, (Rectangle){0, 0, windowWidth, windowHeight}, (Vector2){0, 0}, 0, WHITE);
         if (game.state == GAMESTATE_MENU)
         {
-            DrawTextCentered("Science Boxing", 250, 100, BLACK);
+            DrawTextCentered("Science Boxing", 250, 100, WHITE);
             Color buttonColor = GREEN;
             Color buttonTextColor = DARKGREEN;
             if (CheckCollisionPointRec(GetMousePosition(), (Rectangle){windowWidth / 2 - 100, 375, 200, 100}))
@@ -273,25 +275,25 @@ int main()
                 DrawTexture(player2Texture, 800, 200, WHITE);
             }
 
-            DrawTextCentered(TextFormat("Player %d's turn", game.playerTurn), 100, 40, BLACK);
+            DrawTextCentered(TextFormat("Player %d's turn", game.playerTurn), 100, 40, WHITE);
 
             if (game.state == GAMESTATE_COUNTDOWN)
             {
                 if (game.countDownFrameTimer < 60)
                 {
-                    DrawTextCentered("3", 250, 100, BLACK);
+                    DrawTextCentered("3", 250, 100, WHITE);
                 }
                 else if (game.countDownFrameTimer < 120)
                 {
-                    DrawTextCentered("2", 250, 100, BLACK);
+                    DrawTextCentered("2", 250, 100, WHITE);
                 }
                 else if (game.countDownFrameTimer < 180)
                 {
-                    DrawTextCentered("1", 250, 100, BLACK);
+                    DrawTextCentered("1", 250, 100, WHITE);
                 }
                 else if (game.countDownFrameTimer < 240)
                 {
-                    if (game.countDownFrameTimer & 1) DrawTextCentered("FIGHT!", 250, 100, BLACK);
+                    if (game.countDownFrameTimer & 1) DrawTextCentered("FIGHT!", 250, 100, WHITE);
                 }
                 else
                 {
