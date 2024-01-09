@@ -13,8 +13,7 @@ typedef struct Question {
     char *question;
     int answerCount;
     char **answers;
-    char *answerIds;
-    char correctAnswer;
+    int correctAnswer;
 } Question;
 
 Question *questions;
@@ -49,15 +48,14 @@ void LoadQuestions()
                 }
 
                 currentQuestion.question = MemAlloc(512);
-                sscanf(buf, "q \"%[^\"\n]\" %c", currentQuestion.question, &(currentQuestion.correctAnswer));
+                sscanf(buf, "q \"%[^\"\n]\" %d", currentQuestion.question, &(currentQuestion.correctAnswer));
             } break;
             case 'a':
             {
                 currentQuestion.answerCount++;
-                currentQuestion.answerIds = MemRealloc(currentQuestion.answerIds, currentQuestion.answerCount);
                 currentQuestion.answers = MemRealloc(currentQuestion.answers, currentQuestion.answerCount * sizeof(char *));
                 currentQuestion.answers[currentQuestion.answerCount - 1] = MemAlloc(256);
-                sscanf(buf, "a %c \"%[^\"\n]\"", &(currentQuestion.answerIds[currentQuestion.answerCount - 1]), currentQuestion.answers[currentQuestion.answerCount - 1]);
+                sscanf(buf, "a \"%[^\"\n]\"", currentQuestion.answers[currentQuestion.answerCount - 1]);
             } break;
         }
         fgets(buf, 256, questionFile);
@@ -79,6 +77,10 @@ typedef struct Game {
     Question currentQuestion;
     bool newQuestion;
     int currentQuestionId;
+    int questionResultFrameTimer;
+    bool answeredQuestion;
+    char answerId;
+    bool showQuestion;
 
     int countDownFrameTimer;
 } Game;
@@ -96,7 +98,7 @@ void DrawTextCentered(const char *text, int posY, int fontSize, Color color)
     DrawText(text, windowWidth / 2 - MeasureText(text, fontSize) / 2, posY, fontSize, color);
 }
 
-bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies)
+bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bool showResult, bool isCorrectAnswer)
 {
     Rectangle rect;
     const int width = (windowWidth / 2 - 100) - 5;
@@ -125,7 +127,13 @@ bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies)
 
     Color color = WHITE;
     Color textColor = BLACK;
-    if (CheckCollisionPointRec(GetMousePosition(), rect))
+
+    if (showResult)
+    {
+        color = isCorrectAnswer ? GREEN : RED;
+        textColor = WHITE;
+    }
+    else if (CheckCollisionPointRec(GetMousePosition(), rect))
     {
         textColor = GRAY;
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
@@ -165,6 +173,7 @@ int main()
     game.player2Health = maxHealth;
     
     game.newQuestion = true;
+    game.showQuestion = true;
 
     SetTargetFPS(60);
 
@@ -239,18 +248,32 @@ int main()
                     game.newQuestion = false;
                 }
 
-                DrawRectangle(49, 249, windowWidth - 98, 302, BLACK);
-                DrawRectangle(50, 250, windowWidth - 100, 300, WHITE);
-                DrawTextCentered("QUESTION:", 250, 50, BLACK);
-                DrawTextCentered(game.currentQuestion.question, 310, 70, BLACK);
-
-                bool halfsies = (game.currentQuestion.answerCount == 2);
-
-                for (int i = 0; i < game.currentQuestion.answerCount; i++)
+                if (game.showQuestion)
                 {
-                    if (DrawAnswerButton(game.currentQuestion.answers[i], i, halfsies))
+                    DrawRectangle(49, 249, windowWidth - 98, 302, BLACK);
+                    DrawRectangle(50, 250, windowWidth - 100, 300, WHITE);
+                    DrawTextCentered("QUESTION:", 250, 50, BLACK);
+                    DrawTextCentered(game.currentQuestion.question, 310, 70, BLACK);
+
+                    bool halfsies = (game.currentQuestion.answerCount == 2);
+                    for (int i = 0; i < game.currentQuestion.answerCount; i++)
                     {
-                        // TODO: This returns true when the player selected that answer
+                        if (DrawAnswerButton(game.currentQuestion.answers[i], i, halfsies, game.answeredQuestion, i == game.currentQuestion.correctAnswer))
+                        {
+                            game.answeredQuestion = true;
+                            game.answerId = i;
+                        }
+                    }
+                }
+
+                if (game.answeredQuestion)
+                {
+                    game.questionResultFrameTimer++;
+                    if (game.questionResultFrameTimer > 120)
+                    {
+                        game.questionResultFrameTimer = 0;
+                        game.answeredQuestion = false;
+                        game.showQuestion = false;
                     }
                 }
 

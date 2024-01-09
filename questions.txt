@@ -6,7 +6,7 @@
 # Answer (applies to previous question command)
 # a <answer id> <answer text>
 
-q "Test Question ( answer is A )" a
-a a "Answer A"
-a b "Answer B"
-a c "Answer C"
+q "Test Question ( answer is A )" 0
+a "Answer A"
+a "Answer B"
+a "Answer C"
