@@ -77,6 +77,8 @@ typedef struct Game {
     int player2Health;
 
     Question currentQuestion;
+    bool newQuestion;
+    int currentQuestionId;
 
     int countDownFrameTimer;
 } Game;
@@ -86,10 +88,16 @@ Texture2D LoadPlayerTexture(const char *path)
     return LoadTexture(path);
 }
 
+const int windowWidth = 1280;
+const int windowHeight = 720;
+
+void DrawTextCentered(const char *text, int posY, int fontSize, Color color)
+{
+    DrawText(text, windowWidth / 2 - MeasureText(text, fontSize) / 2, posY, fontSize, color);
+}
+
 int main()
 {
-    const int windowWidth = 1280;
-    const int windowHeight = 720;
     InitWindow(windowWidth, windowHeight, "Boxing Science");
 
     Texture2D player1Texture = LoadPlayerTexture("assets/boxer_red.png");
@@ -106,7 +114,7 @@ int main()
     game.player1Health = maxHealth;
     game.player2Health = maxHealth;
     
-    game.countDownFrameTimer = 0;
+    game.newQuestion = true;
 
     SetTargetFPS(60);
 
@@ -116,7 +124,7 @@ int main()
         ClearBackground(RAYWHITE);
         if (game.state == GAMESTATE_MENU)
         {
-            DrawText("Science Boxing", windowWidth / 2 - MeasureText("Science Boxing", 100) / 2, 250, 100, BLACK);
+            DrawTextCentered("Science Boxing", 250, 100, BLACK);
             Color buttonColor = GREEN;
             Color buttonTextColor = DARKGREEN;
             if (CheckCollisionPointRec(GetMousePosition(), (Rectangle){windowWidth / 2 - 100, 375, 200, 100}))
@@ -132,7 +140,7 @@ int main()
                 }
             }
             DrawRectangle(windowWidth / 2 - 100, 375, 200, 100, buttonColor);
-            DrawText("Play", windowWidth / 2 - MeasureText("Play", 40) / 2, 400, 40, buttonTextColor);
+            DrawTextCentered("Play", 400, 40, buttonTextColor);
         }
         else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN)
         {
@@ -146,32 +154,43 @@ int main()
             DrawRectangle(805, 605, ((float)game.player1Health / maxHealth) * 240, 20, GREEN);
             DrawTexture(player2Texture, 800, 200, WHITE);
 
-            const char *turnText = TextFormat("Player %d's turn", game.playerTurn);
-            DrawText(turnText, windowWidth / 2 - MeasureText(turnText, 40) / 2, 100, 40, BLACK);
+            DrawTextCentered(TextFormat("Player %d's turn", game.playerTurn), 100, 40, BLACK);
 
             if (game.state == GAMESTATE_COUNTDOWN)
             {
                 if (game.countDownFrameTimer < 60)
                 {
-                    DrawText("3", windowWidth / 2 - MeasureText("3", 100) / 2, 250, 100, BLACK);
+                    DrawTextCentered("3", 250, 100, BLACK);
                 }
                 else if (game.countDownFrameTimer < 120)
                 {
-                    DrawText("2", windowWidth / 2 - MeasureText("2", 100) / 2, 250, 100, BLACK);
+                    DrawTextCentered("2", 250, 100, BLACK);
                 }
                 else if (game.countDownFrameTimer < 180)
                 {
-                    DrawText("1", windowWidth / 2 - MeasureText("1", 100) / 2, 250, 100, BLACK);
+                    DrawTextCentered("1", 250, 100, BLACK);
                 }
                 else if (game.countDownFrameTimer < 240)
                 {
-                    if (game.countDownFrameTimer & 1) DrawText("FIGHT!", windowWidth / 2 - MeasureText("FIGHT!", 100) / 2, 250, 100, BLACK);
+                    if (game.countDownFrameTimer & 1) DrawTextCentered("FIGHT!", 250, 100, BLACK);
                 }
                 else
                 {
                     game.state = GAMESTATE_PLAY;
                 }
                 game.countDownFrameTimer++;
+            }
+            else if (game.state == GAMESTATE_PLAY)
+            {
+                if (game.newQuestion)
+                {
+                    game.currentQuestion = questions[game.currentQuestionId];
+                    game.currentQuestionId++;
+                    game.newQuestion = false;
+                }
+
+                DrawTextCentered("QUESTION:", 250, 50, BLACK);
+                DrawTextCentered(game.currentQuestion.question, 310, 70, BLACK);
             }
         }
         EndDrawing();
