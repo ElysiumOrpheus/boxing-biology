@@ -5,7 +5,8 @@
 
 typedef enum GameState {
     GAMESTATE_MENU,
-    GAMESTATE_PLAY
+    GAMESTATE_PLAY,
+    GAMESTATE_COUNTDOWN,
 } GameState;
 
 typedef struct Question {
@@ -76,6 +77,8 @@ typedef struct Game {
     int player2Health;
 
     Question currentQuestion;
+
+    int countDownFrameTimer;
 } Game;
 
 int main()
@@ -94,6 +97,8 @@ int main()
     game.playerTurn = 1;
     game.player1Health = maxHealth;
     game.player2Health = maxHealth;
+    
+    game.countDownFrameTimer = 0;
 
     SetTargetFPS(60);
 
@@ -115,13 +120,13 @@ int main()
                 }
                 if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
                 {
-                    game.state = GAMESTATE_PLAY;
+                    game.state = GAMESTATE_COUNTDOWN;
                 }
             }
             DrawRectangle(windowWidth / 2 - 100, 375, 200, 100, buttonColor);
             DrawText("Play", windowWidth / 2 - MeasureText("Play", 40) / 2, 400, 40, buttonTextColor);
         }
-        else if (game.state == GAMESTATE_PLAY)
+        else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN)
         {
             // Draw the health bars
             DrawText("PLAYER 1 HEALTH", 200, 570, 20, BLACK);
@@ -134,6 +139,31 @@ int main()
 
             const char *turnText = TextFormat("Player %d's turn", game.playerTurn);
             DrawText(turnText, windowWidth / 2 - MeasureText(turnText, 40) / 2, 100, 40, BLACK);
+
+            if (game.state == GAMESTATE_COUNTDOWN)
+            {
+                if (game.countDownFrameTimer < 60)
+                {
+                    DrawText("3", windowWidth / 2 - MeasureText("3", 100) / 2, 250, 100, BLACK);
+                }
+                else if (game.countDownFrameTimer < 120)
+                {
+                    DrawText("2", windowWidth / 2 - MeasureText("2", 100) / 2, 250, 100, BLACK);
+                }
+                else if (game.countDownFrameTimer < 180)
+                {
+                    DrawText("1", windowWidth / 2 - MeasureText("1", 100) / 2, 250, 100, BLACK);
+                }
+                else if (game.countDownFrameTimer < 240)
+                {
+                    if (game.countDownFrameTimer & 1) DrawText("FIGHT!", windowWidth / 2 - MeasureText("FIGHT!", 100) / 2, 250, 100, BLACK);
+                }
+                else
+                {
+                    game.state = GAMESTATE_PLAY;
+                }
+                game.countDownFrameTimer++;
+            }
         }
         EndDrawing();
     }
