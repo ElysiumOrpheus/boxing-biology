@@ -2,6 +2,7 @@
 #include <time.h> // For setting random seed
 #include <stdio.h> // For loading questions from file
 #include <stdlib.h> // exit() in LoadQuestions
+#include <math.h> // floor()
 
 typedef enum GameState {
     GAMESTATE_MENU,
@@ -71,18 +72,20 @@ typedef struct Game {
     GameState state;
 
     int playerTurn; //1 if plr1, 2 if plr2
-    int player1Health;
-    int player2Health;
+    float player1Health;
+    float player2Health;
+    int playerHit;
 
     Question currentQuestion;
     bool newQuestion;
     int currentQuestionId;
     int questionResultFrameTimer;
     bool answeredQuestion;
-    char answerId;
+    int answerId;
     bool showQuestion;
 
     int countDownFrameTimer;
+    int globalFrameTimer;
 } Game;
 
 Texture2D LoadPlayerTexture(const char *path)
@@ -179,6 +182,7 @@ int main()
 
     while (!WindowShouldClose())
     {
+        game.globalFrameTimer++;
         BeginDrawing(); 
         ClearBackground(RAYWHITE);
         if (game.state == GAMESTATE_MENU)
@@ -205,13 +209,49 @@ int main()
         {
             DrawText("PLAYER 1 HEALTH", 200, 570, 20, BLACK);
             DrawRectangle(200, 600, 250, 30, GRAY);
-            DrawRectangle(205, 605, ((float)game.player1Health / maxHealth) * 240, 20, GREEN);
-            DrawTexture(player1Texture, 200, 200, WHITE);
+            DrawRectangle(205, 605, (game.player1Health / maxHealth) * 240, 20, GREEN);
+
+            if (game.playerHit == 1)
+            {
+                DrawTexture(player1Texture, 200 + (game.globalFrameTimer & 1) * 5, 200, WHITE);
+                float floored = floorf(game.player1Health);
+                game.player1Health -= 0.01;
+                if (game.player1Health < floored)
+                {
+                    game.player1Health = floored;
+                    game.playerHit = 0;
+                    game.showQuestion = true;
+                    game.newQuestion = true;
+                    game.playerTurn = 1;
+                }
+            }
+            else
+            {
+                DrawTexture(player1Texture, 200, 200, WHITE);
+            }
 
             DrawText("PLAYER 2 HEALTH", 1050 - MeasureText("PLAYER 2 HEALTH", 20), 570, 20, BLACK);
             DrawRectangle(800, 600, 250, 30, GRAY);
-            DrawRectangle(805, 605, ((float)game.player1Health / maxHealth) * 240, 20, GREEN);
-            DrawTexture(player2Texture, 800, 200, WHITE);
+            DrawRectangle(805, 605, (game.player1Health / maxHealth) * 240, 20, GREEN);
+
+            if (game.playerHit == 2)
+            {
+                DrawTexture(player2Texture, 800 + (game.globalFrameTimer & 1) * 5, 200, WHITE);
+                float floored = floorf(game.player2Health);
+                game.player2Health -= 0.01;
+                if (game.player2Health < floored)
+                {
+                    game.player2Health = floored;
+                    game.playerHit = 0;
+                    game.showQuestion = true;
+                    game.newQuestion = true;
+                    game.playerTurn = 2;
+                }
+            }
+            else
+            {
+                DrawTexture(player2Texture, 800, 200, WHITE);
+            }
 
             DrawTextCentered(TextFormat("Player %d's turn", game.playerTurn), 100, 40, BLACK);
 
@@ -274,6 +314,19 @@ int main()
                         game.questionResultFrameTimer = 0;
                         game.answeredQuestion = false;
                         game.showQuestion = false;
+                        if (game.currentQuestion.correctAnswer == game.answerId)
+                        {
+                            // Player got correct answer
+                            game.playerHit = (game.playerTurn == 1 ? 2 : 1);
+                            if (game.playerHit == 1)
+                            {
+                                game.player1Health -= 0.01;
+                            }
+                            else
+                            {
+                                game.player2Health -= 0.01;
+                            }
+                        }
                     }
                 }
 
