@@ -96,6 +96,56 @@ void DrawTextCentered(const char *text, int posY, int fontSize, Color color)
     DrawText(text, windowWidth / 2 - MeasureText(text, fontSize) / 2, posY, fontSize, color);
 }
 
+bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies)
+{
+    Rectangle rect;
+    const int width = (windowWidth / 2 - 100) - 5;
+    bool ret = false;
+
+    if (answerIndex == 0)
+    {
+        // Top-left
+        rect = (Rectangle) {60, 400, width, halfsies ? 140 : 60};
+    }
+    else if (answerIndex == 1)
+    {
+        // Top-right
+        rect = (Rectangle) {windowWidth / 2 + 5, 400, width, halfsies ? 140 : 60};
+    }
+    else if (answerIndex == 2)
+    {
+        // Bottom-left
+        rect = (Rectangle) {60, 470, width, 60};
+    }
+    else if (answerIndex == 3)
+    {
+        // Bottom-right
+        rect = (Rectangle) {windowWidth / 2 + 5, 470, width, 60};
+    }
+
+    Color color = WHITE;
+    Color textColor = BLACK;
+    if (CheckCollisionPointRec(GetMousePosition(), rect))
+    {
+        textColor = GRAY;
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+        {
+            color = GRAY;
+            textColor = WHITE;
+        }
+        if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+        {
+            ret = true;
+        }
+    }
+
+    DrawRectangleRec((Rectangle) {rect.x - 1, rect.y - 1, rect.width + 2, rect.height + 2}, BLACK);
+    DrawRectangleRec(rect, color);
+    DrawText(answerText, rect.x + rect.width / 2 - MeasureText(answerText, rect.height) / 2, rect.y, rect.height, textColor);
+
+    return ret;
+}
+
 int main()
 {
     InitWindow(windowWidth, windowHeight, "Boxing Science");
@@ -189,8 +239,21 @@ int main()
                     game.newQuestion = false;
                 }
 
+                DrawRectangle(49, 249, windowWidth - 98, 302, BLACK);
+                DrawRectangle(50, 250, windowWidth - 100, 300, WHITE);
                 DrawTextCentered("QUESTION:", 250, 50, BLACK);
                 DrawTextCentered(game.currentQuestion.question, 310, 70, BLACK);
+
+                bool halfsies = (game.currentQuestion.answerCount == 2);
+
+                for (int i = 0; i < game.currentQuestion.answerCount; i++)
+                {
+                    if (DrawAnswerButton(game.currentQuestion.answers[i], i, halfsies))
+                    {
+                        // TODO: This returns true when the player selected that answer
+                    }
+                }
+
             }
         }
         EndDrawing();
