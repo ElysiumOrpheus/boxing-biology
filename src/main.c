@@ -340,6 +340,11 @@ int main()
                                 game.player2Health -= 0.01;
                             }
                         }
+                        else
+                        {
+                            game.showQuestion = true;
+                            game.playerTurn = (game.playerTurn == 1 ? 2 : 1);
+                        }
                     }
                 }
 
