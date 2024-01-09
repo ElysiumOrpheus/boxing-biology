@@ -10,3 +10,11 @@ q "Test Question ( answer is A )" 0
 a "Answer A"
 a "Answer B"
 a "Answer C"
+
+q "This question has two answers" 0
+a "Answer A"
+a "Answer B"
+
+q "This is a third question!!!" 1
+a "Choose me!"
+a "No choose me!"
