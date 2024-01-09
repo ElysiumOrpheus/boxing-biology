@@ -14,7 +14,7 @@ typedef struct Question {
     int answerCount;
     char **answers;
     char *answerIds;
-    int correctAnswer;
+    char correctAnswer;
 } Question;
 
 Question *questions;
@@ -49,7 +49,7 @@ void LoadQuestions()
                 }
 
                 currentQuestion.question = MemAlloc(512);
-                sscanf("q \"%s\" %c", currentQuestion.question, &(currentQuestion.correctAnswer));
+                sscanf(buf, "q \"%[^\"\n]\" %c", currentQuestion.question, &(currentQuestion.correctAnswer));
             } break;
             case 'a':
             {
@@ -57,7 +57,7 @@ void LoadQuestions()
                 currentQuestion.answerIds = MemRealloc(currentQuestion.answerIds, currentQuestion.answerCount);
                 currentQuestion.answers = MemRealloc(currentQuestion.answers, currentQuestion.answerCount * sizeof(char *));
                 currentQuestion.answers[currentQuestion.answerCount - 1] = MemAlloc(256);
-                sscanf("a %c \"%s\"", &(currentQuestion.answerIds[currentQuestion.answerCount - 1]), currentQuestion.answers[currentQuestion.answerCount - 1]);
+                sscanf(buf, "a %c \"%[^\"\n]\"", &(currentQuestion.answerIds[currentQuestion.answerCount - 1]), currentQuestion.answers[currentQuestion.answerCount - 1]);
             } break;
         }
         fgets(buf, 256, questionFile);
