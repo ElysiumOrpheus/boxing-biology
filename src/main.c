@@ -48,6 +48,7 @@ void LoadQuestions()
                     questions[questionCount - 1] = currentQuestion;
                     currentQuestion = (Question) { 0 };
                 }
+                first = false;
 
                 currentQuestion.question = MemAlloc(512);
                 sscanf(buf, "q \"%[^\"\n]\" %d", currentQuestion.question, &(currentQuestion.correctAnswer));
