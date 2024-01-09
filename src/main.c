@@ -9,6 +9,7 @@ typedef enum GameState {
     GAMESTATE_PLAY,
     GAMESTATE_COUNTDOWN,
     GAMESTATE_DRAW,
+    GAMESTATE_END,
 } GameState;
 
 typedef struct Question {
@@ -77,6 +78,7 @@ typedef struct Game {
     float player1Health;
     float player2Health;
     int playerHit;
+    int winner;
 
     Question currentQuestion;
     bool newQuestion;
@@ -231,6 +233,11 @@ int main()
                     game.showQuestion = true;
                     game.newQuestion = true;
                     game.playerTurn = 1;
+                    if (game.player1Health == 0)
+                    {
+                        game.winner = 2;
+                        game.state = GAMESTATE_END;
+                    }
                 }
             }
             else
@@ -254,6 +261,11 @@ int main()
                     game.showQuestion = true;
                     game.newQuestion = true;
                     game.playerTurn = 2;
+                    if (game.player2Health == 0)
+                    {
+                        game.winner = 1;
+                        game.state = GAMESTATE_END;
+                    }
                 }
             }
             else
@@ -347,7 +359,6 @@ int main()
                         }
                     }
                 }
-
             }
         }
         else if (game.state == GAMESTATE_DRAW)
@@ -356,6 +367,13 @@ int main()
             DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
             DrawTextCentered("It's a draw", 250, 100, WHITE);
             DrawTextCentered("(No more questions)", 360, 30, WHITE);
+        }
+        else if (game.state == GAMESTATE_END)
+        {
+            game.drawFrameTimer++;
+            DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
+            DrawTextCentered(TextFormat("Player %d wins", game.winner), 250, 100, WHITE);
+            DrawTextCentered("Congratulations!", 360, 30, WHITE);
         }
         EndDrawing();
     }
