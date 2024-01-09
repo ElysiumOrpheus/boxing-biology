@@ -155,7 +155,12 @@ bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bo
 
     DrawRectangleRec((Rectangle) {rect.x - 1, rect.y - 1, rect.width + 2, rect.height + 2}, BLACK);
     DrawRectangleRec(rect, color);
-    DrawText(answerText, rect.x + rect.width / 2 - MeasureText(answerText, rect.height) / 2, rect.y, rect.height, textColor);
+    float size = rect.height;
+    if (MeasureText(answerText, size) > rect.width - 10)
+    {
+        size *= (rect.width - 10) / MeasureText(answerText, size);
+    }
+    DrawText(answerText, rect.x + rect.width / 2 - MeasureText(answerText, size) / 2, rect.y + rect.height - size, size, textColor);
 
     return ret;
 }
