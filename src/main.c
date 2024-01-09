@@ -81,11 +81,19 @@ typedef struct Game {
     int countDownFrameTimer;
 } Game;
 
+Texture2D LoadPlayerTexture(const char *path)
+{
+    return LoadTexture(path);
+}
+
 int main()
 {
     const int windowWidth = 1280;
     const int windowHeight = 720;
     InitWindow(windowWidth, windowHeight, "Boxing Science");
+
+    Texture2D player1Texture = LoadPlayerTexture("assets/boxer_red.png");
+    Texture2D player2Texture = LoadPlayerTexture("assets/boxer_blue.png");
 
     SetRandomSeed(time(NULL));
     LoadQuestions();
@@ -128,14 +136,15 @@ int main()
         }
         else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN)
         {
-            // Draw the health bars
             DrawText("PLAYER 1 HEALTH", 200, 570, 20, BLACK);
             DrawRectangle(200, 600, 250, 30, GRAY);
             DrawRectangle(205, 605, ((float)game.player1Health / maxHealth) * 240, 20, GREEN);
+            DrawTexture(player1Texture, 200, 200, WHITE);
 
             DrawText("PLAYER 2 HEALTH", 800, 570, 20, BLACK);
             DrawRectangle(800, 600, 250, 30, GRAY);
             DrawRectangle(805, 605, ((float)game.player1Health / maxHealth) * 240, 20, GREEN);
+            DrawTexture(player2Texture, 800, 200, WHITE);
 
             const char *turnText = TextFormat("Player %d's turn", game.playerTurn);
             DrawText(turnText, windowWidth / 2 - MeasureText(turnText, 40) / 2, 100, 40, BLACK);
