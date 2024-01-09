@@ -8,6 +8,7 @@ typedef enum GameState {
     GAMESTATE_MENU,
     GAMESTATE_PLAY,
     GAMESTATE_COUNTDOWN,
+    GAMESTATE_DRAW,
 } GameState;
 
 typedef struct Question {
@@ -86,6 +87,7 @@ typedef struct Game {
 
     int countDownFrameTimer;
     int globalFrameTimer;
+    int drawFrameTimer;
 } Game;
 
 Texture2D LoadPlayerTexture(const char *path)
@@ -283,6 +285,11 @@ int main()
             {
                 if (game.newQuestion)
                 {
+                    if (game.currentQuestionId == questionCount)
+                    {
+                        game.state = GAMESTATE_DRAW;
+                        continue;
+                    }
                     game.currentQuestion = questions[game.currentQuestionId];
                     game.currentQuestionId++;
                     game.newQuestion = false;
@@ -331,6 +338,13 @@ int main()
                 }
 
             }
+        }
+        else if (game.state == GAMESTATE_DRAW)
+        {
+            game.drawFrameTimer++;
+            DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
+            DrawTextCentered("It's a draw", 250, 100, WHITE);
+            DrawTextCentered("(No more questions)", 360, 30, WHITE);
         }
         EndDrawing();
     }
