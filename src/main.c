@@ -141,7 +141,7 @@ int main()
             DrawRectangle(205, 605, ((float)game.player1Health / maxHealth) * 240, 20, GREEN);
             DrawTexture(player1Texture, 200, 200, WHITE);
 
-            DrawText("PLAYER 2 HEALTH", 800, 570, 20, BLACK);
+            DrawText("PLAYER 2 HEALTH", 1050 - MeasureText("PLAYER 2 HEALTH", 20), 570, 20, BLACK);
             DrawRectangle(800, 600, 250, 30, GRAY);
             DrawRectangle(805, 605, ((float)game.player1Health / maxHealth) * 240, 20, GREEN);
             DrawTexture(player2Texture, 800, 200, WHITE);
