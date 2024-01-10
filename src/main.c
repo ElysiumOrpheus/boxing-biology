@@ -180,6 +180,7 @@ int main()
     Sound bell = LoadSound("assets/bell.mp3");
     Sound correct = LoadSound("assets/correct.mp3");
     Sound incorrect = LoadSound("assets/incorrect.mp3");
+    Sound win = LoadSound("assets/win.mp3");
 
     Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
     PlayMusicStream(menu_music);
@@ -193,7 +194,7 @@ int main()
     const int maxHealth = 20;
     game.playerTurn = 1;
     game.player1Health = maxHealth;
-    game.player2Health = maxHealth;
+    game.player2Health = 1;
     
     game.newQuestion = true;
     game.showQuestion = true;
@@ -401,6 +402,7 @@ int main()
         }
         else if (game.state == GAMESTATE_END)
         {
+            if (game.drawFrameTimer == 0) PlaySound(win);
             game.drawFrameTimer++;
             DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
             DrawTextCentered(TextFormat("Player %d wins", game.winner), 250, 100, WHITE);
