@@ -92,6 +92,7 @@ typedef struct Game {
     int globalFrameTimer;
     int drawFrameTimer;
     int menuFadeOutFrameTimer;
+    int punchingFrameTimer;
 } Game;
 
 Texture2D LoadPlayerTexture(const char *path)
@@ -244,13 +245,14 @@ int main()
             DrawRectangle(200, 600, 250, 30, GRAY);
             DrawRectangle(205, 605, (game.player1Health / (float)maxHealth) * 240.0f, 20, GREEN);
 
-            if (game.playerHit == 1)
+            if (game.playerHit == 1 && game.punchingFrameTimer > 40)
             {
                 DrawTexture(player1Texture, 200 + (game.globalFrameTimer & 1) * 5, 200, WHITE);
                 float floored = floorf(game.player1Health);
                 game.player1Health -= 0.01;
                 if (game.player1Health < floored)
                 {
+                    game.punchingFrameTimer = 0;
                     game.player1Health = floored;
                     game.playerHit = 0;
                     game.showQuestion = true;
@@ -263,8 +265,9 @@ int main()
                     }
                 }
             }
-            else if (game.playerHit == 2)
+            else if (game.playerHit == 2 && game.punchingFrameTimer <= 40)
             {
+                game.punchingFrameTimer++;
                 DrawTexture(player1PunchTexture, 200, 200, WHITE);
             }
             else
@@ -276,13 +279,14 @@ int main()
             DrawRectangle(800, 600, 250, 30, GRAY);
             DrawRectangle(805, 605, (game.player2Health / (float)maxHealth) * 240.0f, 20, GREEN);
 
-            if (game.playerHit == 2)
+            if (game.playerHit == 2 && game.punchingFrameTimer > 40)
             {
                 DrawTexture(player2Texture, 800 + (game.globalFrameTimer & 1) * 5, 200, WHITE);
                 float floored = floorf(game.player2Health);
                 game.player2Health -= 0.01;
                 if (game.player2Health < floored)
                 {
+                    game.punchingFrameTimer = 0;
                     game.player2Health = floored;
                     game.playerHit = 0;
                     game.showQuestion = true;
@@ -295,8 +299,9 @@ int main()
                     }
                 }
             }
-            else if (game.playerHit == 1)
+            else if (game.playerHit == 1 && game.punchingFrameTimer <= 40)
             {
+                game.punchingFrameTimer++;
                 DrawTexture(player2PunchTexture, 800, 200, WHITE);
             }
             else
