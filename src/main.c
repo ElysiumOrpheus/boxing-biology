@@ -184,6 +184,7 @@ int main()
 
     Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
     PlayMusicStream(menu_music);
+    Music draw_music = LoadMusicStream("assets/music/draw.mp3");
 
     SetRandomSeed(time(NULL));
     LoadQuestions();
@@ -395,6 +396,8 @@ int main()
         }
         else if (game.state == GAMESTATE_DRAW)
         {
+            if (game.drawFrameTimer == 0) PlayMusicStream(draw_music);
+            UpdateMusicStream(draw_music);
             game.drawFrameTimer++;
             DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
             DrawTextCentered("It's a draw", 250, 100, WHITE);
