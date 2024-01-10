@@ -184,6 +184,7 @@ int main()
     Sound correct = LoadSound("assets/correct.mp3");
     Sound incorrect = LoadSound("assets/incorrect.mp3");
     Sound win = LoadSound("assets/win.mp3");
+    Sound punch = LoadSound("assets/punch.mp3");
 
     Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
     PlayMusicStream(menu_music);
@@ -267,6 +268,7 @@ int main()
             }
             else if (game.playerHit == 2 && game.punchingFrameTimer <= 40)
             {
+                if (game.punchingFrameTimer == 0) PlaySound(punch);
                 game.punchingFrameTimer++;
                 DrawTexture(player1PunchTexture, 200, 200, WHITE);
             }
@@ -301,6 +303,7 @@ int main()
             }
             else if (game.playerHit == 1 && game.punchingFrameTimer <= 40)
             {
+                if (game.punchingFrameTimer == 0) PlaySound(punch);
                 game.punchingFrameTimer++;
                 DrawTexture(player2PunchTexture, 800, 200, WHITE);
             }
