@@ -331,7 +331,7 @@ int main()
                 else if (game.countDownFrameTimer < 240)
                 {
                     PlaySound(bell);
-                    if (game.countDownFrameTimer & 1) DrawTextCentered("FIGHT!", 250, 100, WHITE);
+                    if (game.countDownFrameTimer & 0b10) DrawTextCentered("FIGHT!", 250, 100, WHITE);
                 }
                 else
                 {
