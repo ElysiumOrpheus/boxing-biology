@@ -169,6 +169,26 @@ bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bo
     return ret;
 }
 
+bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextColor, Color buttonColorSelected, Color buttonTextColorSelected, int posY)
+{
+    bool ret = false;
+    if (CheckCollisionPointRec(GetMousePosition(), (Rectangle){windowWidth / 2 - 100, posY, 200, 100}))
+    {
+        buttonTextColor = buttonTextColorSelected;
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
+        {
+            buttonColor = buttonColorSelected;
+        }
+        if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
+        {
+            ret = true;
+        }
+    }
+    DrawRectangle(windowWidth / 2 - 100, posY, 200, 100, buttonColor);
+    DrawTextCentered(text, posY + 25, 40, buttonTextColor);
+    return ret;
+}
+
 int main()
 {
     InitWindow(windowWidth, windowHeight, "Boxing Science");
@@ -216,30 +236,30 @@ int main()
         {
             UpdateMusicStream(menu_music);
             DrawTextCentered("Science Boxing", 250, 100, WHITE);
-            Color buttonColor = GREEN;
-            Color buttonTextColor = DARKGREEN;
-            if (CheckCollisionPointRec(GetMousePosition(), (Rectangle){windowWidth / 2 - 100, 375, 200, 100}))
+            if (DrawButtonCentered("Play", GREEN, DARKGREEN, DARKGREEN, WHITE, 375))
             {
-                buttonTextColor = WHITE;
-                if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-                {
-                    buttonColor = DARKGREEN;
-                }
-                if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-                {
-                    game.state = GAMESTATE_COUNTDOWN;
-                    game.menuFadeOutFrameTimer = 100;
-                }
+                game.state = GAMESTATE_COUNTDOWN;
+                game.menuFadeOutFrameTimer = 100;
             }
-            DrawRectangle(windowWidth / 2 - 100, 375, 200, 100, buttonColor);
-            DrawTextCentered("Play", 400, 40, buttonTextColor);
         }
         else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN)
         {
             if (game.menuFadeOutFrameTimer)
             {
-                SetMusicVolume(menu_music, (float)game.menuFadeOutFrameTimer / 100);
-                UpdateMusicStream(menu_music);
+                if (IsMusicStreamPlaying(menu_music))
+                {
+                    SetMusicVolume(menu_music, (float)game.menuFadeOutFrameTimer / 100);
+                    UpdateMusicStream(menu_music);
+                }
+                if (IsMusicStreamPlaying(draw_music))
+                {
+                    SetMusicVolume(draw_music, (float)game.menuFadeOutFrameTimer / 100);
+                    UpdateMusicStream(draw_music);
+                }
+                if (IsSoundPlaying(win))
+                {
+                    SetSoundVolume(win, (float)game.menuFadeOutFrameTimer / 100);
+                }
                 game.menuFadeOutFrameTimer--;
             }
             DrawText("PLAYER 1 HEALTH", 200, 570, 20, BLACK);
@@ -420,6 +440,23 @@ int main()
             DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
             DrawTextCentered("It's a draw", 250, 100, WHITE);
             DrawTextCentered("(No more questions)", 360, 30, WHITE);
+            if (game.drawFrameTimer > 255)
+            {
+                if (DrawButtonCentered("Play again", DARKGRAY, GRAY, GRAY, WHITE, 400))
+                {
+                    game.player1Health = maxHealth;
+                    game.player2Health = maxHealth;
+                    game.drawFrameTimer = 0;
+                    game.countDownFrameTimer = 0;
+                    game.state = GAMESTATE_COUNTDOWN;
+                    game.menuFadeOutFrameTimer = 50;
+                }
+                if (DrawButtonCentered("Quit", DARKGRAY, GRAY, GRAY, WHITE, 525))
+                {
+                    CloseWindow();
+                    return 0;
+                }
+            }
         }
         else if (game.state == GAMESTATE_END)
         {
@@ -428,6 +465,23 @@ int main()
             DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
             DrawTextCentered(TextFormat("Player %d wins", game.winner), 250, 100, WHITE);
             DrawTextCentered("Congratulations!", 360, 30, WHITE);
+            if (game.drawFrameTimer > 255)
+            {
+                if (DrawButtonCentered("Play again", DARKGRAY, GRAY, GRAY, WHITE, 400))
+                {
+                    game.player1Health = maxHealth;
+                    game.player2Health = maxHealth;
+                    game.drawFrameTimer = 0;
+                    game.countDownFrameTimer = 0;
+                    game.state = GAMESTATE_COUNTDOWN;
+                    game.menuFadeOutFrameTimer = 50;
+                }
+                if (DrawButtonCentered("Quit", DARKGRAY, GRAY, GRAY, WHITE, 525))
+                {
+                    CloseWindow();
+                    return 0;
+                }
+            }
         }
         EndDrawing();
     }
