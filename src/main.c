@@ -178,6 +178,8 @@ int main()
 
     InitAudioDevice();
     Sound bell = LoadSound("assets/bell.mp3");
+    Sound correct = LoadSound("assets/correct.mp3");
+    Sound incorrect = LoadSound("assets/incorrect.mp3");
 
     Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
     PlayMusicStream(menu_music);
@@ -351,6 +353,17 @@ int main()
 
                 if (game.answeredQuestion)
                 {
+                    if (game.questionResultFrameTimer == 0)
+                    {
+                        if (game.currentQuestion.correctAnswer == game.answerId)
+                        {
+                            PlaySound(correct);
+                        }
+                        else
+                        {
+                            PlaySound(incorrect);
+                        }
+                    }
                     game.questionResultFrameTimer++;
                     if (game.questionResultFrameTimer > 120)
                     {
