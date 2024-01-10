@@ -91,6 +91,7 @@ typedef struct Game {
     int countDownFrameTimer;
     int globalFrameTimer;
     int drawFrameTimer;
+    int menuFadeOutFrameTimer;
 } Game;
 
 Texture2D LoadPlayerTexture(const char *path)
@@ -178,6 +179,9 @@ int main()
     InitAudioDevice();
     Sound bell = LoadSound("assets/bell.mp3");
 
+    Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
+    PlayMusicStream(menu_music);
+
     SetRandomSeed(time(NULL));
     LoadQuestions();
 
@@ -202,6 +206,7 @@ int main()
         DrawTexturePro(ringTexture, (Rectangle){0, 0, ringTexture.width, ringTexture.height}, (Rectangle){0, 0, windowWidth, windowHeight}, (Vector2){0, 0}, 0, WHITE);
         if (game.state == GAMESTATE_MENU)
         {
+            UpdateMusicStream(menu_music);
             DrawTextCentered("Science Boxing", 250, 100, WHITE);
             Color buttonColor = GREEN;
             Color buttonTextColor = DARKGREEN;
@@ -215,6 +220,7 @@ int main()
                 if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
                 {
                     game.state = GAMESTATE_COUNTDOWN;
+                    game.menuFadeOutFrameTimer = 100;
                 }
             }
             DrawRectangle(windowWidth / 2 - 100, 375, 200, 100, buttonColor);
@@ -222,6 +228,12 @@ int main()
         }
         else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN)
         {
+            if (game.menuFadeOutFrameTimer)
+            {
+                SetMusicVolume(menu_music, (float)game.menuFadeOutFrameTimer / 100);
+                UpdateMusicStream(menu_music);
+                game.menuFadeOutFrameTimer--;
+            }
             DrawText("PLAYER 1 HEALTH", 200, 570, 20, BLACK);
             DrawRectangle(200, 600, 250, 30, GRAY);
             DrawRectangle(205, 605, (game.player1Health / (float)maxHealth) * 240.0f, 20, GREEN);
