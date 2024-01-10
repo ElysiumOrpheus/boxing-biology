@@ -175,6 +175,9 @@ int main()
     Texture2D player2Texture = LoadPlayerTexture("assets/boxer_blue.png");
     Texture2D ringTexture = LoadTexture("assets/ring.png");
 
+    InitAudioDevice();
+    Sound bell = LoadSound("assets/bell.mp3");
+
     SetRandomSeed(time(NULL));
     LoadQuestions();
 
@@ -293,6 +296,7 @@ int main()
                 }
                 else if (game.countDownFrameTimer < 240)
                 {
+                    PlaySound(bell);
                     if (game.countDownFrameTimer & 1) DrawTextCentered("FIGHT!", 250, 100, WHITE);
                 }
                 else
