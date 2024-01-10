@@ -175,6 +175,8 @@ int main()
     Texture2D player1Texture = LoadPlayerTexture("assets/boxer_red.png");
     Texture2D player2Texture = LoadPlayerTexture("assets/boxer_blue.png");
     Texture2D ringTexture = LoadTexture("assets/ring.png");
+    Texture2D player1PunchTexture = LoadPlayerTexture("assets/boxer_red_punch.png");
+    Texture2D player2PunchTexture = LoadPlayerTexture("assets/boxer_blue_punch.png");
 
     InitAudioDevice();
     Sound bell = LoadSound("assets/bell.mp3");
@@ -261,6 +263,10 @@ int main()
                     }
                 }
             }
+            else if (game.playerHit == 2)
+            {
+                DrawTexture(player1PunchTexture, 200, 200, WHITE);
+            }
             else
             {
                 DrawTexture(player1Texture, 200, 200, WHITE);
@@ -288,6 +294,10 @@ int main()
                         game.state = GAMESTATE_END;
                     }
                 }
+            }
+            else if (game.playerHit == 1)
+            {
+                DrawTexture(player2PunchTexture, 800, 200, WHITE);
             }
             else
             {
