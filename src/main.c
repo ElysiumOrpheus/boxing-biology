@@ -217,7 +217,7 @@ int main()
     game.state = GAMESTATE_MENU;
     
     const int maxHealth = 20;
-    game.playerTurn = 1;
+    game.playerTurn = maxHealth;
     game.player1Health = maxHealth;
     game.player2Health = 1;
     
