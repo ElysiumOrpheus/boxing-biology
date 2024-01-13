@@ -378,7 +378,15 @@ int main()
                     DrawRectangle(49, 249, windowWidth - 98, 302, BLACK);
                     DrawRectangle(50, 250, windowWidth - 100, 300, WHITE);
                     DrawTextCentered("QUESTION:", 250, 50, BLACK);
-                    DrawTextCentered(game.currentQuestion.question, 310, 70, BLACK);
+                    const char *answerText = game.currentQuestion.question;
+                    Color textColor = BLACK;
+                    Rectangle rect = (Rectangle) {50, 300, windowWidth - 100, 70};
+                    float size = rect.height;
+                    if (MeasureText(answerText, size) > rect.width - 10)
+                    {
+                        size *= (rect.width - 10) / MeasureText(answerText, size);
+                    }
+                    DrawText(answerText, rect.x + rect.width / 2 - MeasureText(answerText, size) / 2, rect.y + rect.height - size, size, textColor);
 
                     bool halfsies = (game.currentQuestion.answerCount == 2);
                     for (int i = 0; i < game.currentQuestion.answerCount; i++)
