@@ -80,6 +80,15 @@ void LoadQuestions()
     }
 }
 
+#define BLOOD_SPLATTER_COUNT 5
+
+typedef struct BloodSplatter {
+    int velocityX;
+    int velocityY;
+    int posX;
+    int posY;
+} BloodSplatter;
+
 typedef struct Game {
     GameState state;
 
@@ -96,6 +105,10 @@ typedef struct Game {
     bool answeredQuestion;
     int answerId;
     bool showQuestion;
+
+    BloodSplatter bloodSplatters[BLOOD_SPLATTER_COUNT];
+    bool bloodSplattersEnabled;
+    bool initBloodSplatter;
 
     int countDownFrameTimer;
     int globalFrameTimer;
@@ -291,6 +304,7 @@ int main()
                     game.showQuestion = true;
                     game.newQuestion = true;
                     game.playerTurn = 1;
+                    game.bloodSplattersEnabled = false;
                     if (game.player1Health == 0)
                     {
                         game.winner = 2;
@@ -326,6 +340,7 @@ int main()
                     game.showQuestion = true;
                     game.newQuestion = true;
                     game.playerTurn = 2;
+                    game.bloodSplattersEnabled = false;
                     if (game.player2Health == 0)
                     {
                         game.winner = 1;
@@ -373,6 +388,28 @@ int main()
             }
             else if (game.state == GAMESTATE_PLAY)
             {
+                if (game.bloodSplattersEnabled && game.globalFrameTimer & 1)
+                {
+                    if (game.initBloodSplatter)
+                    {
+                        for (int i = 0; i < BLOOD_SPLATTER_COUNT; i++)
+                        {
+                            game.bloodSplatters[i] = (BloodSplatter){ GetRandomValue(-5, 5), 0, game.playerHit == 1 ? player1Position + 50 : player2Position + 100, 250};
+                        }
+                        game.initBloodSplatter = false;
+                    }
+
+                    for (int i = 0; i < BLOOD_SPLATTER_COUNT; i++)
+                    {
+                        game.bloodSplatters[i].velocityY++;
+                        game.bloodSplatters[i].posX += game.bloodSplatters[i].velocityX;
+                        game.bloodSplatters[i].posY += game.bloodSplatters[i].velocityY;
+
+                        DrawRectangle(game.bloodSplatters[i].posX - 3, game.bloodSplatters[i].posY - 3, 6, 6, (Color){255, 0, 0, 255});
+                    }
+                    
+                }
+
                 if (game.newQuestion)
                 {
                     if (game.currentQuestionId == questionCount)
@@ -434,6 +471,8 @@ int main()
                         {
                             // Player got correct answer
                             game.playerHit = (game.playerTurn == 1 ? 2 : 1);
+                            game.bloodSplattersEnabled = true;
+                            game.initBloodSplatter = true;
                             if (game.playerHit == 1)
                             {
                                 game.player1Health -= 0.01;
