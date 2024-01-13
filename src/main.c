@@ -198,6 +198,9 @@ bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextCol
     return ret;
 }
 
+const int player1Position = 300;
+const int player2Position = 700;
+
 int main()
 {
     InitWindow(windowWidth, windowHeight, "Boxing Science");
@@ -271,9 +274,9 @@ int main()
                 }
                 game.menuFadeOutFrameTimer--;
             }
-            DrawText("PLAYER 1 HEALTH", 200, 570, 20, BLACK);
-            DrawRectangle(200, 600, 250, 30, GRAY);
-            DrawRectangle(205, 605, (game.player1Health / (float)maxHealth) * 240.0f, 20, GREEN);
+            DrawText("PLAYER 1 HEALTH", player1Position, 570, 20, BLACK);
+            DrawRectangle(player1Position, 600, 250, 30, GRAY);
+            DrawRectangle(player1Position + 5, 605, (game.player1Health / (float)maxHealth) * 240.0f, 20, GREEN);
 
             if (game.playerHit == 1 && game.punchingFrameTimer > 40)
             {
@@ -299,20 +302,20 @@ int main()
             {
                 if (game.punchingFrameTimer == 0) PlaySound(punch);
                 game.punchingFrameTimer++;
-                DrawTexture(player1PunchTexture, 200, 200, WHITE);
+                DrawTexture(player1PunchTexture, player1Position, 200, WHITE);
             }
             else
             {
-                DrawTexture(player1Texture, 200, 200, WHITE);
+                DrawTexture(player1Texture, player1Position, 200, WHITE);
             }
 
-            DrawText("PLAYER 2 HEALTH", 1050 - MeasureText("PLAYER 2 HEALTH", 20), 570, 20, BLACK);
-            DrawRectangle(800, 600, 250, 30, GRAY);
-            DrawRectangle(805, 605, (game.player2Health / (float)maxHealth) * 240.0f, 20, GREEN);
+            DrawText("PLAYER 2 HEALTH", player2Position + 250 - MeasureText("PLAYER 2 HEALTH", 20), 570, 20, BLACK);
+            DrawRectangle(player2Position, 600, 250, 30, GRAY);
+            DrawRectangle(player2Position + 5, 605, (game.player2Health / (float)maxHealth) * 240.0f, 20, GREEN);
 
             if (game.playerHit == 2 && game.punchingFrameTimer > 40)
             {
-                DrawTexture(player2Texture, 800 + (game.globalFrameTimer & 1) * 5, 200, WHITE);
+                DrawTexture(player2Texture, player2Position + (game.globalFrameTimer & 1) * 5, 200, WHITE);
                 float floored = floorf(game.player2Health);
                 game.player2Health -= 0.01;
                 if (game.player2Health < floored)
@@ -334,11 +337,11 @@ int main()
             {
                 if (game.punchingFrameTimer == 0) PlaySound(punch);
                 game.punchingFrameTimer++;
-                DrawTexture(player2PunchTexture, 800, 200, WHITE);
+                DrawTexture(player2PunchTexture, player2Position, 200, WHITE);
             }
             else
             {
-                DrawTexture(player2Texture, 800, 200, WHITE);
+                DrawTexture(player2Texture, player2Position, 200, WHITE);
             }
 
             DrawTextCentered(TextFormat("Player %d's turn", game.playerTurn), 100, 40, WHITE);
