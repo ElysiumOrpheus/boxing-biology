@@ -69,6 +69,15 @@ void LoadQuestions()
     questions = MemRealloc(questions, sizeof(Question) * questionCount);
     questions[questionCount - 1] = currentQuestion;
     currentQuestion = (Question) { 0 };
+
+    // Randomize question order
+    for (int i = 0; i < questionCount; i++)
+    {
+        Question intermed = questions[i];
+        int swapI = GetRandomValue(0, questionCount - 1);
+        questions[i] = questions[swapI];
+        questions[swapI] = intermed;
+    }
 }
 
 typedef struct Game {
