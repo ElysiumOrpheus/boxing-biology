@@ -4,102 +4,156 @@
 # q <question text> <correct answer>
 
 # Answer (applies to previous question command)
-# a <answer id> <answer text>
+# a <answer text>
 
-q "Test Question ( answer is A )" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Commands:
 
-q "This question has two answers" 0
-a "Answer A"
-a "Answer B"
+# Question 1
+# q What is the primary greenhouse gas responsible for climate change?
+q "What is the primary greenhouse gas responsible for climate change?" 2
 
-q "This is a third question!!!" 1
-a "Choose me!"
-a "No choose me!"
+# Answers for Question 1
+a "Oxygen"
+a "Nitrogen"
+a "Carbon dioxide"
+a "Hydrogen"
 
-q "Test Question #4" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 2
+# q Which human activity contributes significantly to the increase in carbon dioxide levels in the atmosphere?
+q "Which human activity contributes significantly to the increase in carbon dioxide levels in the atmosphere?" 1
 
-q "Test Question #5" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Answers for Question 2
+a "Planting trees"
+a "Driving cars"
+a "Recycling plastic"
+a "Turning off lights"
 
-q "Test Question #6" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 3
+# q What is the main purpose of the ozone layer in the Earth's atmosphere?
+q "What is the main purpose of the ozone layer in the Earth's atmosphere?" 2
 
-q "Test Question #7" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Answers for Question 3
+a "Absorbing carbon dioxide"
+a "Allowing sunlight to reach the Earth"
+a "Blocking harmful ultraviolet radiation"
+a "Creating rain clouds"
 
-q "Test Question #8" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 4
+# q What is a common consequence of global warming on polar ice caps and glaciers?
+q "What is a common consequence of global warming on polar ice caps and glaciers?" 2
 
-q "Test Question #9" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Answers for Question 4
+a "Expansion"
+a "Thickening"
+a "Melting"
+a "Freezing"
 
-q "Test Question #10" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 5
+# q Which renewable energy source does not contribute to the emission of greenhouse gases?
+q "Which renewable energy source does not contribute to the emission of greenhouse gases?" 0
 
-q "Test Question #11" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Answers for Question 5
+a "Solar power"
+a "Coal"
+a "Natural gas"
+a "Nuclear power"
 
-q "Test Question #12" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 6
+# q What is the term for the gradual increase in the Earth's average temperature over time?
+q "What is the term for the gradual increase in the Earth's average temperature over time?" 2
 
-q "Test Question #13" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Answers for Question 6
+a "Global cooling"
+a "Climate stabilization"
+a "Global warming"
+a "Temperature fluctuation"
 
-q "Test Question #14" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 7
+# q What is the primary cause of the greenhouse effect?
+q "What is the primary cause of the greenhouse effect?" 2
 
-q "Test Question #15" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Answers for Question 7
+a "Depletion of ozone layer"
+a "Release of volcanic gases"
+a "Human activities releasing greenhouse gases"
+a "Earth's orbit changes"
 
-q "Test Question #16" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 8
+# q How does deforestation contribute to climate change?
+q "How does deforestation contribute to climate change?" 1
 
-q "Test Question #17" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Answers for Question 8
+a "By reducing oxygen levels"
+a "By increasing carbon dioxide levels"
+a "By cooling the atmosphere"
+a "By decreasing rainfall"
 
-q "Test Question #18" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 9
+# q Which term refers to the rising of the Earth's surface temperature due to trapped heat in the atmosphere?
+q "Which term refers to the rising of the Earth's surface temperature due to trapped heat in the atmosphere?" 0
 
-q "Test Question #19" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Answers for Question 9
+a "Greenhouse effect"
+a "Acid rain"
+a "Ozone depletion"
+a "Carbon sequestration"
 
-q "Test Question #20" 0
-a "Answer A"
-a "Answer B"
-a "Answer C"
+# Question 10
+# q What is the main source of methane, a potent greenhouse gas?
+q "What is the main source of methane, a potent greenhouse gas?" 0
+
+# Answers for Question 10
+a "Cow digestion"
+a "Solar power plants"
+a "Ocean currents"
+a "Wind turbines"
+
+# Question 11
+# q How does the increased concentration of greenhouse gases affect weather patterns?
+q "How does the increased concentration of greenhouse gases affect weather patterns?" 1
+
+# Answers for Question 11
+a "It causes uniform temperatures worldwide"
+a "It leads to more extreme weather events"
+a "It reduces precipitation globally"
+a "It stabilizes atmospheric pressure"
+
+# Question 12
+# q Which natural event can contribute to short-term cooling of the Earth's climate?
+q "Which natural event can contribute to short-term cooling of the Earth's climate?" 0
+
+# Answers for Question 12
+a "Volcanic eruptions"
+a "Forest fires"
+a "Hurricane formation"
+a "Tsunamis"
+
+# Question 13
+# q What role do oceans play in regulating the Earth's climate?
+q "What role do oceans play in regulating the Earth's climate?" 0
+
+# Answers for Question 13
+a "Oceans absorb and store heat"
+a "Oceans release greenhouse gases"
+a "Oceans reflect sunlight"
+a "Oceans generate strong winds"
+
+# Question 14
+# q Which international agreement aims to address climate change by reducing greenhouse gas emissions?
+q "Which international agreement aims to address climate change by reducing greenhouse gas emissions?" 1
+
+# Answers for Question 14
+a "Kyoto Protocol"
+a "Paris Agreement"
+a "London Accord"
+a "Berlin Treaty"
+
+# Question 15
+# q How does the loss of biodiversity contribute to climate change?
+q "How does the loss of biodiversity contribute to climate change?" 2
+
+# Answers for Question 15
+a "It has no impact on climate change"
+a "It reduces carbon dioxide levels"
+a "It disrupts ecosystems and natural carbon cycles"
+a "It accelerates glacier formation"
