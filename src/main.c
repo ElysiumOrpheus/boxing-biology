@@ -293,7 +293,7 @@ int main()
 
             if (game.playerHit == 1 && game.punchingFrameTimer > 40)
             {
-                DrawTexture(player1Texture, 200 + (game.globalFrameTimer & 1) * 5, 200, WHITE);
+                DrawTexture(player1Texture, player1Position + (game.globalFrameTimer & 1) * 5, 200, WHITE);
                 float floored = floorf(game.player1Health);
                 game.player1Health -= 0.01;
                 if (game.player1Health < floored)
