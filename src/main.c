@@ -275,12 +275,20 @@ int main()
     game.loadingProgress++;
     UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
 
+    game.loadingProgress = 0;
+    game.loadingMax = 3;
     Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
     PlayMusicStream(menu_music);
     Music draw_music = LoadMusicStream("assets/music/draw.mp3");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
 
     SetRandomSeed(time(NULL));
     LoadQuestions();
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
 
     game.state = GAMESTATE_MENU;
     
