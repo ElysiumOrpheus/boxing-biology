@@ -110,6 +110,9 @@ typedef struct Game {
     bool bloodSplattersEnabled;
     bool initBloodSplatter;
 
+    int loadingMax;
+    int loadingProgress;
+
     int countDownFrameTimer;
     int globalFrameTimer;
     int drawFrameTimer;
@@ -214,22 +217,63 @@ bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextCol
 const int player1Position = 300;
 const int player2Position = 700;
 
+void UpdateLoadingScreen(int loadingMax, int loadingProgress)
+{
+    if (WindowShouldClose()) exit(EXIT_SUCCESS);
+    BeginDrawing();
+    ClearBackground(BLACK);
+    DrawTextCentered("Loading...", 250, 100, WHITE);
+    DrawTextCentered(TextFormat("%d / %d", loadingProgress, loadingMax), 360, 30, WHITE);
+    DrawRectangle(windowWidth / 2 - 400, 400, 800, 50, GRAY);
+    DrawRectangle(windowWidth / 2 - 400, 400, ((float)loadingProgress / loadingMax) * 800, 50, WHITE);
+    EndDrawing();
+}
+
 int main()
 {
     InitWindow(windowWidth, windowHeight, "Boxing Science");
 
-    Texture2D player1Texture = LoadPlayerTexture("assets/boxer_red.png");
-    Texture2D player2Texture = LoadPlayerTexture("assets/boxer_blue.png");
-    Texture2D ringTexture = LoadTexture("assets/ring.png");
-    Texture2D player1PunchTexture = LoadPlayerTexture("assets/boxer_red_punch.png");
-    Texture2D player2PunchTexture = LoadPlayerTexture("assets/boxer_blue_punch.png");
+    Game game = { 0 };
 
+    game.loadingMax = 5;
+
+    Texture2D player1Texture = LoadPlayerTexture("assets/boxer_red.png");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    Texture2D player2Texture = LoadPlayerTexture("assets/boxer_blue.png");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    Texture2D ringTexture = LoadTexture("assets/ring.png");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    Texture2D player1PunchTexture = LoadPlayerTexture("assets/boxer_red_punch.png");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    Texture2D player2PunchTexture = LoadPlayerTexture("assets/boxer_blue_punch.png");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+
+    game.loadingProgress = 0;
+    game.loadingMax = 6;
+    
     InitAudioDevice();
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
     Sound bell = LoadSound("assets/bell.mp3");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
     Sound correct = LoadSound("assets/correct.mp3");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
     Sound incorrect = LoadSound("assets/incorrect.mp3");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
     Sound win = LoadSound("assets/win.mp3");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
     Sound punch = LoadSound("assets/punch.mp3");
+    game.loadingProgress++;
+    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
 
     Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
     PlayMusicStream(menu_music);
@@ -238,7 +282,6 @@ int main()
     SetRandomSeed(time(NULL));
     LoadQuestions();
 
-    Game game = { 0 };
     game.state = GAMESTATE_MENU;
     
     const int maxHealth = 20;
