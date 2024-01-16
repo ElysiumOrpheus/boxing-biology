@@ -247,7 +247,7 @@ void LoadJukebox()
     for (int i = 0; i < files.count; i++)
     {
         char *intermed = files.paths[i];
-        int id = GetRandomValue(0, files.count);
+        int id = GetRandomValue(0, files.count - 1);
         files.paths[i] = files.paths[id];
         files.paths[id] = intermed;
     }
