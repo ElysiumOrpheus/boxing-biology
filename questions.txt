@@ -6,7 +6,7 @@
 # Answer (applies to previous question command)
 # a <answer text>
 
-# Commands:
+# Climate change unit
 
 # Question 1
 # q What is the primary greenhouse gas responsible for climate change?
@@ -157,3 +157,459 @@ a "It has no impact on climate change"
 a "It reduces carbon dioxide levels"
 a "It disrupts ecosystems and natural carbon cycles"
 a "It accelerates glacier formation"
+
+# Light unit
+
+# Question 1
+# q What is the primary color of light that has the shortest wavelength?
+q "What is the primary color of light that has the shortest wavelength?" 2
+
+# Answers for Question 1
+a "Red"
+a "Green"
+a "Blue"
+a "Yellow"
+
+# Question 2
+# q Which type of lens converges light rays to a single point?
+q "Which type of lens converges light rays to a single point?" 1
+
+# Answers for Question 2
+a "Concave"
+a "Convex"
+a "Plano-concave"
+a "Plano-convex"
+
+# Question 3
+# q What is the phenomenon where light changes direction as it passes from one medium to another?
+q "What is the phenomenon where light changes direction as it passes from one medium to another?" 1
+
+# Answers for Question 3
+a "Reflection"
+a "Refraction"
+a "Diffraction"
+a "Dispersion"
+
+# Question 4
+# q Which of the following colors is NOT part of the visible light spectrum?
+q "Which of the following colors is NOT part of the visible light spectrum?" 0
+
+# Answers for Question 4
+a "Ultraviolet"
+a "Infrared"
+a "Green"
+a "Violet"
+
+# Question 5
+# q What is the unit of measurement for the frequency of light waves?
+q "What is the unit of measurement for the frequency of light waves?" 0
+
+# Answers for Question 5
+a "Hertz (Hz)"
+a "Watts (W)"
+a "Joules (J)"
+a "Meters per second (m/s)"
+
+# Question 6
+# q In which medium does light travel the fastest?
+q "In which medium does light travel the fastest?" 3
+
+# Answers for Question 6
+a "Air"
+a "Water"
+a "Glass"
+a "Vacuum"
+
+# Question 7
+# q What type of mirror can produce an enlarged and upright virtual image?
+q "What type of mirror can produce an enlarged and upright virtual image?" 1
+
+# Answers for Question 7
+a "Concave"
+a "Convex"
+a "Plane"
+a "Spherical"
+
+# Question 8
+# q Which color of light is deviated the most when passing through a prism?
+q "Which color of light is deviated the most when passing through a prism?" 2
+
+# Answers for Question 8
+a "Red"
+a "Green"
+a "Blue"
+a "Yellow"
+
+# Question 9
+# q What is the phenomenon where light waves cancel each other out, resulting in no light?
+q "What is the phenomenon where light waves cancel each other out, resulting in no light?" 0
+
+# Answers for Question 9
+a "Interference"
+a "Diffraction"
+a "Polarization"
+a "Absorption"
+
+# Question 10
+# q What is the angle of incidence equal to when light undergoes total internal reflection?
+q "What is the angle of incidence equal to when light undergoes total internal reflection?" 2
+
+# Answers for Question 10
+a "0 degrees"
+a "45 degrees"
+a "90 degrees"
+a "It depends on the medium"
+
+# Question 11
+# q Which lens is commonly used to correct farsightedness?
+q "Which lens is commonly used to correct farsightedness?" 0
+
+# Answers for Question 11
+a "Convex"
+a "Concave"
+a "Plano-concave"
+a "Plano-convex"
+
+# Question 12
+# q What is the phenomenon where light is separated into its component colors?
+q "What is the phenomenon where light is separated into its component colors?" 2
+
+# Answers for Question 12
+a "Reflection"
+a "Refraction"
+a "Dispersion"
+a "Diffraction"
+
+# Question 13
+# q What happens to the focal length of a converging lens when it is immersed in water?
+q "What happens to the focal length of a converging lens when it is immersed in water?" 1
+
+# Answers for Question 13
+a "Increases"
+a "Decreases"
+a "Remains the same"
+a "Depends on the lens material"
+
+# Question 14
+# q What type of mirror can produce both real and virtual images, depending on the object's position?
+q "What type of mirror can produce both real and virtual images, depending on the object's position?" 3
+
+# Answers for Question 14
+a "Concave"
+a "Convex"
+a "Plane"
+a "Spherical"
+
+# Question 15
+# q Which phenomenon explains why the sky appears blue during the day?
+q "Which phenomenon explains why the sky appears blue during the day?" 1
+
+# Answers for Question 15
+a "Diffraction"
+a "Scattering"
+a "Reflection"
+a "Dispersion"
+
+# Biology unit
+
+# Question 1
+# q What is the basic structural unit of living organisms?
+q "What is the basic structural unit of living organisms?" 1
+
+# Answers for Question 1
+a "Atom"
+a "Cell"
+a "Molecule"
+a "Tissue"
+
+# Question 2
+# q Which organelle is responsible for energy production in a eukaryotic cell?
+q "Which organelle is responsible for energy production in a eukaryotic cell?" 2
+
+# Answers for Question 2
+a "Nucleus"
+a "Golgi apparatus"
+a "Mitochondrion"
+a "Endoplasmic reticulum"
+
+# Question 3
+# q What is the powerhouse of the cell?
+q "What is the powerhouse of the cell?" 2
+
+# Answers for Question 3
+a "Nucleus"
+a "Ribosome"
+a "Mitochondrion"
+a "Lysosome"
+
+# Question 4
+# q In which part of the digestive system does nutrient absorption primarily occur?
+q "In which part of the digestive system does nutrient absorption primarily occur?" 1
+
+# Answers for Question 4
+a "Stomach"
+a "Small intestine"
+a "Large intestine"
+a "Esophagus"
+
+# Question 5
+# q What is the process by which plants make their own food using sunlight?
+q "What is the process by which plants make their own food using sunlight?" 3
+
+# Answers for Question 5
+a "Photosynthesis"
+a "Respiration"
+a "Fermentation"
+a "Transpiration"
+
+# Question 6
+# q What is the main function of red blood cells in the human body?
+q "What is the main function of red blood cells in the human body?" 0
+
+# Answers for Question 6
+a "Transporting oxygen"
+a "Defense against infections"
+a "Producing antibodies"
+a "Digesting food"
+
+# Question 7
+# q Which part of the plant is responsible for water and nutrient absorption?
+q "Which part of the plant is responsible for water and nutrient absorption?" 2
+
+# Answers for Question 7
+a "Leaves"
+a "Stems"
+a "Roots"
+a "Flowers"
+
+# Question 8
+# q What is the largest organ in the human body?
+q "What is the largest organ in the human body?" 3
+
+# Answers for Question 8
+a "Heart"
+a "Brain"
+a "Skin"
+a "Liver"
+
+# Question 9
+# q Which gas do plants primarily take in during photosynthesis?
+q "Which gas do plants primarily take in during photosynthesis?" 2
+
+# Answers for Question 9
+a "Oxygen"
+a "Carbon dioxide"
+a "Nitrogen"
+a "Hydrogen"
+
+# Question 10
+# q What is the purpose of the circulatory system in the human body?
+q "What is the purpose of the circulatory system in the human body?" 0
+
+# Answers for Question 10
+a "Transporting blood and nutrients"
+a "Providing structural support"
+a "Filtering waste products"
+a "Producing hormones"
+
+# Question 11
+# q Which of the following is a function of the respiratory system?
+q "Which of the following is a function of the respiratory system?" 2
+
+# Answers for Question 11
+a "Pumping blood"
+a "Digesting food"
+a "Breathing and gas exchange"
+a "Filtering toxins"
+
+# Question 12
+# q What is the role of enzymes in biological reactions?
+q "What is the role of enzymes in biological reactions?" 1
+
+# Answers for Question 12
+a "Transporting molecules"
+a "Facilitating chemical reactions"
+a "Providing structural support"
+a "Storing genetic information"
+
+# Question 13
+# q Which organelle is responsible for protein synthesis in a cell?
+q "Which organelle is responsible for protein synthesis in a cell?" 3
+
+# Answers for Question 13
+a "Nucleus"
+a "Golgi apparatus"
+a "Mitochondrion"
+a "Ribosome"
+
+# Question 14
+# q What is the function of the nervous system in the human body?
+q "What is the function of the nervous system in the human body?" 3
+
+# Answers for Question 14
+a "Digesting food"
+a "Transporting oxygen"
+a "Coordination and communication"
+a "Maintaining water balance"
+
+# Question 15
+# q What is the genetic material found in the nucleus of a eukaryotic cell?
+q "What is the genetic material found in the nucleus of a eukaryotic cell?" 0
+
+# Answers for Question 15
+a "DNA"
+a "RNA"
+a "Protein"
+a "Lipid"
+
+# Chemistry unit
+
+# Question 1
+# q What is the smallest unit of an element that retains its chemical properties?
+q "What is the smallest unit of an element that retains its chemical properties?" 2
+
+# Answers for Question 1
+a "Molecule"
+a "Atom"
+a "Compound"
+a "Ion"
+
+# Question 2
+# q Which element has the chemical symbol 'O'?
+q "Which element has the chemical symbol 'O'?" 0
+
+# Answers for Question 2
+a "Oxygen"
+a "Osmium"
+a "Oganesson"
+a "Osmium"
+
+# Question 3
+# q What is the chemical formula for water?
+q "What is the chemical formula for water?" 1
+
+# Answers for Question 3
+a "H2O"
+a "CO2"
+a "O2"
+a "CH4"
+
+# Question 4
+# q What is the pH scale used to measure?
+q "What is the pH scale used to measure?" 2
+
+# Answers for Question 4
+a "Temperature"
+a "Pressure"
+a "Acidity or alkalinity"
+a "Density"
+
+# Question 5
+# q Which gas is produced during photosynthesis?
+q "Which gas is produced during photosynthesis?" 0
+
+# Answers for Question 5
+a "Oxygen"
+a "Carbon dioxide"
+a "Hydrogen"
+a "Nitrogen"
+
+# Question 6
+# q What is the chemical symbol for gold?
+q "What is the chemical symbol for gold?" 3
+
+# Answers for Question 6
+a "Au"
+a "Ag"
+a "Fe"
+a "Cu"
+
+# Question 7
+# q What is the chemical formula for methane?
+q "What is the chemical formula for methane?" 3
+
+# Answers for Question 7
+a "CO2"
+a "H2O"
+a "O2"
+a "CH4"
+
+# Question 8
+# q Which gas makes up the majority of Earth's atmosphere?
+q "Which gas makes up the majority of Earth's atmosphere?" 0
+
+# Answers for Question 8
+a "Nitrogen"
+a "Oxygen"
+a "Carbon dioxide"
+a "Argon"
+
+# Question 9
+# q What is the process of converting a solid directly into vapor called?
+q "What is the process of converting a solid directly into vapor called?" 0
+
+# Answers for Question 9
+a "Melting"
+a "Condensation"
+a "Sublimation"
+a "Evaporation"
+
+# Question 10
+# q Which subatomic particle carries a negative charge?
+q "Which subatomic particle carries a negative charge?" 1
+
+# Answers for Question 10
+a "Proton"
+a "Electron"
+a "Neutron"
+a "Positron"
+
+# Question 11
+# q What is the chemical symbol for sodium?
+q "What is the chemical symbol for sodium?" 2
+
+# Answers for Question 11
+a "S"
+a "Na"
+a "So"
+a "Au"
+
+# Question 12
+# q What is the process of combining two or more elements to form a new substance?
+q "What is the process of combining two or more elements to form a new substance?" 1
+
+# Answers for Question 12
+a "Decomposition"
+a "Chemical reaction"
+a "Melting"
+a "Sublimation"
+
+# Question 13
+# q Which type of bond involves the sharing of electrons between atoms?
+q "Which type of bond involves the sharing of electrons between atoms?" 0
+
+# Answers for Question 13
+a "Ionic bond"
+a "Covalent bond"
+a "Metallic bond"
+a "Hydrogen bond"
+
+# Question 14
+# q What is the chemical symbol for carbon dioxide?
+q "What is the chemical symbol for carbon dioxide?" 1
+
+# Answers for Question 14
+a "CO"
+a "CO2"
+a "C2O"
+a "CCl4"
+
+# Question 15
+# q What is the chemical name for table salt?
+q "What is the chemical name for table salt?" 2
+
+# Answers for Question 15
+a "Sodium chloride"
+a "Calcium chloride"
+a "Potassium chloride"
+a "Magnesium chloride"
