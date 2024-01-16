@@ -17,6 +17,7 @@ typedef struct Question {
     int answerCount;
     char **answers;
     int correctAnswer;
+    bool usedBefore;
 } Question;
 
 Question *questions;
@@ -110,20 +111,12 @@ typedef struct Game {
     bool bloodSplattersEnabled;
     bool initBloodSplatter;
 
-    int loadingMax;
-    int loadingProgress;
-
     int countDownFrameTimer;
     int globalFrameTimer;
     int drawFrameTimer;
     int menuFadeOutFrameTimer;
     int punchingFrameTimer;
 } Game;
-
-Texture2D LoadPlayerTexture(const char *path)
-{
-    return LoadTexture(path);
-}
 
 const int windowWidth = 1280;
 const int windowHeight = 720;
@@ -217,7 +210,10 @@ bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextCol
 const int player1Position = 300;
 const int player2Position = 700;
 
-void UpdateLoadingScreen(int loadingMax, int loadingProgress)
+int loadingMax;
+int loadingProgress;
+
+void UpdateLoadingScreen()
 {
     if (WindowShouldClose()) exit(EXIT_SUCCESS);
     BeginDrawing();
@@ -229,66 +225,64 @@ void UpdateLoadingScreen(int loadingMax, int loadingProgress)
     EndDrawing();
 }
 
+Texture2D LoadTexturePlus(const char *filename)
+{
+    Texture2D ret = LoadTexture(filename);
+    loadingProgress++;
+    UpdateLoadingScreen();
+    return ret;
+}
+
 int main()
 {
     InitWindow(windowWidth, windowHeight, "Boxing Science");
 
     Game game = { 0 };
 
-    game.loadingMax = 5;
+    loadingMax = 5;
 
-    Texture2D player1Texture = LoadPlayerTexture("assets/boxer_red.png");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
-    Texture2D player2Texture = LoadPlayerTexture("assets/boxer_blue.png");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
-    Texture2D ringTexture = LoadTexture("assets/ring.png");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
-    Texture2D player1PunchTexture = LoadPlayerTexture("assets/boxer_red_punch.png");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
-    Texture2D player2PunchTexture = LoadPlayerTexture("assets/boxer_blue_punch.png");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    Texture2D player1Texture = LoadTexturePlus("assets/boxer_red.png");
+    Texture2D player2Texture = LoadTexturePlus("assets/boxer_blue.png");
+    Texture2D ringTexture = LoadTexturePlus("assets/ring.png");
+    Texture2D player1PunchTexture = LoadTexturePlus("assets/boxer_red_punch.png");
+    Texture2D player2PunchTexture = LoadTexturePlus("assets/boxer_blue_punch.png");
 
-    game.loadingProgress = 0;
-    game.loadingMax = 6;
+    loadingProgress = 0;
+    loadingMax = 6;
     
     InitAudioDevice();
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
     Sound bell = LoadSound("assets/bell.mp3");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
     Sound correct = LoadSound("assets/correct.mp3");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
     Sound incorrect = LoadSound("assets/incorrect.mp3");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
     Sound win = LoadSound("assets/win.mp3");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
     Sound punch = LoadSound("assets/punch.mp3");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
 
-    game.loadingProgress = 0;
-    game.loadingMax = 3;
+    loadingProgress = 0;
+    loadingMax = 3;
     Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
     PlayMusicStream(menu_music);
     Music draw_music = LoadMusicStream("assets/music/draw.mp3");
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
 
     SetRandomSeed(time(NULL));
     LoadQuestions();
-    game.loadingProgress++;
-    UpdateLoadingScreen(game.loadingMax, game.loadingProgress);
+    loadingProgress++;
+    UpdateLoadingScreen();
 
     game.state = GAMESTATE_MENU;
     
