@@ -273,6 +273,7 @@ int main()
     Texture2D player1Texture = LoadTexturePlus("assets/boxer_red.png");
     Texture2D player2Texture = LoadTexturePlus("assets/boxer_blue.png");
     Texture2D ringTexture = LoadTexturePlus("assets/ring.png");
+    SetTextureFilter(ringTexture, TEXTURE_FILTER_BILINEAR);
     Texture2D player1PunchTexture = LoadTexturePlus("assets/boxer_red_punch.png");
     Texture2D player2PunchTexture = LoadTexturePlus("assets/boxer_blue_punch.png");
 
