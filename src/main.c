@@ -244,6 +244,14 @@ void LoadJukebox()
     loadingMax = jukeboxCount;
     UpdateLoadingScreen();
 
+    for (int i = 0; i < files.count; i++)
+    {
+        char *intermed = files.paths[i];
+        int id = GetRandomValue(0, files.count);
+        files.paths[i] = files.paths[id];
+        files.paths[id] = intermed;
+    }
+
     jukebox = MemAlloc(jukeboxCount * sizeof(Music));
 
     for (int i = 0; i < jukeboxCount; i++)
