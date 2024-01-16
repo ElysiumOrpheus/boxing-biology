@@ -537,6 +537,10 @@ int main()
                         {
                             game.showQuestion = true;
                             game.playerTurn = (game.playerTurn == 1 ? 2 : 1);
+                            Question intermed = game.currentQuestion;
+                            questions[game.currentQuestionId] = questions[questionCount - 1];
+                            questions[questionCount - 1] = intermed;
+                            game.currentQuestion = questions[game.currentQuestionId];
                         }
                     }
                 }
