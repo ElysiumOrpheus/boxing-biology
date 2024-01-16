@@ -233,6 +233,27 @@ Texture2D LoadTexturePlus(const char *filename)
     return ret;
 }
 
+Music *jukebox;
+int jukeboxCount;
+int currentJukeboxId;
+
+void LoadJukebox()
+{
+    FilePathList files = LoadDirectoryFiles("assets/music");
+    jukeboxCount = files.count;
+    loadingMax = jukeboxCount;
+    UpdateLoadingScreen();
+
+    jukebox = MemAlloc(jukeboxCount * sizeof(Music));
+
+    for (int i = 0; i < jukeboxCount; i++)
+    {
+        jukebox[i] = LoadMusicStream(files.paths[i]);
+        loadingProgress++;
+        UpdateLoadingScreen();
+    }
+}
+
 int main()
 {
     InitWindow(windowWidth, windowHeight, "Boxing Science");
@@ -275,7 +296,7 @@ int main()
     loadingProgress++;
     UpdateLoadingScreen();
     PlayMusicStream(menu_music);
-    Music draw_music = LoadMusicStream("assets/music/draw.mp3");
+    Music draw_music = LoadMusicStream("assets/draw.mp3");
     loadingProgress++;
     UpdateLoadingScreen();
 
@@ -283,6 +304,8 @@ int main()
     LoadQuestions();
     loadingProgress++;
     UpdateLoadingScreen();
+
+    LoadJukebox();
 
     game.state = GAMESTATE_MENU;
     
@@ -433,8 +456,23 @@ int main()
             }
             else if (game.state == GAMESTATE_PLAY)
             {
+                if (!IsMusicStreamPlaying(jukebox[currentJukeboxId]))
+                {
+                    PlayMusicStream(jukebox[currentJukeboxId]);
+                }
+                if (GetMusicTimeLength(jukebox[currentJukeboxId]) <= GetMusicTimePlayed(jukebox[currentJukeboxId]))
+                {
+                    StopMusicStream(jukebox[currentJukeboxId]);
+                    currentJukeboxId++;
+                }
+                else
+                {
+                    UpdateMusicStream(jukebox[currentJukeboxId]);
+                }
                 if (game.bloodSplattersEnabled && game.globalFrameTimer & 1)
                 {
+                    
+
                     if (game.initBloodSplatter)
                     {
                         for (int i = 0; i < BLOOD_SPLATTER_COUNT; i++)
