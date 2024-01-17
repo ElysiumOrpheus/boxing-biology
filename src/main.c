@@ -243,6 +243,7 @@ void LoadJukebox()
     FilePathList files = LoadDirectoryFiles("assets/music");
     jukeboxCount = files.count;
     loadingMax = jukeboxCount;
+    loadingProgress = 0;
     UpdateLoadingScreen();
 
     for (int i = 0; i < files.count; i++)
