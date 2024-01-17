@@ -196,7 +196,7 @@ q "Which of the following colors is NOT part of the visible light spectrum?" 0
 
 # Answers for Question 4
 a "Ultraviolet"
-a "Infrared"
+a "Red"
 a "Green"
 a "Violet"
 
@@ -221,12 +221,12 @@ a "Glass"
 a "Vacuum"
 
 # Question 7
-# q What type of mirror can produce an enlarged and upright virtual image?
-q "What type of mirror can produce an enlarged and upright virtual image?" 1
+# q What type of mirror can produce an upright virtual image?
+q "What type of mirror can produce an upright virtual image?" 2
 
 # Answers for Question 7
 a "Concave"
-a "Convex"
+a "Opaque"
 a "Plane"
 a "Spherical"
 
@@ -282,7 +282,7 @@ a "Diffraction"
 
 # Question 13
 # q What happens to the focal length of a converging lens when it is immersed in water?
-q "What happens to the focal length of a converging lens when it is immersed in water?" 1
+q "What happens to the focal length of a converging lens when it is immersed in water?" 0
 
 # Answers for Question 13
 a "Increases"
@@ -292,7 +292,7 @@ a "Depends on the lens material"
 
 # Question 14
 # q What type of mirror can produce both real and virtual images, depending on the object's position?
-q "What type of mirror can produce both real and virtual images, depending on the object's position?" 3
+q "What type of mirror can produce both real and virtual images, depending on the object's position?" 0
 
 # Answers for Question 14
 a "Concave"
@@ -354,7 +354,7 @@ a "Esophagus"
 
 # Question 5
 # q What is the process by which plants make their own food using sunlight?
-q "What is the process by which plants make their own food using sunlight?" 3
+q "What is the process by which plants make their own food using sunlight?" 0
 
 # Answers for Question 5
 a "Photosynthesis"
@@ -384,7 +384,7 @@ a "Flowers"
 
 # Question 8
 # q What is the largest organ in the human body?
-q "What is the largest organ in the human body?" 3
+q "What is the largest organ in the human body?" 2
 
 # Answers for Question 8
 a "Heart"
@@ -394,7 +394,7 @@ a "Liver"
 
 # Question 9
 # q Which gas do plants primarily take in during photosynthesis?
-q "Which gas do plants primarily take in during photosynthesis?" 2
+q "Which gas do plants primarily take in during photosynthesis?" 1
 
 # Answers for Question 9
 a "Oxygen"
@@ -444,7 +444,7 @@ a "Ribosome"
 
 # Question 14
 # q What is the function of the nervous system in the human body?
-q "What is the function of the nervous system in the human body?" 3
+q "What is the function of the nervous system in the human body?" 2
 
 # Answers for Question 14
 a "Digesting food"
@@ -466,7 +466,7 @@ a "Lipid"
 
 # Question 1
 # q What is the smallest unit of an element that retains its chemical properties?
-q "What is the smallest unit of an element that retains its chemical properties?" 2
+q "What is the smallest unit of an element that retains its chemical properties?" 1
 
 # Answers for Question 1
 a "Molecule"
@@ -486,7 +486,7 @@ a "Osmium"
 
 # Question 3
 # q What is the chemical formula for water?
-q "What is the chemical formula for water?" 1
+q "What is the chemical formula for water?" 0
 
 # Answers for Question 3
 a "H2O"
@@ -516,7 +516,7 @@ a "Nitrogen"
 
 # Question 6
 # q What is the chemical symbol for gold?
-q "What is the chemical symbol for gold?" 3
+q "What is the chemical symbol for gold?" 0
 
 # Answers for Question 6
 a "Au"
@@ -546,7 +546,7 @@ a "Argon"
 
 # Question 9
 # q What is the process of converting a solid directly into vapor called?
-q "What is the process of converting a solid directly into vapor called?" 0
+q "What is the process of converting a solid directly into vapor called?" 2
 
 # Answers for Question 9
 a "Melting"
@@ -566,7 +566,7 @@ a "Positron"
 
 # Question 11
 # q What is the chemical symbol for sodium?
-q "What is the chemical symbol for sodium?" 2
+q "What is the chemical symbol for sodium?" 1
 
 # Answers for Question 11
 a "S"
@@ -580,13 +580,13 @@ q "What is the process of combining two or more elements to form a new substance
 
 # Answers for Question 12
 a "Decomposition"
-a "Chemical reaction"
+a "Synthesis"
 a "Melting"
 a "Sublimation"
 
 # Question 13
 # q Which type of bond involves the sharing of electrons between atoms?
-q "Which type of bond involves the sharing of electrons between atoms?" 0
+q "Which type of bond involves the sharing of electrons between atoms?" 1
 
 # Answers for Question 13
 a "Ionic bond"
@@ -606,7 +606,7 @@ a "CCl4"
 
 # Question 15
 # q What is the chemical name for table salt?
-q "What is the chemical name for table salt?" 2
+q "What is the chemical name for table salt?" 0
 
 # Answers for Question 15
 a "Sodium chloride"
