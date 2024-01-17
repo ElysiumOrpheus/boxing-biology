@@ -208,8 +208,8 @@ bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextCol
     return ret;
 }
 
-const int player1Position = 300;
-const int player2Position = 700;
+int player1Position = 300;
+int player2Position = 700;
 
 int loadingMax;
 int loadingProgress;
@@ -336,6 +336,8 @@ int main()
         {
             windowWidth = GetScreenWidth();
             windowHeight = GetScreenHeight();
+            player1Position = windowWidth / 2 - 340;
+            player2Position = windowWidth / 2 + 60;
         }
 
         game.globalFrameTimer++;
