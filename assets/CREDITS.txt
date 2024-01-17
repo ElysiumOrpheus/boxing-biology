@@ -1,0 +1,14 @@
+bell.mp3 - https://www.youtube.com/watch?v=TvvTacquttk
+boxer_red.png - modified https://en.ac-illust.com/clip-art/22076879/silhouette-boxing-men--39-s-stance (added transparency)
+boxer_blue.png - modified boxer_red.png (made blue)
+boxer_blue_punch.png - modified https://en.ac-illust.com/clip-art/22076880/silhouette-boxing-punch (added transparency)
+boxer_red_punch.png - modified boxer_blue_punch.png (made red)
+ring.png - https://www.vecteezy.com/vector-art/7403915-boxing-ring-and-floodlights
+correct.mp3 - https://www.youtube.com/watch?v=9iiso3yVjmg
+incorrect.mp3 - https://www.youtube.com/watch?v=4GSXyo3euR4
+punch.mp3 - https://www.youtube.com/watch?v=VfMy7U-q3-Y
+win.mp3 - https://www.youtube.com/watch?v=barWV7RWkq0
+draw.mp3 - https://www.youtube.com/watch?v=2SppruC0G5k
+music/main_menu.mp3 - https://www.youtube.com/watch?v=HGnpwvw3cwM
+https://www.youtube.com/watch?v=gW9NiDKK-9o
+https://www.youtube.com/watch?v=_75JNpwNE8A

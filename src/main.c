@@ -10,6 +10,7 @@ typedef enum GameState {
     GAMESTATE_COUNTDOWN,
     GAMESTATE_DRAW,
     GAMESTATE_END,
+    GAMESTATE_CREDITS,
 } GameState;
 
 typedef struct Question {
@@ -350,6 +351,10 @@ int main()
                 game.state = GAMESTATE_COUNTDOWN;
                 game.menuFadeOutFrameTimer = 100;
             }
+            if (DrawButtonCentered("Credits", DARKGRAY, GRAY, GRAY, WHITE, 500))
+            {
+                game.state = GAMESTATE_CREDITS;
+            }
         }
         else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN)
         {
@@ -652,6 +657,34 @@ int main()
                     CloseWindow();
                     return 0;
                 }
+            }
+        }
+        else if (game.state == GAMESTATE_CREDITS)
+        {
+            DrawRectangle(0, 0, windowWidth, windowHeight, BLACK);
+            int creditStart = 150;
+            int headerPadding = 18;
+            int bodyPadding = 3;
+            DrawTextCentered("Credits", creditStart, 100, WHITE);
+
+            int designHeader = creditStart + 100 + headerPadding;
+            DrawTextCentered("DESIGN", designHeader, 40, WHITE);
+            DrawTextCentered("Luke Grant", designHeader + 40 + bodyPadding, 30, WHITE);
+
+            int programmingHeader = designHeader + 40 + bodyPadding + 30 + headerPadding;
+            DrawTextCentered("PROGRAMMING", programmingHeader, 40, WHITE);
+            DrawTextCentered("Helix Graziani", programmingHeader + 40 + bodyPadding, 30, WHITE);
+
+            int questionsHeader = programmingHeader + 40 + bodyPadding + 30 + headerPadding;
+            DrawTextCentered("QUESTIONS", questionsHeader, 40, WHITE);
+            DrawTextCentered("Owen O'Farrell", questionsHeader + 40 + bodyPadding, 30, WHITE);
+
+            int additions = questionsHeader + 40 + bodyPadding + 30 + headerPadding;
+            DrawTextCentered("Additional credits can be found in assets/CREDITS.txt", additions, 30, WHITE);
+
+            if (DrawButtonCentered("Back", DARKGRAY, GRAY, GRAY, WHITE, additions + 30 + headerPadding))
+            {
+                game.state = GAMESTATE_MENU;
             }
         }
         EndDrawing();
