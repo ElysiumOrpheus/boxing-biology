@@ -118,8 +118,8 @@ typedef struct Game {
     int punchingFrameTimer;
 } Game;
 
-const int windowWidth = 1280;
-const int windowHeight = 720;
+int windowWidth = 1280;
+int windowHeight = 720;
 
 void DrawTextCentered(const char *text, int posY, int fontSize, Color color)
 {
@@ -264,6 +264,7 @@ void LoadJukebox()
 
 int main()
 {
+    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(windowWidth, windowHeight, "Boxing Science");
 
     Game game = { 0 };
@@ -330,6 +331,12 @@ int main()
 
     while (!WindowShouldClose())
     {
+        if (IsWindowResized())
+        {
+            windowWidth = GetScreenWidth();
+            windowHeight = GetScreenHeight();
+        }
+
         game.globalFrameTimer++;
         BeginDrawing(); 
         ClearBackground(RAYWHITE);
@@ -504,13 +511,24 @@ int main()
 
                 if (game.newQuestion)
                 {
-                    if (game.currentQuestionId == questionCount)
+                    int i;
+                    for (i = game.currentQuestionId + 1; i < questionCount; i++)
                     {
-                        game.state = GAMESTATE_DRAW;
-                        continue;
+                        if (!questions[i].usedBefore) break;
                     }
+                    if (i == questionCount - 1 && questions[i].usedBefore)
+                    {
+                        for (i = 0; i < game.currentQuestionId; i++)
+                        {
+                            if (!questions[i].usedBefore) break;
+                        }
+                        if (i == game.currentQuestionId - 1 && questions[i].usedBefore)
+                        {
+                            game.state = GAMESTATE_DRAW;
+                        }
+                    }
+                    game.currentQuestionId = i;
                     game.currentQuestion = questions[game.currentQuestionId];
-                    game.currentQuestionId++;
                     game.newQuestion = false;
                 }
 
@@ -565,6 +583,7 @@ int main()
                             game.playerHit = (game.playerTurn == 1 ? 2 : 1);
                             game.bloodSplattersEnabled = true;
                             game.initBloodSplatter = true;
+                            questions[game.currentQuestionId].usedBefore = true;
                             if (game.playerHit == 1)
                             {
                                 game.player1Health -= 0.01;
@@ -577,11 +596,8 @@ int main()
                         else
                         {
                             game.showQuestion = true;
+                            game.newQuestion = true;
                             game.playerTurn = (game.playerTurn == 1 ? 2 : 1);
-                            Question intermed = game.currentQuestion;
-                            questions[game.currentQuestionId] = questions[questionCount - 1];
-                            questions[questionCount - 1] = intermed;
-                            game.currentQuestion = questions[game.currentQuestionId];
                         }
                     }
                 }
