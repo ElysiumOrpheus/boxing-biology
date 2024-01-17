@@ -662,7 +662,7 @@ int main()
         else if (game.state == GAMESTATE_CREDITS)
         {
             DrawRectangle(0, 0, windowWidth, windowHeight, BLACK);
-            int creditStart = 150;
+            int creditStart = 100;
             int headerPadding = 18;
             int bodyPadding = 3;
             DrawTextCentered("Credits", creditStart, 100, WHITE);
@@ -679,7 +679,11 @@ int main()
             DrawTextCentered("QUESTIONS", questionsHeader, 40, WHITE);
             DrawTextCentered("Owen O'Farrell", questionsHeader + 40 + bodyPadding, 30, WHITE);
 
-            int additions = questionsHeader + 40 + bodyPadding + 30 + headerPadding;
+            int specialThanksHeader = questionsHeader + 40 + bodyPadding + 30 + headerPadding;
+            DrawTextCentered("SPECIAL THANKS", specialThanksHeader, 40, WHITE);
+            DrawTextCentered("Marc Holtzman", specialThanksHeader + 40 + bodyPadding, 30, WHITE);
+
+            int additions = specialThanksHeader + 40 + bodyPadding + 30 + headerPadding;
             DrawTextCentered("Additional credits can be found in assets/CREDITS.txt", additions, 30, WHITE);
 
             if (DrawButtonCentered("Back", DARKGRAY, GRAY, GRAY, WHITE, additions + 30 + headerPadding))
