@@ -713,6 +713,7 @@ int main()
                 game.state = GAMESTATE_MENU;
             }
         }
+        DrawText("v1.0.2", 0, 0, 25, WHITE);
         EndDrawing();
     }
 
