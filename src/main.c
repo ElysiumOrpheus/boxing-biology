@@ -629,6 +629,10 @@ int main()
                     game.countDownFrameTimer = 0;
                     game.state = GAMESTATE_COUNTDOWN;
                     game.menuFadeOutFrameTimer = 50;
+                    for (int i = 0; i < questionCount; i++)
+                    {
+                        questions[i].usedBefore = false;
+                    }
                 }
                 if (DrawButtonCentered("Quit", DARKGRAY, GRAY, GRAY, WHITE, 525))
                 {
@@ -654,6 +658,10 @@ int main()
                     game.countDownFrameTimer = 0;
                     game.state = GAMESTATE_COUNTDOWN;
                     game.menuFadeOutFrameTimer = 50;
+                    for (int i = 0; i < questionCount; i++)
+                    {
+                        questions[i].usedBefore = false;
+                    }
                 }
                 if (DrawButtonCentered("Quit", DARKGRAY, GRAY, GRAY, WHITE, 525))
                 {
