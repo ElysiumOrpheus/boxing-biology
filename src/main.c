@@ -488,11 +488,13 @@ int main()
                 {
                     StopMusicStream(jukebox[currentJukeboxId]);
                     currentJukeboxId++;
+                    if (currentJukeboxId == jukeboxCount) currentJukeboxId = 0;
                 }
                 else
                 {
                     UpdateMusicStream(jukebox[currentJukeboxId]);
                 }
+
                 if (game.bloodSplattersEnabled && game.globalFrameTimer & 1)
                 {
                     
