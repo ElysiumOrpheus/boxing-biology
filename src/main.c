@@ -417,7 +417,7 @@ int main()
 
             DrawText("PLAYER 2 HEALTH", player2Position + 250 - MeasureText("PLAYER 2 HEALTH", 20), 570, 20, BLACK);
             DrawRectangle(player2Position, 600, 250, 30, GRAY);
-            DrawRectangle(player2Position + 5, 605, (game.player2Health / (float)maxHealth) * 240.0f, 20, GREEN);
+            DrawRectangle(player2Position + 5 + (240 - (game.player2Health / (float)maxHealth) * 240.0f), 605, (game.player2Health / (float)maxHealth) * 240.0f, 20, GREEN);
 
             if (game.playerHit == 2 && game.punchingFrameTimer > 40)
             {
