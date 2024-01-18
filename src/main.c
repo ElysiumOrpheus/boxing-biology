@@ -264,6 +264,13 @@ void LoadJukebox()
     }
 }
 
+Color GetHealthBarColor(float health)
+{
+    if (health > 0.5f) return GREEN;
+    if (health > 0.1f) return YELLOW;
+    return RED;
+}
+
 int main()
 {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
@@ -324,7 +331,7 @@ int main()
     const int maxHealth = 20;
     game.playerTurn = 1;
     game.player1Health = maxHealth;
-    game.player2Health = maxHealth;
+    game.player2Health = 11;
     
     game.newQuestion = true;
     game.showQuestion = true;
@@ -381,7 +388,8 @@ int main()
             }
             DrawText("PLAYER 1 HEALTH", player1Position, 570, 20, BLACK);
             DrawRectangle(player1Position, 600, 250, 30, GRAY);
-            DrawRectangle(player1Position + 5, 605, (game.player1Health / (float)maxHealth) * 240.0f, 20, GREEN);
+            float health1Progress = (game.player1Health / (float)maxHealth);
+            DrawRectangle(player1Position + 5, 605, health1Progress * 240.0f, 20, GetHealthBarColor(health1Progress));
 
             if (game.playerHit == 1 && game.punchingFrameTimer > 40)
             {
@@ -417,7 +425,8 @@ int main()
 
             DrawText("PLAYER 2 HEALTH", player2Position + 250 - MeasureText("PLAYER 2 HEALTH", 20), 570, 20, BLACK);
             DrawRectangle(player2Position, 600, 250, 30, GRAY);
-            DrawRectangle(player2Position + 5 + (240 - (game.player2Health / (float)maxHealth) * 240.0f), 605, (game.player2Health / (float)maxHealth) * 240.0f, 20, GREEN);
+            float health2Progress = (game.player2Health / (float)maxHealth);
+            DrawRectangle(player2Position + 5 + (240 - health2Progress * 240.0f), 605, health2Progress * 240.0f, 20, GetHealthBarColor(health2Progress));
 
             if (game.playerHit == 2 && game.punchingFrameTimer > 40)
             {
