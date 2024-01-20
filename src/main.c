@@ -154,6 +154,10 @@ bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bo
         // Bottom-right
         rect = (Rectangle) {windowWidth / 2 + 5, 470, width, 60};
     }
+    else
+    {
+        TraceLog(LOG_FATAL, "DrawAnswerButton called with invalid answer index (%d)", answerIndex);
+    }
 
     Color color = WHITE;
     Color textColor = BLACK;
@@ -300,6 +304,10 @@ void DrawTextNL(const char *text, int posX, int posY, int fontSize, Color color,
         else if (justification == JUSTIFY_RIGHT)
         {
             TraceLog(LOG_WARNING, "JUSTIFY_RIGHT not supported");
+        }
+        else
+        {
+            TraceLog(LOG_WARNING, "DrawTextNL: Invalid justification (%d)", justification);
         }
         DrawText(lines[i], truePosX, posY + fontSize * i + i, fontSize, color);
     }
