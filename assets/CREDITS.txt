@@ -12,3 +12,5 @@ draw.mp3 - https://www.youtube.com/watch?v=2SppruC0G5k
 music/main_menu.mp3 - https://www.youtube.com/watch?v=HGnpwvw3cwM
 https://www.youtube.com/watch?v=gW9NiDKK-9o
 https://www.youtube.com/watch?v=_75JNpwNE8A
+
+uses raylib 5.0 by Ramon Santamaria (@raysan5) https://github.com/raysan5/raylib
