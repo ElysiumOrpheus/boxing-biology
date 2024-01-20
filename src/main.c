@@ -328,7 +328,7 @@ int main()
 
     Game game = { 0 };
 
-    loadingMax = 5;
+    loadingMax = 6;
 
     Texture2D player1Texture = LoadTexturePlus("assets/boxer_red.png");
     Texture2D player2Texture = LoadTexturePlus("assets/boxer_blue.png");
