@@ -31,6 +31,7 @@ all_stage:
 
 CFLAGS+=-Isrc
 CFLAGS+=-Ilib/raygui/src
+CFLAGS+=-O2
 
 CFLAGS+=-Ilib/$(RAYLIB_NAME)/include
 
