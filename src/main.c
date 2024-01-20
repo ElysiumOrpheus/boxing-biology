@@ -275,33 +275,33 @@ Color GetHealthBarColor(float health)
 #define MAX_TEXT_SIZE 40
 
 typedef enum TextJustification {
-	JUSTIFY_LEFT,
-	JUSTIFY_RIGHT,
-	JUSTIFY_CENTER
+    JUSTIFY_LEFT,
+    JUSTIFY_RIGHT,
+    JUSTIFY_CENTER
 } TextJustification;
 
 void DrawTextNL(const char *text, int posX, int posY, int fontSize, Color color, TextJustification justification)
 {
-	int lineCount;
-	const char **lines = TextSplit(text, '\n', &lineCount);
-	for (int i = 0; i < lineCount; i++)
-	{
-		int truePosX;
-		if (justification == JUSTIFY_LEFT)
-		{
-			truePosX = posX;
-		}
-		else if (justification == JUSTIFY_CENTER)
-		{
-			//int measure = MeasureText(lines[i], fontSize);
-			truePosX = posX;
-		}
-		else if (justification == JUSTIFY_RIGHT)
-		{
-			TraceLog(LOG_WARNING, "JUSTIFY_RIGHT not supported");
-		}
-		DrawText(lines[i], truePosX, posY + fontSize * i + i, fontSize, color);
-	}
+    int lineCount;
+    const char **lines = TextSplit(text, '\n', &lineCount);
+    for (int i = 0; i < lineCount; i++)
+    {
+        int truePosX;
+        if (justification == JUSTIFY_LEFT)
+        {
+            truePosX = posX;
+        }
+        else if (justification == JUSTIFY_CENTER)
+        {
+            //int measure = MeasureText(lines[i], fontSize);
+            truePosX = posX - MeasureText(lines[i], fontSize) / 2;
+        }
+        else if (justification == JUSTIFY_RIGHT)
+        {
+            TraceLog(LOG_WARNING, "JUSTIFY_RIGHT not supported");
+        }
+        DrawText(lines[i], truePosX, posY + fontSize * i + i, fontSize, color);
+    }
 }
 
 int main()
@@ -597,34 +597,31 @@ int main()
                     {
                         size *= (rect.width - 10) / MeasureText(answerText, size);
                     }
-					if (size > MAX_TEXT_SIZE) size = MAX_TEXT_SIZE;
-					bool answerTextHeapAllocated = false;
-					if (size < MIN_TEXT_SIZE)
-					{
-						size = MIN_TEXT_SIZE;
-						answerTextHeapAllocated = true;
-						int i;
-						for (i = 1; i < TextLength(answerText); i++)
-						{
-							if (MeasureText(TextSubtext(answerText, 0, i), size) > rect.width - 10) break;
-						}
-						//i--;
-						const char *subBefore = TextSubtext(answerText, 0, i);
-						const char *subAfter = answerText + i;
-						TraceLog(LOG_INFO, "total \"%s\", rendered \"%s\n%s\", i = %d ",answerText, subBefore, subAfter);
-						const char *answerTextFormatted = TextFormat("%s\n%s", subBefore, subAfter);
-						DrawTextNL(answerTextFormatted, rect.x + rect.width / 2 - MeasureText(answerText, size) / 2, rect.y + rect.height - size, size, textColor, JUSTIFY_CENTER);
-					}
-					else
-					{
-						DrawTextNL(answerText, rect.x + rect.width / 2 - MeasureText(answerText, size) / 2, rect.y + rect.height - size, size, textColor, JUSTIFY_CENTER);
-					}
-                    
-
-					if (answerTextHeapAllocated)
-					{
-						//free(answerText);
-					}
+                    if (size > MAX_TEXT_SIZE) size = MAX_TEXT_SIZE;
+                    if (size < MIN_TEXT_SIZE)
+                    {
+                        size = MIN_TEXT_SIZE;
+                        int i;
+                        for (i = 1; i < TextLength(answerText); i++)
+                        {
+                            if (MeasureText(TextSubtext(answerText, 0, i), size) > rect.width - 10) break;
+                        }
+                        int prevI = i;
+                        for (;; i--)
+                        {
+                            if (answerText[i] == ' ') break;
+                        }
+                        if (i == prevI) i--;
+                        const char *subBefore = TextSubtext(answerText, 0, i);
+                        const char *subAfter = answerText + i;
+                        TraceLog(LOG_INFO, "total \"%s\", rendered \"%s\n%s\", i = %d ",answerText, subBefore, subAfter, i);
+                        const char *answerTextFormatted = TextFormat("%s\n%s", subBefore, subAfter);
+                        DrawTextNL(answerTextFormatted, rect.x + rect.width / 2, rect.y + rect.height - size, size, textColor, JUSTIFY_CENTER);
+                    }
+                    else
+                    {
+                        DrawText(answerText, rect.x + rect.width / 2 - MeasureText(answerText, size) / 2, rect.y + rect.height - size, size, textColor);
+                    }
 
                     bool halfsies = (game.currentQuestion.answerCount == 2);
                     for (int i = 0; i < game.currentQuestion.answerCount; i++)
@@ -773,7 +770,7 @@ int main()
                 game.state = GAMESTATE_MENU;
             }
         }
-        DrawText("v1.0.2", 0, 0, 25, WHITE);
+        DrawText("v1.0.3", 0, 0, 25, WHITE);
         EndDrawing();
     }
 
