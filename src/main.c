@@ -37,7 +37,11 @@ void LoadQuestions()
         exit(EXIT_FAILURE);
     }
 
-    fgets(buf, 256, questionFile);
+    if (!fgets(buf, 256, questionFile))
+    {
+        TraceLog(LOG_FATAL, "questions.txt contains no data");
+    }
+
     while (!feof(questionFile))
     {
         switch(buf[0])
@@ -64,7 +68,11 @@ void LoadQuestions()
                 sscanf(buf, "a \"%[^\"\n]\"", currentQuestion.answers[currentQuestion.answerCount - 1]);
             } break;
         }
-        fgets(buf, 256, questionFile);
+        if (!fgets(buf, 256, questionFile))
+        {
+            TraceLog(LOG_ERROR, "Unexpected EOF in questions.txt.");
+            break;
+        }
     }
 
     questionCount++;
