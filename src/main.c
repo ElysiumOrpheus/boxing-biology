@@ -733,8 +733,7 @@ int main()
                 }
                 if (DrawButtonCentered("Quit", DARKGRAY, GRAY, GRAY, WHITE, 525))
                 {
-                    CloseWindow();
-                    return 0;
+                    goto quit;
                 }
             }
         }
@@ -762,8 +761,7 @@ int main()
                 }
                 if (DrawButtonCentered("Quit", DARKGRAY, GRAY, GRAY, WHITE, 525))
                 {
-                    CloseWindow();
-                    return 0;
+                    goto quit;
                 }
             }
         }
@@ -802,6 +800,15 @@ int main()
         DrawText("v1.1.0", 0, 0, 25, WHITE);
         EndDrawing();
     }
+quit:
+
+    for (int i = 0; i < jukeboxCount; i++)
+    {
+        UnloadMusicStream(jukebox[i]);
+    }
+
+    CloseAudioDevice();
+    CloseWindow();
 
     return 0;
 }
