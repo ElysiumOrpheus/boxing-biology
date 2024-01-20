@@ -130,7 +130,7 @@ void DrawTextCentered(const char *text, int posY, int fontSize, Color color)
 bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bool showResult, bool isCorrectAnswer)
 {
     Rectangle rect;
-    const int width = (windowWidth / 2 - 100) - 5;
+    const int width = (windowWidth / 2 - 70);
     bool ret = false;
 
     if (answerIndex == 0)
@@ -614,7 +614,6 @@ int main()
                         if (i == prevI) i--;
                         const char *subBefore = TextSubtext(answerText, 0, i);
                         const char *subAfter = answerText + i;
-                        TraceLog(LOG_INFO, "total \"%s\", rendered \"%s\n%s\", i = %d ",answerText, subBefore, subAfter, i);
                         const char *answerTextFormatted = TextFormat("%s\n%s", subBefore, subAfter);
                         DrawTextNL(answerTextFormatted, rect.x + rect.width / 2, rect.y + rect.height - size, size, textColor, JUSTIFY_CENTER);
                     }
