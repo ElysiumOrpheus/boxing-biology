@@ -336,6 +336,7 @@ int main()
     SetTextureFilter(ringTexture, TEXTURE_FILTER_BILINEAR);
     Texture2D player1PunchTexture = LoadTexturePlus("assets/boxer_red_punch.png");
     Texture2D player2PunchTexture = LoadTexturePlus("assets/boxer_blue_punch.png");
+    Texture2D raylibSticker = LoadTexturePlus("assets/raylib_128x128.png");
 
     loadingProgress = 0;
     loadingMax = 6;
@@ -775,6 +776,12 @@ int main()
             int bodySize = 25;
             int leadSize = 100;
             DrawTextCentered("Credits", creditStart, leadSize, WHITE);
+
+            int raylibX = 30;
+            int raylibY = 70;
+            DrawRectangle(raylibX - 2, raylibY - 2, raylibSticker.width + 4, raylibSticker.height + 4, WHITE);
+            DrawTexture(raylibSticker, raylibX, raylibY, WHITE);
+            DrawText("Made with", raylibX, raylibY - 25, 20, WHITE);
 
             int designHeader = creditStart + leadSize + headerPadding;
             DrawTextCentered("DESIGN", designHeader, headerSize, WHITE);
