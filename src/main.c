@@ -107,6 +107,7 @@ typedef struct Game {
     bool answeredQuestion;
     int answerId;
     bool showQuestion;
+    int questionFramesLeft;
 
     BloodSplatter bloodSplatters[BLOOD_SPLATTER_COUNT];
     bool bloodSplattersEnabled;
@@ -368,6 +369,7 @@ int main()
     
     game.newQuestion = true;
     game.showQuestion = true;
+    game.questionFramesLeft = 3600;
 
     SetTargetFPS(60);
 
@@ -437,6 +439,7 @@ int main()
                     game.showQuestion = true;
                     game.newQuestion = true;
                     game.playerTurn = 1;
+                    game.questionFramesLeft = 3600;
                     game.bloodSplattersEnabled = false;
                     if (game.player1Health == 0)
                     {
@@ -472,6 +475,7 @@ int main()
                     game.player2Health = floored;
                     game.playerHit = 0;
                     game.showQuestion = true;
+                    game.questionFramesLeft = 3600;
                     game.newQuestion = true;
                     game.playerTurn = 2;
                     game.bloodSplattersEnabled = false;
@@ -588,7 +592,7 @@ int main()
                 {
                     DrawRectangle(49, 249, windowWidth - 98, 302, BLACK);
                     DrawRectangle(50, 250, windowWidth - 100, 300, WHITE);
-                    DrawTextCentered("QUESTION:", 250, 50, BLACK);
+                    DrawTextCentered(TextFormat("QUESTION - %0d", game.questionFramesLeft / 60), 250, 50, BLACK);
                     const char *answerText = game.currentQuestion.question;
                     Color textColor = BLACK;
                     Rectangle rect = (Rectangle) {50, 300, windowWidth - 98, 70};
@@ -631,6 +635,15 @@ int main()
                             game.answerId = i;
                         }
                     }
+                    if (!game.answeredQuestion)
+                    {
+                        game.questionFramesLeft--;
+                        if (game.questionFramesLeft == 0)
+                        {
+                            game.answeredQuestion = true;
+                            game.answerId = -1; // Always get it wrong
+                        }
+                    }
                 }
 
                 if (game.answeredQuestion)
@@ -670,6 +683,7 @@ int main()
                         }
                         else
                         {
+                            game.questionFramesLeft = 3600;
                             game.showQuestion = true;
                             game.newQuestion = true;
                             game.playerTurn = (game.playerTurn == 1 ? 2 : 1);
@@ -769,7 +783,7 @@ int main()
                 game.state = GAMESTATE_MENU;
             }
         }
-        DrawText("v1.0.3", 0, 0, 25, WHITE);
+        DrawText("v1.1.0", 0, 0, 25, WHITE);
         EndDrawing();
     }
 
