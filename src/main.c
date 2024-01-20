@@ -768,31 +768,39 @@ int main()
         else if (game.state == GAMESTATE_CREDITS)
         {
             DrawRectangle(0, 0, windowWidth, windowHeight, BLACK);
-            int creditStart = 100;
-            int headerPadding = 18;
+            int creditStart = 10;
+            int headerPadding = 15;
             int bodyPadding = 3;
-            DrawTextCentered("Credits", creditStart, 100, WHITE);
+            int headerSize = 40;
+            int bodySize = 25;
+            int leadSize = 100;
+            DrawTextCentered("Credits", creditStart, leadSize, WHITE);
 
-            int designHeader = creditStart + 100 + headerPadding;
-            DrawTextCentered("DESIGN", designHeader, 40, WHITE);
-            DrawTextCentered("Luke Grant", designHeader + 40 + bodyPadding, 30, WHITE);
+            int designHeader = creditStart + leadSize + headerPadding;
+            DrawTextCentered("DESIGN", designHeader, headerSize, WHITE);
+            DrawTextCentered("Luke Grant", designHeader + headerSize + bodyPadding, bodySize, WHITE);
 
-            int programmingHeader = designHeader + 40 + bodyPadding + 30 + headerPadding;
-            DrawTextCentered("PROGRAMMING", programmingHeader, 40, WHITE);
-            DrawTextCentered("Helix Graziani", programmingHeader + 40 + bodyPadding, 30, WHITE);
+            int programmingHeader = designHeader + headerSize + bodyPadding + bodySize + headerPadding;
+            DrawTextCentered("PROGRAMMING", programmingHeader, headerSize, WHITE);
+            DrawTextCentered("Helix Graziani", programmingHeader + headerSize + bodyPadding, bodySize, WHITE);
 
-            int questionsHeader = programmingHeader + 40 + bodyPadding + 30 + headerPadding;
-            DrawTextCentered("QUESTIONS", questionsHeader, 40, WHITE);
-            DrawTextCentered("Owen O'Farrell", questionsHeader + 40 + bodyPadding, 30, WHITE);
+            int questionsHeader = programmingHeader + headerSize + bodyPadding + bodySize + headerPadding;
+            DrawTextCentered("QUESTIONS", questionsHeader, headerSize, WHITE);
+            DrawTextCentered("Owen O'Farrell", questionsHeader + headerSize + bodyPadding, bodySize, WHITE);
 
-            int specialThanksHeader = questionsHeader + 40 + bodyPadding + 30 + headerPadding;
-            DrawTextCentered("SPECIAL THANKS", specialThanksHeader, 40, WHITE);
-            DrawTextCentered("Marc Holtzman", specialThanksHeader + 40 + bodyPadding, 30, WHITE);
+            int qaHeader = questionsHeader + headerSize + bodyPadding + bodySize + headerPadding;
+            DrawTextCentered("QA", qaHeader, headerSize, WHITE);
+            DrawTextCentered("Luke Grant, Owen O'Farrell, Marc Holtzman,", qaHeader + headerSize + bodyPadding, bodySize, WHITE);
+            DrawTextCentered("Chris Williams, Antwanne Cardinal, Logan Ricard", qaHeader + headerSize + bodyPadding + bodySize + bodyPadding, bodySize, WHITE);
 
-            int additions = specialThanksHeader + 40 + bodyPadding + 30 + headerPadding;
-            DrawTextCentered("Additional credits can be found in assets/CREDITS.txt", additions, 30, WHITE);
+            int specialThanksHeader = qaHeader + headerSize + bodyPadding + bodySize + bodyPadding + bodySize + headerPadding;
+            DrawTextCentered("SPECIAL THANKS", specialThanksHeader, headerSize, WHITE);
+            DrawTextCentered("Marc Holtzman", specialThanksHeader + headerSize + bodyPadding, bodySize, WHITE);
 
-            if (DrawButtonCentered("Back", DARKGRAY, GRAY, GRAY, WHITE, additions + 30 + headerPadding))
+            int additions = specialThanksHeader + headerSize + bodyPadding + bodySize + headerPadding;
+            DrawTextCentered("Additional credits can be found in assets/CREDITS.txt", additions, bodySize, WHITE);
+
+            if (DrawButtonCentered("Back", DARKGRAY, GRAY, GRAY, WHITE, additions + bodySize + headerPadding))
             {
                 game.state = GAMESTATE_MENU;
             }
