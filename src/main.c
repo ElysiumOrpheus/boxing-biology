@@ -11,6 +11,7 @@ typedef enum GameState {
     GAMESTATE_DRAW,
     GAMESTATE_END,
     GAMESTATE_CREDITS,
+    GAMESTATE_PAUSED,
 } GameState;
 
 typedef struct Question {
@@ -70,7 +71,6 @@ void LoadQuestions()
         }
         if (!fgets(buf, 256, questionFile))
         {
-            TraceLog(LOG_ERROR, "Unexpected EOF in questions.txt.");
             break;
         }
     }
@@ -365,7 +365,6 @@ int main()
     Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
     loadingProgress++;
     UpdateLoadingScreen();
-    PlayMusicStream(menu_music);
     Music draw_music = LoadMusicStream("assets/draw.mp3");
     loadingProgress++;
     UpdateLoadingScreen();
@@ -389,6 +388,7 @@ int main()
     game.questionFramesLeft = 3600;
 
     SetTargetFPS(60);
+    SetExitKey(KEY_NULL);
 
     while (!WindowShouldClose())
     {
@@ -406,6 +406,11 @@ int main()
         DrawTexturePro(ringTexture, (Rectangle){0, 0, ringTexture.width, ringTexture.height}, (Rectangle){0, 0, windowWidth, windowHeight}, (Vector2){0, 0}, 0, WHITE);
         if (game.state == GAMESTATE_MENU)
         {
+            if (!IsMusicStreamPlaying(menu_music))
+            {
+                PlayMusicStream(menu_music);
+                SetMusicVolume(menu_music, 1.0f);
+            }
             UpdateMusicStream(menu_music);
             DrawTextCentered("Science Boxing", 250, 100, WHITE);
             if (DrawButtonCentered("Play", GREEN, DARKGREEN, DARKGREEN, WHITE, 375))
@@ -418,7 +423,7 @@ int main()
                 game.state = GAMESTATE_CREDITS;
             }
         }
-        else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN)
+        else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN || game.state == GAMESTATE_PAUSED)
         {
             if (game.menuFadeOutFrameTimer)
             {
@@ -443,7 +448,7 @@ int main()
             float health1Progress = (game.player1Health / (float)maxHealth);
             DrawRectangle(player1Position + 5, 605, health1Progress * 240.0f, 20, GetHealthBarColor(health1Progress));
 
-            if (game.playerHit == 1 && game.punchingFrameTimer > 40)
+            if (game.state != GAMESTATE_PAUSED && game.playerHit == 1 && game.punchingFrameTimer > 40)
             {
                 DrawTexture(player1Texture, player1Position + (game.globalFrameTimer & 1) * 5, 200, WHITE);
                 float floored = floorf(game.player1Health);
@@ -465,7 +470,7 @@ int main()
                     }
                 }
             }
-            else if (game.playerHit == 2 && game.punchingFrameTimer <= 40)
+            else if (game.state != GAMESTATE_PAUSED && game.playerHit == 2 && game.punchingFrameTimer <= 40)
             {
                 if (game.punchingFrameTimer == 0) PlaySound(punch);
                 game.punchingFrameTimer++;
@@ -481,7 +486,7 @@ int main()
             float health2Progress = (game.player2Health / (float)maxHealth);
             DrawRectangle(player2Position + 5 + (240 - health2Progress * 240.0f), 605, health2Progress * 240.0f, 20, GetHealthBarColor(health2Progress));
 
-            if (game.playerHit == 2 && game.punchingFrameTimer > 40)
+            if (game.state != GAMESTATE_PAUSED && game.playerHit == 2 && game.punchingFrameTimer > 40)
             {
                 DrawTexture(player2Texture, player2Position + (game.globalFrameTimer & 1) * 5, 200, WHITE);
                 float floored = floorf(game.player2Health);
@@ -503,7 +508,7 @@ int main()
                     }
                 }
             }
-            else if (game.playerHit == 1 && game.punchingFrameTimer <= 40)
+            else if (game.state != GAMESTATE_PAUSED && game.playerHit == 1 && game.punchingFrameTimer <= 40)
             {
                 if (game.punchingFrameTimer == 0) PlaySound(punch);
                 game.punchingFrameTimer++;
@@ -707,6 +712,37 @@ int main()
                         }
                     }
                 }
+
+                if (IsKeyPressed(KEY_ESCAPE)) game.state = GAMESTATE_PAUSED;
+            }
+            else if (game.state == GAMESTATE_PAUSED)
+            {
+                DrawRectangle(0, 0, windowWidth, windowHeight, (Color){0, 0, 0, 128});
+                DrawTextCentered("Paused", 250, 100, WHITE);
+                if (IsKeyPressed(KEY_ESCAPE))
+                {
+                    game.state = GAMESTATE_PLAY;
+                }
+                if (DrawButtonCentered("Main Menu", DARKGRAY, GRAY, GRAY, WHITE, 400))
+                {
+                    game.player1Health = maxHealth;
+                    game.player2Health = maxHealth;
+                    game.drawFrameTimer = 0;
+                    game.countDownFrameTimer = 0;
+                    game.state = GAMESTATE_MENU;
+                    game.menuFadeOutFrameTimer = 60;
+                    StopMusicStream(menu_music);
+                    SeekMusicStream(menu_music, 0.0f);
+                    TraceLog(LOG_INFO, "IsMusicStreamPlaying = %s, GetMusicTimePlayed = %f, IsMusicReady = %s", IsMusicStreamPlaying(menu_music) ? "true" : "false", GetMusicTimePlayed(menu_music), IsMusicReady(menu_music) ? "true" : "false");
+                    for (int i = 0; i < questionCount; i++)
+                    {
+                        questions[i].usedBefore = false;
+                    }
+                }
+                if (DrawButtonCentered("Quit", DARKGRAY, GRAY, GRAY, WHITE, 525))
+                {
+                    goto quit;
+                }
             }
         }
         else if (game.state == GAMESTATE_DRAW)
@@ -812,7 +848,7 @@ int main()
                 game.state = GAMESTATE_MENU;
             }
         }
-        DrawText("v1.1.0", 0, 0, 25, WHITE);
+        DrawText("v1.1.1", 0, 0, 25, WHITE);
         EndDrawing();
     }
 quit:
