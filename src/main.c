@@ -595,13 +595,13 @@ int main()
                     {
                         if (!questions[i].usedBefore) break;
                     }
-                    if (i == questionCount - 1 && questions[i].usedBefore)
+                    if (i >= questionCount - 1 && questions[i].usedBefore)
                     {
                         for (i = 0; i < game.currentQuestionId; i++)
                         {
                             if (!questions[i].usedBefore) break;
                         }
-                        if (i == game.currentQuestionId - 1 && questions[i].usedBefore)
+                        if (i >= game.currentQuestionId - 1 && questions[i].usedBefore)
                         {
                             game.state = GAMESTATE_DRAW;
                         }
