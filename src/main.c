@@ -688,13 +688,13 @@ int main()
                         game.questionResultFrameTimer = 0;
                         game.answeredQuestion = false;
                         game.showQuestion = false;
+                        questions[game.currentQuestionId].usedBefore = true;
                         if (game.currentQuestion.correctAnswer == game.answerId)
                         {
                             // Player got correct answer
                             game.playerHit = (game.playerTurn == 1 ? 2 : 1);
                             game.bloodSplattersEnabled = true;
                             game.initBloodSplatter = true;
-                            questions[game.currentQuestionId].usedBefore = true;
                             game.healthTarget = game.playerHit == 1 ? game.player1Health : game.player2Health;
                             game.healthTarget -= (float)game.questionFramesLeft * (3.0f / 3600); // Make it so that the max damage dealt per turn is 3
                         }
