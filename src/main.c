@@ -107,6 +107,7 @@ typedef struct Game {
     float player2Health;
     int playerHit;
     int winner;
+    float healthTarget;
 
     Question currentQuestion;
     bool newQuestion;
@@ -451,7 +452,7 @@ int main()
             if (game.state != GAMESTATE_PAUSED && game.playerHit == 1 && game.punchingFrameTimer > 40)
             {
                 DrawTexture(player1Texture, player1Position + (game.globalFrameTimer & 1) * 5, 200, WHITE);
-                float floored = floorf(game.player1Health);
+                float floored = game.healthTarget;
                 game.player1Health -= 0.01;
                 if (game.player1Health < floored)
                 {
@@ -489,7 +490,7 @@ int main()
             if (game.state != GAMESTATE_PAUSED && game.playerHit == 2 && game.punchingFrameTimer > 40)
             {
                 DrawTexture(player2Texture, player2Position + (game.globalFrameTimer & 1) * 5, 200, WHITE);
-                float floored = floorf(game.player2Health);
+                float floored = game.healthTarget;
                 game.player2Health -= 0.01;
                 if (game.player2Health < floored)
                 {
@@ -694,14 +695,8 @@ int main()
                             game.bloodSplattersEnabled = true;
                             game.initBloodSplatter = true;
                             questions[game.currentQuestionId].usedBefore = true;
-                            if (game.playerHit == 1)
-                            {
-                                game.player1Health -= 0.01;
-                            }
-                            else
-                            {
-                                game.player2Health -= 0.01;
-                            }
+                            game.healthTarget = game.playerHit == 1 ? game.player1Health : game.player2Health;
+                            game.healthTarget -= (float)game.questionFramesLeft * (3.0f / 3600); // Make it so that the max damage dealt per turn is 3
                         }
                         else
                         {
