@@ -205,7 +205,10 @@ bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bo
 bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextColor, Color buttonColorSelected, Color buttonTextColorSelected, int posY)
 {
     bool ret = false;
-    if (CheckCollisionPointRec(GetMousePosition(), (Rectangle){windowWidth / 2 - 100, posY, 200, 100}))
+    int width = MeasureText(text, 40);
+    if (width < 190) width = 190;
+    width += 10;
+    if (CheckCollisionPointRec(GetMousePosition(), (Rectangle){windowWidth / 2 - width / 2, posY, width, 100}))
     {
         buttonTextColor = buttonTextColorSelected;
         if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
@@ -217,7 +220,7 @@ bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextCol
             ret = true;
         }
     }
-    DrawRectangle(windowWidth / 2 - 100, posY, 200, 100, buttonColor);
+    DrawRectangle(windowWidth / 2 - width / 2, posY, width, 100, buttonColor);
     DrawTextCentered(text, posY + 25, 40, buttonTextColor);
     return ret;
 }
