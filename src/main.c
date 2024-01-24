@@ -843,7 +843,7 @@ int main()
                 game.state = GAMESTATE_MENU;
             }
         }
-        DrawText("v1.1.1", 0, 0, 25, WHITE);
+        DrawText("v1.1.2", 0, 0, 25, WHITE);
         EndDrawing();
     }
 quit:
