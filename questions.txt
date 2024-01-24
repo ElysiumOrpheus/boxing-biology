@@ -138,16 +138,6 @@ a "Oceans release greenhouse gases"
 a "Oceans reflect sunlight"
 a "Oceans generate strong winds"
 
-# Question 14
-# q Which international agreement aims to address climate change by reducing greenhouse gas emissions?
-q "Which international agreement aims to address climate change by reducing greenhouse gas emissions?" 1
-
-# Answers for Question 14
-a "Kyoto Protocol"
-a "Paris Agreement"
-a "London Accord"
-a "Berlin Treaty"
-
 # Question 15
 # q How does the loss of biodiversity contribute to climate change?
 q "How does the loss of biodiversity contribute to climate change?" 2
@@ -220,26 +210,6 @@ a "Water"
 a "Glass"
 a "Vacuum"
 
-# Question 7
-# q What type of mirror can produce an upright virtual image?
-q "What type of mirror can produce an upright virtual image?" 2
-
-# Answers for Question 7
-a "Concave"
-a "Opaque"
-a "Plane"
-a "Spherical"
-
-# Question 8
-# q Which color of light is deviated the most when passing through a prism?
-q "Which color of light is deviated the most when passing through a prism?" 2
-
-# Answers for Question 8
-a "Red"
-a "Green"
-a "Blue"
-a "Yellow"
-
 # Question 9
 # q What is the phenomenon where light waves cancel each other out, resulting in no light?
 q "What is the phenomenon where light waves cancel each other out, resulting in no light?" 0
@@ -279,36 +249,6 @@ a "Reflection"
 a "Refraction"
 a "Dispersion"
 a "Diffraction"
-
-# Question 13
-# q What happens to the focal length of a converging lens when it is immersed in water?
-q "What happens to the focal length of a converging lens when it is immersed in water?" 0
-
-# Answers for Question 13
-a "Increases"
-a "Decreases"
-a "Remains the same"
-a "Depends on the lens material"
-
-# Question 14
-# q What type of mirror can produce both real and virtual images, depending on the object's position?
-q "What type of mirror can produce both real and virtual images, depending on the object's position?" 0
-
-# Answers for Question 14
-a "Concave"
-a "Convex"
-a "Plane"
-a "Spherical"
-
-# Question 15
-# q Which phenomenon explains why the sky appears blue during the day?
-q "Which phenomenon explains why the sky appears blue during the day?" 1
-
-# Answers for Question 15
-a "Diffraction"
-a "Scattering"
-a "Reflection"
-a "Dispersion"
 
 # Biology unit
 
