@@ -1,6 +1,6 @@
 /*******************************************************************************************
 *
-*   boxito v1.0 - An engine to create 2D video games
+*   boxito v1.1 - An engine to create 2D video games
 *
 *   FEATURES:
 *       - Loading screen
@@ -68,6 +68,11 @@ BOXITOAPI void DrawTextCentered(const char *text, int posY, int fontSize, Color 
 BOXITOAPI bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextColor, Color buttonColorSelected, Color buttonTextColorSelected, int posY);
 BOXITOAPI void UpdateLoadingScreen(int loadingMax, int loadingProgress);
 
+BOXITOAPI void PlayMusic(Music music);
+BOXITOAPI void StopMusic(Music music);
+BOXITOAPI void SetMusicToFadeOut(Music music);
+BOXITOAPI void UpdateMusic(void);
+
 BOXITOAPI void LoadAssetTexture(const char *filename, Texture2D *out);
 BOXITOAPI void LoadAssetMusic(const char *filename, Music *out);
 BOXITOAPI void LoadAssetSound(const char *filename, Sound *out);
@@ -108,6 +113,10 @@ typedef struct AssetLoadEntry {
 //----------------------------------------------------------------------------------
 AssetLoadEntry *loadEntries;
 int loadEntryCount;
+
+Music *playingMusic;
+int *fadeOutLevels;
+int playingMusicCount;
 
 //----------------------------------------------------------------------------------
 // Module specific Functions Declaration
@@ -155,6 +164,66 @@ void UpdateLoadingScreen(int loadingMax, int loadingProgress)
     DrawRectangle(windowWidth / 2 - 400, 400, 800, 50, GRAY);
     DrawRectangle(windowWidth / 2 - 400, 400, ((float)loadingProgress / loadingMax) * 800, 50, WHITE);
     EndDrawing();
+}
+
+void PlayMusic(Music music)
+{
+    playingMusicCount++;
+    playingMusic = MemRealloc(playingMusic, playingMusicCount * sizeof(Music));
+    playingMusic[playingMusicCount - 1] = music;
+    fadeOutLevels = MemRealloc(fadeOutLevels, playingMusicCount * sizeof(int));
+    fadeOutLevels[playingMusicCount - 1] = -1;
+}
+
+void StopMusic(Music music)
+{
+    int musicIndex = 999;
+    for (int i = 0; i < playingMusicCount; i++)
+    {
+        if (playingMusic[i].ctxData == music.ctxData)
+        {
+            musicIndex = i;
+        }
+        if (i > musicIndex)
+        {
+            playingMusic[i - 1] = playingMusic[i];
+            fadeOutLevels[i - 1] = fadeOutLevels[i];
+        }
+    }
+
+    playingMusicCount--;
+    playingMusic = MemRealloc(playingMusic, playingMusicCount * sizeof(Music));
+    fadeOutLevels = MemRealloc(fadeOutLevels, playingMusicCount * sizeof(int));
+}
+
+void SetMusicToFadeOut(Music music)
+{
+    for (int i = 0; i < playingMusicCount; i++)
+    {
+        if (playingMusic[i].ctxData == music.ctxData)
+        {
+            fadeOutLevels[i] = 100;
+        }
+    }
+}
+
+void UpdateMusic(void)
+{
+    for (int i = 0; i < playingMusicCount; i++)
+    {
+        if (!IsMusicStreamPlaying(playingMusic[i])) PlayMusicStream(playingMusic[i]);
+        if (fadeOutLevels[i] != -1)
+        {
+            SetMusicVolume(playingMusic[i], (float)fadeOutLevels[i] / 100);
+            fadeOutLevels[i]--;
+            if (fadeOutLevels[i] == 0)
+            {
+                StopMusic(playingMusic[i]);
+                continue;
+            }
+        }
+        UpdateMusicStream(playingMusic[i]);
+    }
 }
 
 void LoadAssetTexture(const char *filename, Texture2D *out)

@@ -128,7 +128,6 @@ typedef struct Game {
     int countDownFrameTimer;
     int globalFrameTimer;
     int drawFrameTimer;
-    int menuFadeOutFrameTimer;
     int punchingFrameTimer;
 } Game;
 
@@ -203,9 +202,6 @@ bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bo
 int player1Position = 300;
 int player2Position = 700;
 
-int loadingMax;
-int loadingProgress;
-
 Music *jukebox;
 int jukeboxCount;
 int currentJukeboxId;
@@ -227,7 +223,6 @@ void LoadJukebox()
 
     for (int i = 0; i < jukeboxCount; i++)
     {
-        jukebox[i] = LoadMusicStream(files.paths[i]);
         LoadAssetMusic(files.paths[i], &jukebox[i]);
     }
 }
@@ -295,17 +290,16 @@ int main()
     SetTextureFilter(ringTexture, TEXTURE_FILTER_BILINEAR);
     
     InitAudioDevice();
-    Sound bell, correct, incorrect, win, punch;
+    Sound bell, correct, incorrect, punch;
     LoadAssetSound("assets/bell.mp3", &bell);
     LoadAssetSound("assets/correct.mp3", &correct);
     LoadAssetSound("assets/incorrect.mp3", &incorrect);
-    LoadAssetSound("assets/win.mp3", &win);
-    LoadAssetSound("assets/punch.mp3", &punch);
     LoadQueuedAssets();
 
-    Music menu_music, draw_music;
+    Music menu_music, draw_music, win_music;
     LoadAssetMusic("assets/music/main_menu.mp3", &menu_music);
     LoadAssetMusic("assets/draw.mp3", &draw_music);
+    LoadAssetMusic("assets/win.mp3", &win_music);
     LoadJukebox();
     LoadQueuedAssets();
 
@@ -326,6 +320,8 @@ int main()
     SetTargetFPS(60);
     SetExitKey(KEY_NULL);
 
+    PlayMusic(menu_music);
+
     while (!WindowShouldClose())
     {
         if (IsWindowResized())
@@ -342,17 +338,11 @@ int main()
         DrawTexturePro(ringTexture, (Rectangle){0, 0, ringTexture.width, ringTexture.height}, (Rectangle){0, 0, windowWidth, windowHeight}, (Vector2){0, 0}, 0, WHITE);
         if (game.state == GAMESTATE_MENU)
         {
-            if (!IsMusicStreamPlaying(menu_music))
-            {
-                PlayMusicStream(menu_music);
-                SetMusicVolume(menu_music, 1.0f);
-            }
-            UpdateMusicStream(menu_music);
             DrawTextCentered("Science Boxing", 250, 100, WHITE);
             if (DrawButtonCentered("Play", GREEN, DARKGREEN, DARKGREEN, WHITE, 375))
             {
                 game.state = GAMESTATE_COUNTDOWN;
-                game.menuFadeOutFrameTimer = 100;
+                SetMusicToFadeOut(menu_music);
             }
             if (DrawButtonCentered("Credits", DARKGRAY, GRAY, GRAY, WHITE, 500))
             {
@@ -361,24 +351,6 @@ int main()
         }
         else if (game.state == GAMESTATE_PLAY || game.state == GAMESTATE_COUNTDOWN || game.state == GAMESTATE_PAUSED)
         {
-            if (game.menuFadeOutFrameTimer)
-            {
-                if (IsMusicStreamPlaying(menu_music))
-                {
-                    SetMusicVolume(menu_music, (float)game.menuFadeOutFrameTimer / 100);
-                    UpdateMusicStream(menu_music);
-                }
-                if (IsMusicStreamPlaying(draw_music))
-                {
-                    SetMusicVolume(draw_music, (float)game.menuFadeOutFrameTimer / 100);
-                    UpdateMusicStream(draw_music);
-                }
-                if (IsSoundPlaying(win))
-                {
-                    SetSoundVolume(win, (float)game.menuFadeOutFrameTimer / 100);
-                }
-                game.menuFadeOutFrameTimer--;
-            }
             DrawText("PLAYER 1 HEALTH", player1Position, 570, 20, BLACK);
             DrawRectangle(player1Position, 600, 250, 30, GRAY);
             float health1Progress = (game.player1Health / (float)maxHealth);
@@ -484,19 +456,13 @@ int main()
             }
             else if (game.state == GAMESTATE_PLAY)
             {
-                if (!IsMusicStreamPlaying(jukebox[currentJukeboxId]))
-                {
-                    PlayMusicStream(jukebox[currentJukeboxId]);
-                }
+                if (!IsMusicStreamPlaying(jukebox[currentJukeboxId])) PlayMusic(jukebox[currentJukeboxId]);
                 if (GetMusicTimeLength(jukebox[currentJukeboxId]) <= GetMusicTimePlayed(jukebox[currentJukeboxId]))
                 {
-                    StopMusicStream(jukebox[currentJukeboxId]);
+                    StopMusic(jukebox[currentJukeboxId]);
                     currentJukeboxId++;
                     if (currentJukeboxId == jukeboxCount) currentJukeboxId = 0;
-                }
-                else
-                {
-                    UpdateMusicStream(jukebox[currentJukeboxId]);
+                    PlayMusic(jukebox[currentJukeboxId]);
                 }
 
                 if (game.bloodSplattersEnabled && game.globalFrameTimer & 1)
@@ -660,10 +626,8 @@ int main()
                     game.drawFrameTimer = 0;
                     game.countDownFrameTimer = 0;
                     game.state = GAMESTATE_MENU;
-                    game.menuFadeOutFrameTimer = 60;
-                    StopMusicStream(menu_music);
-                    SeekMusicStream(menu_music, 0.0f);
-                    TraceLog(LOG_INFO, "IsMusicStreamPlaying = %s, GetMusicTimePlayed = %f, IsMusicReady = %s", IsMusicStreamPlaying(menu_music) ? "true" : "false", GetMusicTimePlayed(menu_music), IsMusicReady(menu_music) ? "true" : "false");
+                    SetMusicToFadeOut(jukebox[currentJukeboxId]);
+                    PlayMusic(menu_music);
                     for (int i = 0; i < questionCount; i++)
                     {
                         questions[i].usedBefore = false;
@@ -677,8 +641,7 @@ int main()
         }
         else if (game.state == GAMESTATE_DRAW)
         {
-            if (game.drawFrameTimer == 0) PlayMusicStream(draw_music);
-            UpdateMusicStream(draw_music);
+            if (game.drawFrameTimer == 0) PlayMusic(draw_music);
             game.drawFrameTimer++;
             DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
             DrawTextCentered("It's a draw", 250, 100, WHITE);
@@ -692,7 +655,7 @@ int main()
                     game.drawFrameTimer = 0;
                     game.countDownFrameTimer = 0;
                     game.state = GAMESTATE_COUNTDOWN;
-                    game.menuFadeOutFrameTimer = 50;
+                    SetMusicToFadeOut(draw_music);
                     for (int i = 0; i < questionCount; i++)
                     {
                         questions[i].usedBefore = false;
@@ -706,7 +669,7 @@ int main()
         }
         else if (game.state == GAMESTATE_END)
         {
-            if (game.drawFrameTimer == 0) PlaySound(win);
+            if (game.drawFrameTimer == 0) PlayMusic(win_music);
             game.drawFrameTimer++;
             DrawRectangle(0, 0, windowWidth, windowWidth, (Color){0, 0, 0, game.drawFrameTimer > 255 ? 255 : game.drawFrameTimer});
             DrawTextCentered(TextFormat("Player %d wins", game.winner), 250, 100, WHITE);
@@ -720,7 +683,7 @@ int main()
                     game.drawFrameTimer = 0;
                     game.countDownFrameTimer = 0;
                     game.state = GAMESTATE_COUNTDOWN;
-                    game.menuFadeOutFrameTimer = 50;
+                    SetMusicToFadeOut(win_music);
                     for (int i = 0; i < questionCount; i++)
                     {
                         questions[i].usedBefore = false;
@@ -780,6 +743,7 @@ int main()
         }
         DrawText("v1.1.2", 0, 0, 25, WHITE);
         EndDrawing();
+        UpdateMusic();
     }
 quit:
 
