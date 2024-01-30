@@ -32,6 +32,7 @@ all_stage:
 CFLAGS+=-Isrc
 CFLAGS+=-Ilib/raygui/src
 CFLAGS+=-O2
+CFLAGS+=-Ilib/boxito_engine/src
 
 CFLAGS+=-Ilib/$(RAYLIB_NAME)/include
 

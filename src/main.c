@@ -4,6 +4,9 @@
 #include <stdlib.h> // exit() in LoadQuestions
 #include <math.h> // floor()
 
+#define BOXITO_IMPLEMENTATION
+#include "boxito.h"
+
 typedef enum GameState {
     GAMESTATE_MENU,
     GAMESTATE_PLAY,
@@ -132,11 +135,6 @@ typedef struct Game {
 int windowWidth = 1280;
 int windowHeight = 720;
 
-void DrawTextCentered(const char *text, int posY, int fontSize, Color color)
-{
-    DrawText(text, windowWidth / 2 - MeasureText(text, fontSize) / 2, posY, fontSize, color);
-}
-
 bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bool showResult, bool isCorrectAnswer)
 {
     Rectangle rect;
@@ -202,54 +200,11 @@ bool DrawAnswerButton(const char *answerText, int answerIndex, bool halfsies, bo
     return ret;
 }
 
-bool DrawButtonCentered(const char *text, Color buttonColor, Color buttonTextColor, Color buttonColorSelected, Color buttonTextColorSelected, int posY)
-{
-    bool ret = false;
-    int width = MeasureText(text, 40);
-    if (width < 190) width = 190;
-    width += 10;
-    if (CheckCollisionPointRec(GetMousePosition(), (Rectangle){windowWidth / 2 - width / 2, posY, width, 100}))
-    {
-        buttonTextColor = buttonTextColorSelected;
-        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT))
-        {
-            buttonColor = buttonColorSelected;
-        }
-        if (IsMouseButtonReleased(MOUSE_BUTTON_LEFT))
-        {
-            ret = true;
-        }
-    }
-    DrawRectangle(windowWidth / 2 - width / 2, posY, width, 100, buttonColor);
-    DrawTextCentered(text, posY + 25, 40, buttonTextColor);
-    return ret;
-}
-
 int player1Position = 300;
 int player2Position = 700;
 
 int loadingMax;
 int loadingProgress;
-
-void UpdateLoadingScreen()
-{
-    if (WindowShouldClose()) exit(EXIT_SUCCESS);
-    BeginDrawing();
-    ClearBackground(BLACK);
-    DrawTextCentered("Loading...", 250, 100, WHITE);
-    DrawTextCentered(TextFormat("%d / %d", loadingProgress, loadingMax), 360, 30, WHITE);
-    DrawRectangle(windowWidth / 2 - 400, 400, 800, 50, GRAY);
-    DrawRectangle(windowWidth / 2 - 400, 400, ((float)loadingProgress / loadingMax) * 800, 50, WHITE);
-    EndDrawing();
-}
-
-Texture2D LoadTexturePlus(const char *filename)
-{
-    Texture2D ret = LoadTexture(filename);
-    loadingProgress++;
-    UpdateLoadingScreen();
-    return ret;
-}
 
 Music *jukebox;
 int jukeboxCount;
@@ -259,9 +214,6 @@ void LoadJukebox()
 {
     FilePathList files = LoadDirectoryFiles("assets/music");
     jukeboxCount = files.count;
-    loadingMax = jukeboxCount;
-    loadingProgress = 0;
-    UpdateLoadingScreen();
 
     for (int i = 0; i < files.count; i++)
     {
@@ -276,8 +228,7 @@ void LoadJukebox()
     for (int i = 0; i < jukeboxCount; i++)
     {
         jukebox[i] = LoadMusicStream(files.paths[i]);
-        loadingProgress++;
-        UpdateLoadingScreen();
+        LoadAssetMusic(files.paths[i], &jukebox[i]);
     }
 }
 
@@ -332,53 +283,34 @@ int main()
 
     Game game = { 0 };
 
-    loadingMax = 6;
+    Texture2D player1Texture, player2Texture, ringTexture, player1PunchTexture, player2PunchTexture, raylibSticker;
+    LoadAssetTexture("assets/boxer_red.png", &player1Texture);
+    LoadAssetTexture("assets/boxer_blue.png", &player2Texture);
+    LoadAssetTexture("assets/ring.png", &ringTexture);
+    LoadAssetTexture("assets/boxer_red_punch.png", &player1PunchTexture);
+    LoadAssetTexture("assets/boxer_blue_punch.png", &player2PunchTexture);
+    LoadAssetTexture("assets/raylib_128x128.png", &raylibSticker);
+    LoadQueuedAssets();
 
-    Texture2D player1Texture = LoadTexturePlus("assets/boxer_red.png");
-    Texture2D player2Texture = LoadTexturePlus("assets/boxer_blue.png");
-    Texture2D ringTexture = LoadTexturePlus("assets/ring.png");
     SetTextureFilter(ringTexture, TEXTURE_FILTER_BILINEAR);
-    Texture2D player1PunchTexture = LoadTexturePlus("assets/boxer_red_punch.png");
-    Texture2D player2PunchTexture = LoadTexturePlus("assets/boxer_blue_punch.png");
-    Texture2D raylibSticker = LoadTexturePlus("assets/raylib_128x128.png");
-
-    loadingProgress = 0;
-    loadingMax = 6;
     
     InitAudioDevice();
-    loadingProgress++;
-    UpdateLoadingScreen();
-    Sound bell = LoadSound("assets/bell.mp3");
-    loadingProgress++;
-    UpdateLoadingScreen();
-    Sound correct = LoadSound("assets/correct.mp3");
-    loadingProgress++;
-    UpdateLoadingScreen();
-    Sound incorrect = LoadSound("assets/incorrect.mp3");
-    loadingProgress++;
-    UpdateLoadingScreen();
-    Sound win = LoadSound("assets/win.mp3");
-    loadingProgress++;
-    UpdateLoadingScreen();
-    Sound punch = LoadSound("assets/punch.mp3");
-    loadingProgress++;
-    UpdateLoadingScreen();
+    Sound bell, correct, incorrect, win, punch;
+    LoadAssetSound("assets/bell.mp3", &bell);
+    LoadAssetSound("assets/correct.mp3", &correct);
+    LoadAssetSound("assets/incorrect.mp3", &incorrect);
+    LoadAssetSound("assets/win.mp3", &win);
+    LoadAssetSound("assets/punch.mp3", &punch);
+    LoadQueuedAssets();
 
-    loadingProgress = 0;
-    loadingMax = 3;
-    Music menu_music = LoadMusicStream("assets/music/main_menu.mp3");
-    loadingProgress++;
-    UpdateLoadingScreen();
-    Music draw_music = LoadMusicStream("assets/draw.mp3");
-    loadingProgress++;
-    UpdateLoadingScreen();
+    Music menu_music, draw_music;
+    LoadAssetMusic("assets/music/main_menu.mp3", &menu_music);
+    LoadAssetMusic("assets/draw.mp3", &draw_music);
+    LoadJukebox();
+    LoadQueuedAssets();
 
     SetRandomSeed(time(NULL));
     LoadQuestions();
-    loadingProgress++;
-    UpdateLoadingScreen();
-
-    LoadJukebox();
 
     game.state = GAMESTATE_MENU;
     
