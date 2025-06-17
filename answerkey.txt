@@ -1,1 +1,88 @@
+answer key:
+Unit 1: Diversity of Living Things
+1. Taxonomy
+2. Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species
+3. Binomial Nomenclature
+4. The evolutionary relationships and common ancestry among a group of organisms.
+5. Animalia
+6. Biodiversity
+7. Are heterotrophic and absorb nutrients.
+8. Genus
+9. Habitat destruction
+10. Species A and B are the most closely related.
+11. Invasive species
+12. Protista
+13. Gray Wolf (Canis lupus)
+14. Habitat fragmentation
+15. To observe a diverse community of microorganisms like protists.
+16. A location thought to be 'clean' might have more bacterial growth than one thought to be 'dirty'.
+17. A slice of bread in a sealed bag with no water in the same warm, dark place.
+18. The amount of mold that grows.
+19. Making a choice between two descriptive statements.
+20. There are multiple species of bacteria present on the surface.
 
+Unit 2: Evolution
+21. Natural selection
+22. Homologous structures
+23. Speciation
+24. The fossil record
+25. Humans, not the environment, determine which individuals reproduce.
+26. Vestigial structure
+27. All life on Earth shares a common ancestor and has changed over time.
+28. Natural selection in action.
+29. Artificial selection
+30. The black moths were better camouflaged, leading to a higher survival rate on the dark background.
+31. An entire crop could be wiped out by a single new disease or pest.
+32. Birds with large, strong beaks.
+33. They share a common ancestor.
+34. Speciation
+35. The population of dark moths will increase.
+36. The random nature of mutation.
+37. Variation in a trait (beak shape)
+38. Transfer the surviving bacteria to a new dish with a higher antibiotic concentration.
+39. In the lowest, oldest layers of rock.
+40. The genetic diversity of the island population will be lower than the original population.
+
+Unit 3: Animals: Structure and Function
+41. Alveoli
+42. Right Atrium -> Right Ventricle -> Lungs -> Left Atrium -> Left Ventricle -> Body
+43. To maximize the absorption of nutrients.
+44. Left Ventricle
+45. The heart is pumping more blood to deliver oxygen to the muscles.
+46. Small intestine
+47. Diaphragm
+48. To supply muscles with more oxygen and remove carbon dioxide faster.
+49. The heart and arteries are under constant strain.
+50. To prevent food from entering the trachea during swallowing.
+51. By transporting absorbed nutrients from the small intestine to the body's cells.
+52. Visually diagnose disorders inside the digestive tract without major surgery.
+53. Hemoglobin in red blood cells and oxygen transport.
+54. Inability to effectively clear mucus and trapped debris from the lungs.
+55. The presence or absence of exercise.
+56. It directly measures the volume of air, whereas the balloon's elasticity can affect the result.
+57. The control tube would turn blue-black; the saliva tube would remain yellowish-brown.
+58. Lungs.
+59. Blood pressure
+60. Bag A to Bag B by diffusion.
+
+Unit 4: Genetics
+61. An alternative form of a gene.
+62. Four haploid cells that are genetically different from the parent cell.
+63. genotype; phenotype
+64. Crossing over
+65. Homozygous
+66. One trait.
+67. The two alleles for a trait separate from each other during meiosis, so that each gamete receives only one.
+68. 50%
+69. 25%
+70. Down Syndrome
+71. 9:3:3:1
+72. Analyze patterns of inheritance and predict the risk of a genetic disorder in a family.
+73. Both are heterozygous.
+74. Incomplete dominance
+75. Metaphase I
+76. 3:1
+77. Size (length)
+78. They cut the DNA into smaller, manageable fragments at specific sequences.
+79. As two cells, each with half the number of chromosomes as the parent cell, and with the sister chromatids still attached.
+80. Swap a small segment between two non-sister chromatids of a homologous pair.
