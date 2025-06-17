@@ -111,12 +111,12 @@ a "Fungi"
 a "Protista" 
  
 # Question 13 
-q "If you were to classify a domestic dog (*Canis familiaris*), which other animal would be in the same genus?" 0 
+q "If you were to classify a domestic dog (Canis familiaris), which other animal would be in the same genus?" 0 
 # Answers for Question 13 
-a "Gray Wolf (*Canis lupus*)" 
-a "Red Fox (*Vulpes vulpes*)" 
-a "Coyote (*Canis latrans*)" 
-a "Domestic Cat (*Felis catus*)" 
+a "Gray Wolf (Canis lupus)" 
+a "Red Fox (Vulpes vulpes)" 
+a "Coyote (Canis latrans)" 
+a "Domestic Cat (Felis catus)" 
  
 # Question 14 
 q "The construction of a new highway divides a large forest into two smaller, isolated patches. This is an example of:" 1 
@@ -129,7 +129,7 @@ a "Biological magnification"
 # --- Lab/Inquiry Questions (6) --- 
  
 # Question 15 
-q "In a hay infusion lab, you take a sample of pond water with decaying grass and observe it under a microscope over several days. What is the primary purpose of this investigation?" 0 
+q "In a hay infusion lab, you take a sample of pond water with decaying grass and observe it under a microscope. What is the primary purpose of this investigation?" 0 
 # Answers for Question 15 
 a "To observe a diverse community of microorganisms like protists." 
 a "To measure the water's pH level." 
@@ -137,7 +137,7 @@ a "To grow edible plants."
 a "To prove that life spontaneously generates." 
  
 # Question 16 
-q "In an experiment, students swab various locations around the school (e.g., a doorknob, a water fountain, a desk) and inoculate petri dishes. After a week, they observe the bacterial growth. A common and often surprising finding in this lab is that:" 1 
+q "In an experiment, students swab various locations around the school and place them on petri dishes. After a few days, they observe the bacterial growth. A surprising finding in this lab is that:" 1 
 # Answers for Question 16 
 a "No bacteria grows on any surface." 
 a "A location thought to be 'clean' might have more bacterial growth than one thought to be 'dirty'." 
@@ -145,7 +145,7 @@ a "All surfaces have the exact same type of bacteria."
 a "Bacteria only grows in complete darkness." 
  
 # Question 17 
-q "You are designing an experiment to see what condition most affects the growth of bread mold. You place a slice of bread in a sealed plastic bag with a few drops of water and put it in a warm, dark place. What would be the best control for this experiment?" 2 
+q "You are designing an experiment to see what condition affects the growth of bread mold. You place a slice of bread in sealed Saran wrap with a few drops of water and put it in a warm, dark place. What would be the best control for this experiment?" 2 
 # Answers for Question 17 
 a "A slice of bread in a warm, moist, and well-lit place." 
 a "A slice of toasted bread in the same conditions." 
@@ -161,7 +161,7 @@ a "The amount of moisture."
 a "The amount of mold that grows." 
  
 # Question 19 
-q "When using a dichotomous key to identify a protist from your hay infusion, what is the fundamental process you follow at each step?" 1 
+q "When using a dichotomous key to identify a protist from your hay infusion, what is the process you follow at each step?" 1 
 # Answers for Question 19 
 a "Measuring the organism's length and weight." 
 a "Making a choice between two descriptive statements." 
