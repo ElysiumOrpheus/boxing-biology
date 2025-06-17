@@ -1,8 +1,4 @@
-Of course! Here is the multiple-choice quiz game content you requested, formatted for your game show application. It is followed by a separate, human-readable answer key. 
-
-Quiz Questions File 
-
-     # Commands: 
+# Commands: 
  
 # Question 
 # q <question text> <correct answer index, 1-based> 
