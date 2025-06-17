@@ -1,555 +1,692 @@
-# Commands:
-
-# Question
-# q <question text> <correct answer>
-
-# Answer (applies to previous question command)
-# a <answer text>
-
-# Climate change unit
-
-# Question 1
-# q What is the primary greenhouse gas responsible for climate change?
-q "What is the primary greenhouse gas responsible for climate change?" 2
-
-# Answers for Question 1
-a "Oxygen"
-a "Nitrogen"
-a "Carbon dioxide"
-a "Hydrogen"
-
-# Question 2
-# q Which human activity contributes significantly to the increase in carbon dioxide levels in the atmosphere?
-q "Which human activity contributes significantly to the increase in carbon dioxide levels in the atmosphere?" 1
-
-# Answers for Question 2
-a "Planting trees"
-a "Driving cars"
-a "Recycling plastic"
-a "Turning off lights"
-
-# Question 3
-# q What is the main purpose of the ozone layer in the Earth's atmosphere?
-q "What is the main purpose of the ozone layer in the Earth's atmosphere?" 2
-
-# Answers for Question 3
-a "Absorbing carbon dioxide"
-a "Allowing sunlight to reach the Earth"
-a "Blocking harmful ultraviolet radiation"
-a "Creating rain clouds"
-
-# Question 4
-# q What is a common consequence of global warming on polar ice caps and glaciers?
-q "What is a common consequence of global warming on polar ice caps and glaciers?" 2
-
-# Answers for Question 4
-a "Expansion"
-a "Thickening"
-a "Melting"
-a "Freezing"
-
-# Question 5
-# q Which renewable energy source does not contribute to the emission of greenhouse gases?
-q "Which renewable energy source does not contribute to the emission of greenhouse gases?" 0
-
-# Answers for Question 5
-a "Solar power"
-a "Coal"
-a "Natural gas"
-a "Nuclear power"
-
-# Question 6
-# q What is the term for the gradual increase in the Earth's average temperature over time?
-q "What is the term for the gradual increase in the Earth's average temperature over time?" 2
-
-# Answers for Question 6
-a "Global cooling"
-a "Climate stabilization"
-a "Global warming"
-a "Temperature fluctuation"
-
-# Question 7
-# q What is the primary cause of the greenhouse effect?
-q "What is the primary cause of the greenhouse effect?" 2
-
-# Answers for Question 7
-a "Depletion of ozone layer"
-a "Release of volcanic gases"
-a "Human activities releasing greenhouse gases"
-a "Earth's orbit changes"
-
-# Question 8
-# q How does deforestation contribute to climate change?
-q "How does deforestation contribute to climate change?" 1
-
-# Answers for Question 8
-a "By reducing oxygen levels"
-a "By increasing carbon dioxide levels"
-a "By cooling the atmosphere"
-a "By decreasing rainfall"
-
-# Question 9
-# q Which term refers to the rising of the Earth's surface temperature due to trapped heat in the atmosphere?
-q "Which term refers to the rising of the Earth's surface temperature due to trapped heat in the atmosphere?" 0
-
-# Answers for Question 9
-a "Greenhouse effect"
-a "Acid rain"
-a "Ozone depletion"
-a "Carbon sequestration"
-
-# Question 10
-# q What is the main source of methane, a potent greenhouse gas?
-q "What is the main source of methane, a potent greenhouse gas?" 0
-
-# Answers for Question 10
-a "Cow digestion"
-a "Solar power plants"
-a "Ocean currents"
-a "Wind turbines"
-
-# Question 11
-# q How does the increased concentration of greenhouse gases affect weather patterns?
-q "How does the increased concentration of greenhouse gases affect weather patterns?" 1
-
-# Answers for Question 11
-a "It causes uniform temperatures worldwide"
-a "It leads to more extreme weather events"
-a "It reduces precipitation globally"
-a "It stabilizes atmospheric pressure"
-
-# Question 12
-# q Which natural event can contribute to short-term cooling of the Earth's climate?
-q "Which natural event can contribute to short-term cooling of the Earth's climate?" 0
-
-# Answers for Question 12
-a "Volcanic eruptions"
-a "Forest fires"
-a "Hurricane formation"
-a "Tsunamis"
-
-# Question 13
-# q What role do oceans play in regulating the Earth's climate?
-q "What role do oceans play in regulating the Earth's climate?" 0
-
-# Answers for Question 13
-a "Oceans absorb and store heat"
-a "Oceans release greenhouse gases"
-a "Oceans reflect sunlight"
-a "Oceans generate strong winds"
-
-# Question 15
-# q How does the loss of biodiversity contribute to climate change?
-q "How does the loss of biodiversity contribute to climate change?" 2
-
-# Answers for Question 15
-a "It has no impact on climate change"
-a "It reduces carbon dioxide levels"
-a "It disrupts ecosystems and natural carbon cycles"
-a "It accelerates glacier formation"
-
-# Light unit
-
-# Question 1
-# q What is the primary color of light that has the shortest wavelength?
-q "What is the primary color of light that has the shortest wavelength?" 2
-
-# Answers for Question 1
-a "Red"
-a "Green"
-a "Blue"
-a "Yellow"
-
-# Question 2
-# q Which type of lens converges light rays to a single point?
-q "Which type of lens converges light rays to a single point?" 1
-
-# Answers for Question 2
-a "Concave"
-a "Convex"
-a "Plano-concave"
-a "Plano-convex"
-
-# Question 3
-# q What is the phenomenon where light changes direction as it passes from one medium to another?
-q "What is the phenomenon where light changes direction as it passes from one medium to another?" 1
-
-# Answers for Question 3
-a "Reflection"
-a "Refraction"
-a "Diffraction"
-a "Dispersion"
-
-# Question 4
-# q Which of the following colors is NOT part of the visible light spectrum?
-q "Which of the following colors is NOT part of the visible light spectrum?" 0
-
-# Answers for Question 4
-a "Ultraviolet"
-a "Red"
-a "Green"
-a "Violet"
-
-# Question 5
-# q What is the unit of measurement for the frequency of light waves?
-q "What is the unit of measurement for the frequency of light waves?" 0
-
-# Answers for Question 5
-a "Hertz (Hz)"
-a "Watts (W)"
-a "Joules (J)"
-a "Meters per second (m/s)"
-
-# Question 6
-# q In which medium does light travel the fastest?
-q "In which medium does light travel the fastest?" 3
-
-# Answers for Question 6
-a "Air"
-a "Water"
-a "Glass"
-a "Vacuum"
-
-# Question 9
-# q What is the phenomenon where light waves cancel each other out, resulting in no light?
-q "What is the phenomenon where light waves cancel each other out, resulting in no light?" 0
-
-# Answers for Question 9
-a "Interference"
-a "Diffraction"
-a "Polarization"
-a "Absorption"
-
-# Question 10
-# q What is the angle of incidence equal to when light undergoes total internal reflection?
-q "What is the angle of incidence equal to when light undergoes total internal reflection?" 2
-
-# Answers for Question 10
-a "0 degrees"
-a "45 degrees"
-a "90 degrees"
-a "It depends on the medium"
-
-# Question 11
-# q Which lens is commonly used to correct farsightedness?
-q "Which lens is commonly used to correct farsightedness?" 0
-
-# Answers for Question 11
-a "Convex"
-a "Concave"
-a "Plano-concave"
-a "Plano-convex"
-
-# Question 12
-# q What is the phenomenon where light is separated into its component colors?
-q "What is the phenomenon where light is separated into its component colors?" 2
-
-# Answers for Question 12
-a "Reflection"
-a "Refraction"
-a "Dispersion"
-a "Diffraction"
-
-# Biology unit
-
-# Question 1
-# q What is the basic structural unit of living organisms?
-q "What is the basic structural unit of living organisms?" 1
-
-# Answers for Question 1
-a "Atom"
-a "Cell"
-a "Molecule"
-a "Tissue"
-
-# Question 2
-# q Which organelle is responsible for energy production in a eukaryotic cell?
-q "Which organelle is responsible for energy production in a eukaryotic cell?" 2
-
-# Answers for Question 2
-a "Nucleus"
-a "Golgi apparatus"
-a "Mitochondrion"
-a "Endoplasmic reticulum"
-
-# Question 3
-# q What is the powerhouse of the cell?
-q "What is the powerhouse of the cell?" 2
-
-# Answers for Question 3
-a "Nucleus"
-a "Ribosome"
-a "Mitochondrion"
-a "Lysosome"
-
-# Question 4
-# q In which part of the digestive system does nutrient absorption primarily occur?
-q "In which part of the digestive system does nutrient absorption primarily occur?" 1
-
-# Answers for Question 4
-a "Stomach"
-a "Small intestine"
-a "Large intestine"
-a "Esophagus"
-
-# Question 5
-# q What is the process by which plants make their own food using sunlight?
-q "What is the process by which plants make their own food using sunlight?" 0
-
-# Answers for Question 5
-a "Photosynthesis"
-a "Respiration"
-a "Fermentation"
-a "Transpiration"
-
-# Question 6
-# q What is the main function of red blood cells in the human body?
-q "What is the main function of red blood cells in the human body?" 0
-
-# Answers for Question 6
-a "Transporting oxygen"
-a "Defense against infections"
-a "Producing antibodies"
-a "Digesting food"
-
-# Question 7
-# q Which part of the plant is responsible for water and nutrient absorption?
-q "Which part of the plant is responsible for water and nutrient absorption?" 2
-
-# Answers for Question 7
-a "Leaves"
-a "Stems"
-a "Roots"
-a "Flowers"
-
-# Question 8
-# q What is the largest organ in the human body?
-q "What is the largest organ in the human body?" 2
-
-# Answers for Question 8
-a "Heart"
-a "Brain"
-a "Skin"
-a "Liver"
-
-# Question 9
-# q Which gas do plants primarily take in during photosynthesis?
-q "Which gas do plants primarily take in during photosynthesis?" 1
-
-# Answers for Question 9
-a "Oxygen"
-a "Carbon dioxide"
-a "Nitrogen"
-a "Hydrogen"
-
-# Question 10
-# q What is the purpose of the circulatory system in the human body?
-q "What is the purpose of the circulatory system in the human body?" 0
-
-# Answers for Question 10
-a "Transporting blood and nutrients"
-a "Providing structural support"
-a "Filtering waste products"
-a "Producing hormones"
-
-# Question 11
-# q Which of the following is a function of the respiratory system?
-q "Which of the following is a function of the respiratory system?" 2
-
-# Answers for Question 11
-a "Pumping blood"
-a "Digesting food"
-a "Breathing and gas exchange"
-a "Filtering toxins"
-
-# Question 12
-# q What is the role of enzymes in biological reactions?
-q "What is the role of enzymes in biological reactions?" 1
-
-# Answers for Question 12
-a "Transporting molecules"
-a "Facilitating chemical reactions"
-a "Providing structural support"
-a "Storing genetic information"
-
-# Question 13
-# q Which organelle is responsible for protein synthesis in a cell?
-q "Which organelle is responsible for protein synthesis in a cell?" 3
-
-# Answers for Question 13
-a "Nucleus"
-a "Golgi apparatus"
-a "Mitochondrion"
-a "Ribosome"
-
-# Question 14
-# q What is the function of the nervous system in the human body?
-q "What is the function of the nervous system in the human body?" 2
-
-# Answers for Question 14
-a "Digesting food"
-a "Transporting oxygen"
-a "Coordination and communication"
-a "Maintaining water balance"
-
-# Question 15
-# q What is the genetic material found in the nucleus of a eukaryotic cell?
-q "What is the genetic material found in the nucleus of a eukaryotic cell?" 0
-
-# Answers for Question 15
-a "DNA"
-a "RNA"
-a "Protein"
-a "Lipid"
-
-# Chemistry unit
-
-# Question 1
-# q What is the smallest unit of an element that retains its chemical properties?
-q "What is the smallest unit of an element that retains its chemical properties?" 1
-
-# Answers for Question 1
-a "Molecule"
-a "Atom"
-a "Compound"
-a "Ion"
-
-# Question 2
-# q Which element has the chemical symbol 'O'?
-q "Which element has the chemical symbol 'O'?" 0
-
-# Answers for Question 2
-a "Oxygen"
-a "Osmium"
-a "Oganesson"
-a "Osmium"
-
-# Question 3
-# q What is the chemical formula for water?
-q "What is the chemical formula for water?" 0
-
-# Answers for Question 3
-a "H2O"
-a "CO2"
-a "O2"
-a "CH4"
-
-# Question 4
-# q What is the pH scale used to measure?
-q "What is the pH scale used to measure?" 2
-
-# Answers for Question 4
-a "Temperature"
-a "Pressure"
-a "Acidity or alkalinity"
-a "Density"
-
-# Question 5
-# q Which gas is produced during photosynthesis?
-q "Which gas is produced during photosynthesis?" 0
-
-# Answers for Question 5
-a "Oxygen"
-a "Carbon dioxide"
-a "Hydrogen"
-a "Nitrogen"
-
-# Question 6
-# q What is the chemical symbol for gold?
-q "What is the chemical symbol for gold?" 0
-
-# Answers for Question 6
-a "Au"
-a "Ag"
-a "Fe"
-a "Cu"
-
-# Question 7
-# q What is the chemical formula for methane?
-q "What is the chemical formula for methane?" 3
-
-# Answers for Question 7
-a "CO2"
-a "H2O"
-a "O2"
-a "CH4"
-
-# Question 8
-# q Which gas makes up the majority of Earth's atmosphere?
-q "Which gas makes up the majority of Earth's atmosphere?" 0
-
-# Answers for Question 8
-a "Nitrogen"
-a "Oxygen"
-a "Carbon dioxide"
-a "Argon"
-
-# Question 9
-# q What is the process of converting a solid directly into vapor called?
-q "What is the process of converting a solid directly into vapor called?" 2
-
-# Answers for Question 9
-a "Melting"
-a "Condensation"
-a "Sublimation"
-a "Evaporation"
-
-# Question 10
-# q Which subatomic particle carries a negative charge?
-q "Which subatomic particle carries a negative charge?" 1
-
-# Answers for Question 10
-a "Proton"
-a "Electron"
-a "Neutron"
-a "Positron"
-
-# Question 11
-# q What is the chemical symbol for sodium?
-q "What is the chemical symbol for sodium?" 1
-
-# Answers for Question 11
-a "S"
-a "Na"
-a "So"
-a "Au"
-
-# Question 12
-# q What is the process of combining two or more elements to form a new substance?
-q "What is the process of combining two or more elements to form a new substance?" 1
-
-# Answers for Question 12
-a "Decomposition"
-a "Synthesis"
-a "Melting"
-a "Sublimation"
-
-# Question 13
-# q Which type of bond involves the sharing of electrons between atoms?
-q "Which type of bond involves the sharing of electrons between atoms?" 1
-
-# Answers for Question 13
-a "Ionic bond"
-a "Covalent bond"
-a "Metallic bond"
-a "Hydrogen bond"
-
-# Question 14
-# q What is the chemical symbol for carbon dioxide?
-q "What is the chemical symbol for carbon dioxide?" 1
-
-# Answers for Question 14
-a "CO"
-a "CO2"
-a "C2O"
-a "CCl4"
-
-# Question 15
-# q What is the chemical name for table salt?
-q "What is the chemical name for table salt?" 0
-
-# Answers for Question 15
-a "Sodium chloride"
-a "Calcium chloride"
-a "Potassium chloride"
-a "Magnesium chloride"
+Of course! Here is the multiple-choice quiz game content you requested, formatted for your game show application. It is followed by a separate, human-readable answer key. 
+
+Quiz Questions File 
+
+     # Commands: 
+ 
+# Question 
+# q <question text> <correct answer index, 1-based> 
+ 
+# Answer (applies to previous question command) 
+# a <answer text> 
+ 
+#---------------------------------------------------------------------- 
+# Unit 1: Diversity of Living Things 
+#---------------------------------------------------------------------- 
+ 
+# --- Knowledge/Understanding Questions (7) --- 
+ 
+# Question 1 
+q "What is the science of naming, defining, and classifying groups of biological organisms on the basis of shared characteristics?" 1 
+# Answers for Question 1 
+a "Taxonomy" 
+a "Phylogeny" 
+a "Ecology" 
+a "Genetics" 
+ 
+# Question 2 
+q "Which of the following is the correct order for the main taxonomic ranks, from most inclusive to least inclusive?" 3 
+# Answers for Question 2 
+a "Kingdom, Phylum, Order, Class, Family, Genus, Species" 
+a "Domain, Kingdom, Phylum, Class, Family, Order, Genus, Species" 
+a "Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species" 
+a "Species, Genus, Family, Order, Class, Phylum, Kingdom, Domain" 
+ 
+# Question 3 
+q "The two-part scientific naming system for organisms, devised by Carolus Linnaeus, is known as:" 2 
+# Answers for Question 3 
+a "Phylogenetic Classification" 
+a "Binomial Nomenclature" 
+a "Dichotomous Keying" 
+a "Hierarchical System" 
+ 
+# Question 4 
+q "A phylogenetic tree is a diagram that represents:" 4 
+# Answers for Question 4 
+a "The diet of different species in an ecosystem." 
+a "The geographic distribution of related organisms." 
+a "A list of all species found in a specific habitat." 
+a "The evolutionary relationships and common ancestry among a group of organisms." 
+ 
+# Question 5 
+q "Which of the following kingdoms consists of multicellular, eukaryotic organisms that are heterotrophic and obtain nutrients by ingestion?" 1 
+# Answers for Question 5 
+a "Animalia" 
+a "Plantae" 
+a "Fungi" 
+a "Protista" 
+ 
+# Question 6 
+q "What term describes the variety of life in the world or in a particular habitat or ecosystem?" 3 
+# Answers for Question 6 
+a "Phylogeny" 
+a "Ecosystem" 
+a "Biodiversity" 
+a "Taxonomy" 
+ 
+# Question 7 
+q "Organisms in the Kingdom Fungi are different from plants primarily because they:" 2 
+# Answers for Question 7 
+a "Are prokaryotic." 
+a "Are heterotrophic and absorb nutrients." 
+a "Are autotrophic and perform photosynthesis." 
+a "Lack cell walls." 
+ 
+# --- Application Questions (7) --- 
+ 
+# Question 8 
+q "The scientific name for a human is *Homo sapiens*. What does the 'Homo' part of the name represent?" 4 
+# Answers for Question 8 
+a "Species" 
+a "Family" 
+a "Kingdom" 
+a "Genus" 
+ 
+# Question 9 
+q "Deforestation for agriculture leads to the destruction of forests. This human activity primarily causes a loss of biodiversity through:" 1 
+# Answers for Question 9 
+a "Habitat destruction" 
+a "Introduction of invasive species" 
+a "Air pollution" 
+a "Genetic drift" 
+ 
+# Question 10 
+q "A diagram shows a phylogenetic tree where Species A and Species B share a more recent common ancestor with each other than either does with Species C. Which statement is correct?" 2 
+# Answers for Question 10 
+a "Species A and C are the most closely related." 
+a "Species A and B are the most closely related." 
+a "Species B and C are the most closely related." 
+a "All three species are equally related." 
+ 
+# Question 11 
+q "The introduction of the zebra mussel, a non-native species, into the Great Lakes has led to the decline of native clam populations. This is an example of biodiversity loss due to:" 3 
+# Answers for Question 11 
+a "Overexploitation" 
+a "Pollution" 
+a "Invasive species" 
+a "Habitat fragmentation" 
+ 
+# Question 12 
+q "A biologist discovers a new single-celled organism that has a nucleus but lacks a cell wall and chloroplasts. It moves using a flagellum. In which kingdom should it most likely be classified?" 4 
+# Answers for Question 12 
+a "Animalia" 
+a "Plantae" 
+a "Fungi" 
+a "Protista" 
+ 
+# Question 13 
+q "If you were to classify a domestic dog (*Canis familiaris*), which other animal would be in the same genus?" 1 
+# Answers for Question 13 
+a "Gray Wolf (*Canis lupus*)" 
+a "Red Fox (*Vulpes vulpes*)" 
+a "Coyote (*Canis latrans*)" 
+a "Domestic Cat (*Felis catus*)" 
+ 
+# Question 14 
+q "The construction of a new highway divides a large forest into two smaller, isolated patches. This is an example of:" 2 
+# Answers for Question 14 
+a "Overharvesting" 
+a "Habitat fragmentation" 
+a "Point source pollution" 
+a "Biological magnification" 
+ 
+# --- Lab/Inquiry Questions (6) --- 
+ 
+# Question 15 
+q "In a field study to measure the biodiversity of plants in a large meadow, what is the best technique to get a representative sample?" 3 
+# Answers for Question 15 
+a "Counting all the plants along the edge of the meadow." 
+a "Counting only the tallest and most visible plants." 
+a "Using quadrats placed at random locations throughout the meadow." 
+a "Collecting and counting all the plants in one small, convenient corner." 
+ 
+# Question 16 
+q "A student is given a collection of five different leaves and asked to create a tool to identify them. Which tool would be most appropriate for this task?" 2 
+# Answers for Question 16 
+a "A phylogenetic tree" 
+a "A dichotomous key" 
+a "A quadrat sample" 
+a "A microscope" 
+ 
+# Question 17 
+q "While performing a stream study, students collect and identify aquatic invertebrates. The presence of a high diversity of mayfly and caddisfly larvae, which are sensitive to pollution, indicates what about the stream?" 1 
+# Answers for Question 17 
+a "Good water quality" 
+a "Poor water quality" 
+a "High water temperature" 
+a "Low oxygen levels" 
+ 
+# Question 18 
+q "A simulation is designed to show how a new disease affects a population of bats. What is the primary purpose of running the simulation multiple times with different starting conditions?" 4 
+# Answers for Question 18 
+a "To make the simulation run faster." 
+a "To prove that the disease will always have the same outcome." 
+a "To ensure the graphics look realistic." 
+a "To understand the range of possible outcomes and identify key variables." 
+ 
+# Question 19 
+q "When using a dichotomous key, what is the fundamental process you follow at each step?" 2 
+# Answers for Question 19 
+a "Measuring the organism's length and weight." 
+a "Making a choice between two descriptive statements." 
+a "Observing the organism's behavior." 
+a "Identifying the organism's kingdom." 
+ 
+# Question 20 
+q "In a lab, you are tasked with classifying an unknown insect. After observing it has six legs and three body segments, what is the most logical next step for detailed classification?" 3 
+# Answers for Question 20 
+a "Determine its phylum." 
+a "Decide if it's a plant or animal." 
+a "Use a dichotomous key specific to insects." 
+a "Give it a new species name." 
+ 
+ 
+#---------------------------------------------------------------------- 
+# Unit 2: Evolution 
+#---------------------------------------------------------------------- 
+ 
+# --- Knowledge/Understanding Questions (7) --- 
+ 
+# Question 21 
+q "What is the primary mechanism of evolution, proposed by Charles Darwin, where organisms better adapted to their environment tend to survive and produce more offspring?" 1 
+# Answers for Question 21 
+a "Natural selection" 
+a "Artificial selection" 
+a "Genetic drift" 
+a "Gene flow" 
+ 
+# Question 22 
+q "The wing of a bat, the flipper of a whale, and the arm of a human are considered what kind of structures?" 4 
+# Answers for Question 22 
+a "Analogous structures" 
+a "Vestigial structures" 
+a "Convergent structures" 
+a "Homologous structures" 
+ 
+# Question 23 
+q "What term describes the formation of new and distinct species in the course of evolution?" 2 
+# Answers for Question 23 
+a "Adaptation" 
+a "Speciation" 
+a "Extinction" 
+a "Mutation" 
+ 
+# Question 24 
+q "Which of the following provides the most direct and preserved evidence for evolution?" 3 
+# Answers for Question 24 
+a "Comparative embryology" 
+a "DNA sequence comparison" 
+a "The fossil record" 
+a "Biogeography" 
+ 
+# Question 25 
+q "Artificial selection, or selective breeding, is different from natural selection because in artificial selection:" 1 
+# Answers for Question 25 
+a "Humans, not the environment, determine which individuals reproduce." 
+a "It happens over millions of years." 
+a "It only occurs in plants." 
+a "Mutations are not involved." 
+ 
+# Question 26 
+q "A structure in an organism that has lost all or most of its original function in the course of evolution, such as the appendix in humans, is known as a:" 2 
+# Answers for Question 26 
+a "Homologous structure" 
+a "Vestigial structure" 
+a "Adaptive structure" 
+a "Analogous structure" 
+ 
+# Question 27 
+q "The theory of evolution states that:" 4 
+# Answers for Question 27 
+a "Individual organisms can will themselves to change during their lifetime." 
+a "Humans evolved directly from modern-day chimpanzees." 
+a "Earth is approximately 6,000 years old." 
+a "All life on Earth shares a common ancestor and has changed over time." 
+ 
+# --- Application Questions (7) --- 
+ 
+# Question 28 
+q "The development of antibiotic-resistant bacteria is a modern example of:" 1 
+# Answers for Question 28 
+a "Natural selection in action." 
+a "Artificial selection by doctors." 
+a "Stabilizing selection." 
+a "The founder effect." 
+ 
+# Question 29 
+q "A farmer chooses to breed only the cows that produce the most milk. This practice is an example of:" 3 
+# Answers for Question 29 
+a "Natural selection" 
+a "Speciation" 
+a "Artificial selection" 
+a "Disruptive selection" 
+ 
+# Question 30 
+q "A population of peppered moths contains both light and dark-colored individuals. After a factory covers the local trees in black soot, the frequency of dark-colored moths increases. Why?" 2 
+# Answers for Question 30 
+a "The light moths decided to become dark to survive." 
+a "Dark moths had a higher survival rate because they were better camouflaged from predators." 
+a "The soot directly caused mutations that made the moths dark." 
+a "Light moths flew away to cleaner forests." 
+ 
+# Question 31 
+q "A major disadvantage of creating genetically uniform crops through artificial selection is that:" 4 
+# Answers for Question 31 
+a "The crops grow too quickly." 
+a "The crops taste worse than wild varieties." 
+a "The crops require more water." 
+a "An entire crop could be wiped out by a single new disease or pest." 
+ 
+# Question 32 
+q "A severe drought significantly reduces the availability of small, soft seeds, leaving only large, hard-shelled seeds. In a finch population, which birds would be most likely to survive and reproduce?" 1 
+# Answers for Question 32 
+a "Birds with large, strong beaks." 
+a "Birds with small, slender beaks." 
+a "Birds with average-sized beaks." 
+a "Birds that can fly the farthest." 
+ 
+# Question 33 
+q "The fossil of *Archaeopteryx* shows features of both birds (feathers) and reptiles (teeth, bony tail). This type of fossil is referred to as a:" 3 
+# Answers for Question 33 
+a "Living fossil" 
+a "Index fossil" 
+a "Transitional fossil" 
+a "Trace fossil" 
+ 
+# Question 34 
+q "If an environmental change, such as global warming, causes the arctic sea ice to melt, which species is most immediately threatened due to its dependence on the ice for hunting?" 4 
+# Answers for Question 34 
+a "Arctic fox" 
+a "Caribou" 
+a "Snowy owl" 
+a "Polar bear" 
+ 
+# --- Lab/Inquiry Questions (6) --- 
+ 
+# Question 35 
+q "In a lab simulation where a population of light and dark rabbits lives on a snowy background, a predator is introduced. What is the most likely outcome you would observe in the population graph over time?" 2 
+# Answers for Question 35 
+a "The number of both light and dark rabbits will increase." 
+a "The number of light rabbits will increase, while dark rabbits decrease." 
+a "The number of dark rabbits will increase, while light rabbits decrease." 
+a "The number of both light and dark rabbits will decrease at the same rate." 
+ 
+# Question 36 
+q "A scientist is analyzing the DNA sequences for a specific gene from four different species. Species A and B have 2 differences. Species A and C have 10 differences. Species A and D have 5 differences. Based on this data, which species is most closely related to Species A?" 1 
+# Answers for Question 36 
+a "Species B" 
+a "Species C" 
+a "Species D" 
+a "Cannot be determined" 
+ 
+# Question 37 
+q "You are conducting an experiment to show how beak shape affects feeding efficiency. You provide groups of students with different tools (tweezers, pliers, clothespins) to pick up various 'food' items (seeds, marbles, rubber bands). The different tools represent:" 3 
+# Answers for Question 37 
+a "Environmental pressure" 
+a "Geographic isolation" 
+a "Variation in a trait (beak shape)" 
+a "Reproductive success" 
+ 
+# Question 38 
+q "In a classic lab investigating bacterial evolution, a strain of E. coli is grown in a petri dish with a low concentration of an antibiotic. Most bacteria die, but some survive. What is the next step to demonstrate selection has occurred?" 4 
+# Answers for Question 38 
+a "Throw the sample away and start over." 
+a "Add a different type of bacteria to the dish." 
+a "Examine the dead bacteria under a microscope." 
+a "Transfer the surviving bacteria to a new dish with a higher antibiotic concentration." 
+ 
+# Question 39 
+q "When examining rock strata in a simulation or diagram, where would you expect to find the fossils of the most ancient, simple organisms?" 2 
+# Answers for Question 39 
+a "In the uppermost, newest layers of rock." 
+a "In the lowest, oldest layers of rock." 
+a "Scattered randomly through all layers." 
+a "Only in volcanic rock layers." 
+ 
+# Question 40 
+q "In a simulation of genetic drift (the founder effect), a small group of individuals from a large, diverse population is moved to a new island. What is the most likely long-term outcome for the island population?" 1 
+# Answers for Question 40 
+a "The genetic diversity of the island population will be lower than the original population." 
+a "The island population will have greater genetic diversity than the original population." 
+a "The island population will evolve to be identical to the original population." 
+a "All individuals on the island will be homozygous for all traits." 
+ 
+#---------------------------------------------------------------------- 
+# Unit 3: Animals: Structure and Function 
+#---------------------------------------------------------------------- 
+ 
+# --- Knowledge/Understanding Questions (7) --- 
+ 
+# Question 41 
+q "What are the tiny air sacs in the lungs where the exchange of oxygen and carbon dioxide takes place?" 3 
+# Answers for Question 41 
+a "Bronchioles" 
+a "Trachea" 
+a "Alveoli" 
+a "Capillaries" 
+ 
+# Question 42 
+q "Which of the following describes the correct path of blood flow through the heart, starting from the body?" 2 
+# Answers for Question 42 
+a "Left Atrium -> Left Ventricle -> Lungs -> Right Atrium -> Right Ventricle -> Body" 
+a "Right Atrium -> Right Ventricle -> Lungs -> Left Atrium -> Left Ventricle -> Body" 
+a "Right Ventricle -> Right Atrium -> Lungs -> Left Ventricle -> Left Atrium -> Body" 
+a "Lungs -> Right Atrium -> Right Ventricle -> Body -> Left Atrium -> Left Ventricle" 
+ 
+# Question 43 
+q "The wave-like muscle contractions that move food through the digestive tract are called:" 1 
+# Answers for Question 43 
+a "Peristalsis" 
+a "Mastication" 
+a "Segmentation" 
+a "Vasoconstriction" 
+ 
+# Question 44 
+q "Which chamber of the heart is responsible for pumping oxygenated blood to the entire body?" 4 
+# Answers for Question 44 
+a "Right Atrium" 
+a "Right Ventricle" 
+a "Left Atrium" 
+a "Left Ventricle" 
+ 
+# Question 45 
+q "A chronic inflammatory disease of the airways that causes wheezing, shortness of breath, and chest tightness is known as:" 2 
+# Answers for Question 45 
+a "Hypertension" 
+a "Asthma" 
+a "Acid reflux" 
+a "Anemia" 
+ 
+# Question 46 
+q "Where does the majority of chemical digestion and nutrient absorption occur in the digestive system?" 3 
+# Answers for Question 46 
+a "Stomach" 
+a "Large intestine" 
+a "Small intestine" 
+a "Esophagus" 
+ 
+# Question 47 
+q "The muscular wall that separates the thoracic cavity from the abdominal cavity and is crucial for breathing is the:" 1 
+# Answers for Question 47 
+a "Diaphragm" 
+a "Pericardium" 
+a "Pleura" 
+a "Epiglottis" 
+ 
+# --- Application Questions (7) --- 
+ 
+# Question 48 
+q "During vigorous exercise, why do your breathing rate and heart rate increase?" 4 
+# Answers for Question 48 
+a "To prevent the body from overheating." 
+a "To increase the speed of nerve impulses." 
+a "To expand the size of the stomach for more energy." 
+a "To supply muscles with more oxygen and remove carbon dioxide faster." 
+ 
+# Question 49 
+q "A person with high blood pressure (hypertension) is at increased risk for heart attack and stroke because:" 2 
+# Answers for Question 49 
+a "Their blood contains too little oxygen." 
+a "The heart and arteries are under constant strain." 
+a "Their lungs cannot absorb enough oxygen." 
+a "The digestive system absorbs too much fat." 
+ 
+# Question 50 
+q "A diagram shows the human respiratory system. What is the function of structure 'X', the epiglottis?" 1 
+# Answers for Question 50 
+a "To prevent food from entering the trachea during swallowing." 
+a "To produce sound for speech." 
+a "To warm and moisten inhaled air." 
+a "To serve as the primary site of gas exchange." 
+ 
+# Question 51 
+q "How does the circulatory system support the function of the digestive system?" 3 
+# Answers for Question 51 
+a "By producing enzymes to break down food." 
+a "By physically moving food through the intestines." 
+a "By transporting absorbed nutrients from the small intestine to the body's cells." 
+a "By regulating the pH of the stomach." 
+ 
+# Question 52 
+q "The development of the endoscope, a flexible tube with a camera, has most significantly advanced our ability to:" 4 
+# Answers for Question 52 
+a "Measure blood pressure accurately." 
+a "Analyze the electrical activity of the heart." 
+a "Monitor breathing rates during sleep." 
+a "Visually diagnose disorders inside the digestive tract without major surgery." 
+ 
+# Question 53 
+q "A person's diet is very low in iron. This would most directly impact which component and function of their circulatory system?" 2 
+# Answers for Question 53 
+a "Platelets and blood clotting." 
+a "Hemoglobin in red blood cells and oxygen transport." 
+a "White blood cells and the immune response." 
+a "Plasma and the transport of hormones." 
+ 
+# Question 54 
+q "Smoking damages the cilia in the lining of the respiratory tract. What is a direct consequence of this damage?" 1 
+# Answers for Question 54 
+a "Inability to effectively clear mucus and trapped debris from the lungs." 
+a "A decrease in the surface area available for gas exchange." 
+a "The diaphragm muscle becomes weaker." 
+a "The blood is unable to release carbon dioxide." 
+ 
+# --- Lab/Inquiry Questions (6) --- 
+ 
+# Question 55 
+q "In a lab, you measure a classmate's heart rate at rest and then immediately after 2 minutes of jumping jacks. The jumping jacks in this inquiry represent the:" 3 
+# Answers for Question 55 
+a "Control group" 
+a "Dependent variable" 
+a "Independent variable" 
+a "Constant" 
+ 
+# Question 56 
+q "A student uses a spirometer to measure their vital capacity. What information does this instrument provide?" 4 
+# Answers for Question 56 
+a "The speed of blood flow." 
+a "The number of red blood cells." 
+a "The pressure of the blood in the arteries." 
+a "The maximum volume of air that can be exhaled after a deep breath." 
+ 
+# Question 57 
+q "In a computer simulation of the circulatory system, you click a button to simulate 'vasoconstriction' in the arteries leading to the hands and feet. What would you expect to observe?" 2 
+# Answers for Question 57 
+a "Blood flow to the hands and feet increases." 
+a "Blood flow to the hands and feet decreases." 
+a "The heart rate immediately stops." 
+a "The level of oxygen in the blood drops to zero." 
+ 
+# Question 58 
+q "During the dissection of a preserved fetal pig, what is the purpose of making a 'U-shaped' incision in the neck region?" 1 
+# Answers for Question 58 
+a "To expose the trachea and esophagus while preserving the major blood vessels." 
+a "To remove the heart for closer inspection." 
+a "To access the brain." 
+a "To begin the opening of the abdominal cavity." 
+ 
+# Question 59 
+q "A sphygmomanometer is an instrument used in a clinical or lab setting to measure what?" 2 
+# Answers for Question 59 
+a "Lung capacity" 
+a "Blood pressure" 
+a "Blood oxygen saturation" 
+a "Heart rate" 
+ 
+# Question 60 
+q "A diagram shows a simplified model of gas exchange. Bag 'A' represents the alveolus and is filled with a high concentration of oxygen. Bag 'B' represents a capillary and has a low concentration of oxygen. If the bags are connected by a permeable membrane, oxygen will move from:" 3 
+# Answers for Question 60 
+a "Bag B to Bag A by active transport." 
+a "Neither bag, as they are in equilibrium." 
+a "Bag A to Bag B by diffusion." 
+a "Bag A to Bag B by osmosis." 
+ 
+#---------------------------------------------------------------------- 
+# Unit 4: Genetics 
+#---------------------------------------------------------------------- 
+ 
+# --- Knowledge/Understanding Questions (7) --- 
+ 
+# Question 61 
+q "What is an allele?" 2 
+# Answers for Question 61 
+a "A section of DNA that codes for a protein." 
+a "An alternative form of a gene." 
+a "The physical expression of a trait." 
+a "A structure that contains genetic information." 
+ 
+# Question 62 
+q "Meiosis is a type of cell division that results in:" 4 
+# Answers for Question 62 
+a "Two diploid cells that are genetically identical to the parent cell." 
+a "Two haploid cells that are genetically identical to the parent cell." 
+a "Four diploid cells that are genetically different from the parent cell." 
+a "Four haploid cells that are genetically different from the parent cell." 
+ 
+# Question 63 
+q "An organism's genetic makeup is its __________, while its observable physical traits are its __________." 1 
+# Answers for Question 61 
+a "genotype; phenotype" 
+a "phenotype; genotype" 
+a "chromosome; gene" 
+a "gene; allele" 
+ 
+# Question 64 
+q "The process during Prophase I of meiosis where homologous chromosomes pair up and exchange genetic material is called:" 3 
+# Answers for Question 64 
+a "Cytokinesis" 
+a "Nondisjunction" 
+a "Crossing over" 
+a "Independent assortment" 
+ 
+# Question 65 
+q "An individual with two identical alleles for a particular trait is described as:" 2 
+# Answers for Question 65 
+a "Heterozygous" 
+a "Homozygous" 
+a "Dominant" 
+a "Recessive" 
+ 
+# Question 66 
+q "A monohybrid cross involves tracking the inheritance of:" 1 
+# Answers for Question 66 
+a "One trait." 
+a "Two traits." 
+a "Multiple traits at once." 
+a "A trait linked to a sex chromosome." 
+ 
+# Question 67 
+q "What was the primary goal of the Human Genome Project?" 4 
+# Answers for Question 67 
+a "To cure all genetic diseases." 
+a "To create a genetically perfect human." 
+a "To clone a human being." 
+a "To map and sequence all of the genes in human DNA." 
+ 
+# --- Application Questions (7) --- 
+ 
+# Question 68 
+q "In pea plants, tall (T) is dominant to short (t). If a heterozygous tall plant (Tt) is crossed with a short plant (tt), what is the probability that the offspring will be short?" 2 
+# Answers for Question 68 
+a "25%" 
+a "50%" 
+a "75%" 
+a "100%" 
+ 
+# Question 69 
+q "A man with genotype I(A)i and a woman with genotype I(B)i have a child. What is the probability that their child will have type O blood (ii)?" 1 
+# Answers for Question 69 
+a "25%" 
+a "50%" 
+a "0%" 
+a "75%" 
+ 
+# Question 70 
+q "The failure of chromosomes to separate properly during meiosis is called nondisjunction. If this occurs with chromosome 21, it can lead to what genetic disorder?" 3 
+# Answers for Question 70 
+a "Cystic Fibrosis" 
+a "Sickle Cell Anemia" 
+a "Down Syndrome" 
+a "Huntington's Disease" 
+ 
+# Question 71 
+q "In a dihybrid cross between two pea plants that are heterozygous for both seed shape (Rr) and seed color (Yy), what is the expected phenotypic ratio of the offspring?" 4 
+# Answers for Question 71 
+a "1:2:1" 
+a "3:1" 
+a "1:1:1:1" 
+a "9:3:3:1" 
+ 
+# Question 72 
+q "A major ethical concern associated with the availability of personal genetic testing is:" 2 
+# Answers for Question 72 
+a "The cost of the tests being too high for most people." 
+a "Potential for genetic discrimination by employers or insurance companies." 
+a "The tests are not accurate enough to be useful." 
+a "The process requires a painful and dangerous sample collection." 
+ 
+# Question 73 
+q "A diagram shows a pedigree chart for a recessive genetic disorder. An unaffected male and an unaffected female have one affected child and two unaffected children. What must the genotypes of the parents be?" 3 
+# Answers for Question 73 
+a "Both are homozygous dominant." 
+a "Both are homozygous recessive." 
+a "Both are heterozygous." 
+a "The father is heterozygous, the mother is homozygous dominant." 
+ 
+# Question 74 
+q "If a red-flowered plant (RR) is crossed with a white-flowered plant (rr) and all offspring have pink flowers (Rr), this pattern of inheritance is known as:" 1 
+# Answers for Question 74 
+a "Incomplete dominance" 
+a "Codominance" 
+a "Simple dominance" 
+a "Polygenic inheritance" 
+ 
+# --- Lab/Inquiry Questions (6) --- 
+ 
+# Question 75 
+q "In a simulation of meiosis, you observe homologous chromosomes pairing up and then separating to opposite poles. This event occurs during:" 2 
+# Answers for Question 75 
+a "Meiosis II" 
+a "Meiosis I" 
+a "Mitosis" 
+a "Interphase" 
+ 
+# Question 76 
+q "You perform a monohybrid cross and count the offspring. Out of 400 total offspring, 301 show the dominant phenotype and 99 show the recessive phenotype. What is the approximate phenotypic ratio you observed?" 1 
+# Answers for Question 76 
+a "3:1" 
+a "1:1" 
+a "9:3:3:1" 
+a "1:2:1" 
+ 
+# Question 77 
+q "In a lab, you use gel electrophoresis to separate DNA fragments. The fragments will be separated based on their:" 4 
+# Answers for Question 77 
+a "Color" 
+a "Shape" 
+a "Genetic code" 
+a "Size (length)" 
+ 
+# Question 78 
+q "Why are restriction enzymes essential for a DNA fingerprinting lab?" 3 
+# Answers for Question 78 
+a "They act as a dye to make the DNA visible." 
+a "They provide the electricity to run the gel." 
+a "They cut the DNA into smaller, manageable fragments at specific sequences." 
+a "They glue DNA fragments back together." 
+ 
+# Question 79 
+q "You are using a simulation to model a dihybrid cross. What law, demonstrated by the random alignment of homologous chromosome pairs during Metaphase I, are you observing?" 2 
+# Answers for Question 79 
+a "Law of Segregation" 
+a "Law of Independent Assortment" 
+a "Law of Dominance" 
+a "Theory of Evolution" 
+ 
+# Question 80 
+q "In a lab activity using pop-beads to model meiosis, the process of 'crossing over' is best simulated by:" 4 
+# Answers for Question 80 
+a "Doubling the number of beads on each chromosome strand." 
+a "Separating the two homologous chromosome models to opposite sides of the desk." 
+a "Lining up all chromosome models in the center of the desk." 
+a "Exchanging bead segments between two homologous chromosome models." 
