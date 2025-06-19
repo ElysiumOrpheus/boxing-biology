@@ -115,7 +115,7 @@ q "If you were to classify a domestic dog (Canis familiaris), which other animal
 # Answers for Question 13 
 a "Gray Wolf (Canis lupus)" 
 a "Red Fox (Vulpes vulpes)" 
-a "Coyote (Canis latrans)" 
+a "Grizzly Bear (Ursus arctos)" 
 a "Domestic Cat (Felis catus)" 
  
 # Question 14 
@@ -191,7 +191,7 @@ a "Genetic drift"
 a "Gene flow" 
  
 # Question 22 
-q "The wing of a bat, the flipper of a whale, and the arm of a human are considered what kind of structures?" 3 
+q "The wing of a bird and the wing of an insect perform the same function but have different evolutionary origins. These are known as:" 0
 # Answers for Question 22 
 a "Analogous structures" 
 a "Vestigial structures" 
@@ -255,14 +255,14 @@ a "Natural selection"
 a "Speciation" 
 a "Artificial selection" 
 a "Disruptive selection" 
- 
-# Question 30 
-q "In a simulation of natural selection, a student acts as a predator, picking up paper moths from a piece of black construction paper ('soot-covered bark'). Ten white moths and ten black moths were placed on the paper. After 10 seconds, the student had picked up 8 white moths and 2 black moths. What does this result demonstrate?" 2 
-# Answers for Question 30 
-a "The student preferred the taste of white moths." 
-a "The moths randomly evolved during the 10 seconds." 
-a "The black moths were better camouflaged, leading to a higher survival rate on the dark background." 
-a "White moths are naturally slower than black moths." 
+
+# Question 30
+q "In humans, babies with a very low or very high birth weight have historically had a lower chance of survival, while babies with an average birth weight are more likely to survive. This is an example of what type of natural selection?" 2
+Answers for Question 30
+a "Directional selection"
+a "Disruptive selection"
+a "Stabilizing selection"
+a "Artificial selection"
  
 # Question 31 
 q "A major disadvantage of creating genetically uniform crops through artificial selection is that:" 3 
@@ -315,11 +315,11 @@ a "The random nature of mutation"
 a "Natural selection" 
  
 # Question 37 
-q "You are conducting an experiment to show how beak shape affects feeding efficiency. You provide groups of students with different tools (tweezers, pliers, clothespins) to pick up various 'food' items (seeds, marbles, rubber bands). The different tools represent:" 2 
+q "You are conducting an experiment to show how beak shape affects feeding efficiency. You provide groups of students with different tools to pick up various 'food' items (candy). The different tools represent:" 2 
 # Answers for Question 37 
 a "Environmental pressure" 
 a "Geographic isolation" 
-a "Variation in a trait (beak shape)" 
+a "Variation in a trait" 
 a "Reproductive success" 
  
 # Question 38 
@@ -331,7 +331,7 @@ a "Examine the dead bacteria under a microscope."
 a "Transfer the surviving bacteria to a new dish with a higher antibiotic concentration." 
  
 # Question 39 
-q "When examining rock strata in a simulation or diagram, where would you expect to find the fossils of the most ancient, simple organisms?" 1 
+q "When examining rock layers in a simulation where would you expect to find the fossils of the most ancient, simple organisms?" 1 
 # Answers for Question 39 
 a "In the uppermost, newest layers of rock." 
 a "In the lowest, oldest layers of rock." 
@@ -385,12 +385,12 @@ a "Left Atrium"
 a "Left Ventricle" 
  
 # Question 45 
-q "A student measures their blood pressure at rest and finds it to be 120/80 mmHg. After two minutes of vigorous exercise, they measure it again and find it to be 145/85 mmHg. This change occurs because:" 3 
+q "A person's blood pressure is recorded as 120/80 mmHg. What does the top number (120):" 2
 # Answers for Question 45 
-a "The blood becomes thicker during exercise." 
-a "The veins have expanded to hold more blood." 
-a "The lungs are working less efficiently." 
-a "The heart is pumping more blood to deliver oxygen to the muscles." 
+a "Diastolic pressure, when the heart is relaxed"
+a "The pressure in the capillaries"
+a "Systolic pressure, when the heart contracts"
+a "The number of heart beats per minute"
  
 # Question 46 
 q "Where does the majority of chemical digestion and nutrient absorption occur in the digestive system?" 2 
@@ -448,7 +448,7 @@ q "The development of the endoscope, a flexible tube with a camera, has most sig
 a "Measure blood pressure accurately." 
 a "Analyze the electrical activity of the heart." 
 a "Monitor breathing rates during sleep." 
-a "Visually diagnose disorders inside the digestive tract without major surgery." 
+a "Diagnose disorders inside the digestive tract without major surgery." 
  
 # Question 53 
 q "A person's diet is very low in iron. This would most directly impact which component and function of their circulatory system?" 1 
@@ -477,7 +477,7 @@ a "The presence or absence of exercise."
 a "The stopwatch used to time the exercise." 
  
 # Question 56 
-q "A student measures their lung capacity using two methods: first by blowing up a balloon and measuring its diameter, and second by exhaling through a tube into an inverted water bottle in a tank of water (water displacement). Why is the water displacement method generally more accurate?" 0 
+q "A student measures their lung capacity using two methods: first by blowing up a balloon and measuring its diameter, and second by exhaling through a tube into an inverted soda bottle in a tank of water. Why is the water displacement method generally more accurate?" 0 
 # Answers for Question 56 
 a "It directly measures the volume of air, whereas the balloon's elasticity can affect the result." 
 a "Balloons are often different colors, which can skew the data." 
@@ -611,15 +611,14 @@ a "1:2:1"
 a "3:1" 
 a "1:1:1:1" 
 a "9:3:3:1" 
- 
-# Question 72 
-q "A pedigree chart is most commonly used by a genetic counselor to:" 1 
-# Answers for Question 72 
-a "Determine the exact DNA sequence of a person's genes." 
-a "Analyze patterns of inheritance and predict the risk of a genetic disorder in a family." 
-a "Decide which traits are desirable for a person to have." 
-a "Map the location of every gene on all 46 human chromosomes." 
- 
+
+ #Question 72
+q "A pedigree chart for a genetic trait shows that in every generation where the trait appears, at least one parent also has the trait. Additionally, affected parents are shown to have unaffected children. What is the most likely mode of inheritance?" 1
+a "Autosomal recessive"
+a "Autosomal dominant"
+a "Sex-linked recessive"
+a "It cannot be determined from this information"
+
 # Question 73 
 q "A diagram shows a pedigree chart for a recessive genetic disorder. An unaffected male and an unaffected female have one affected child and two unaffected children. What must the genotypes of the parents be?" 2 
 # Answers for Question 73 
@@ -655,20 +654,18 @@ a "9:3:3:1"
 a "1:2:1" 
  
 # Question 77 
-q "In a lab, you use gel electrophoresis to separate DNA fragments. The fragments will be separated based on their:" 3 
-# Answers for Question 77 
-a "Color" 
-a "Shape" 
-a "Genetic code" 
-a "Size (length)" 
- 
+q "In a simulated blood typing lab, you add Anti-B serum to a patient's blood sample. You observe that the blood clumps. What does this specific result tell you about the patient's red blood cells?" 3
+a "They have A antigens on their surface."
+a "They do not have any antigens on their surface."
+a "They have Rh antigens on their surface."
+a "They have B antigens on their surface."
+
 # Question 78 
-q "Why are restriction enzymes essential for a DNA fingerprinting lab?" 2 
-# Answers for Question 78 
-a "They act as a dye to make the DNA visible." 
-a "They provide the electricity to run the gel." 
-a "They cut the DNA into smaller, manageable fragments at specific sequences." 
-a "They glue DNA fragments back together." 
+q "You are testing a blood sample from a 'mystery patient.' The blood sample clumps when mixed with Anti-A serum, but does NOT clump when mixed with Anti-B serum or Anti-Rh serum. What is this patient's blood type?" 2
+a "O positive"
+a "B negative"
+a "A negative"
+a "AB positive"
  
 # Question 79 
 q "In your Play-Doh model of meiosis, how do you correctly represent a cell at the end of Meiosis I?" 0 
