@@ -1,88 +1,268 @@
-answer key:
+
 Unit 1: Diversity of Living Things
-1. Taxonomy
-2. Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species
-3. Binomial Nomenclature
-4. The evolutionary relationships and common ancestry among a group of organisms.
-5. Animalia
-6. Biodiversity
-7. Are heterotrophic and absorb nutrients.
-8. Genus
-9. Habitat destruction
-10. Species A and B are the most closely related.
-11. Invasive species
-12. Protista
-13. Gray Wolf (Canis lupus)
-14. Habitat fragmentation
-15. To observe a diverse community of microorganisms like protists.
-16. A location thought to be 'clean' might have more bacterial growth than one thought to be 'dirty'.
-17. A slice of bread in a sealed bag with no water in the same warm, dark place.
-18. The amount of mold that grows.
-19. Making a choice between two descriptive statements.
-20. There are multiple species of bacteria present on the surface.
+Knowledge/Understanding Questions
+
+1. Question: What is the science of naming, defining, and classifying groups of biological organisms on the basis of shared characteristics?
+Answer: Taxonomy
+
+2. Question: Which of the following is the correct order for the main taxonomic ranks, from most inclusive to least inclusive?
+Answer: Domain, Kingdom, Phylum, Class, Order, Family, Genus, Species
+
+3. Question: The two-part scientific naming system for organisms, devised by Carolus Linnaeus, is known as:
+Answer: Binomial Nomenclature
+
+4. Question: A phylogenetic tree is a diagram that represents:
+Answer: The evolutionary relationships and common ancestry among a group of organisms.
+
+5. Question: Which of the following kingdoms consists of multicellular, eukaryotic organisms that are heterotrophic and obtain nutrients by ingestion?
+Answer: Animalia
+
+6. Question: What term describes the variety of life in the world or in a particular habitat or ecosystem?
+Answer: Biodiversity
+
+7. Question: Organisms in the Kingdom Fungi are different from plants primarily because they:
+Answer: Are heterotrophic and absorb nutrients.
+
+Application Questions
+
+8. Question: The scientific name for a human is Homo sapiens. What does the 'Homo' part of the name represent?
+Answer: Genus
+
+9. Question: Deforestation for agriculture leads to the destruction of forests. This human activity primarily causes a loss of biodiversity through:
+Answer: Habitat destruction
+
+10. Question: A diagram shows a phylogenetic tree where Species A and Species B share a more recent common ancestor with each other than either does with Species C. Which statement is correct?
+Answer: Species A and B are the most closely related.
+
+11. Question: The introduction of the zebra mussel, a non-native species, into the Great Lakes has led to the decline of native clam populations. This is an example of biodiversity loss due to:
+Answer: Invasive species
+
+12. Question: A biologist discovers a new single-celled organism that has a nucleus but lacks a cell wall and chloroplasts. It moves using a flagellum. In which kingdom should it most likely be classified?
+Answer: Protista
+
+13. Question: If you were to classify a domestic dog (Canis familiaris), which other animal would be in the same genus?
+Answer: Gray Wolf (Canis lupus)
+
+14. Question: The construction of a new highway divides a large forest into two smaller, isolated patches. This is an example of:
+Answer: Habitat fragmentation
+
+Lab/Inquiry Questions
+
+15. Question: In a hay infusion lab, you take a sample of pond water with decaying grass and observe it under a microscope. What is the primary purpose of this investigation?
+Answer: To observe a diverse community of microorganisms like protists.
+
+16. Question: In an experiment, students swab various locations around the school and place them on petri dishes. After a few days, they observe the bacterial growth. A surprising finding in this lab is that:
+Answer: A location thought to be 'clean' might have more bacterial growth than one thought to be 'dirty'.
+
+17. Question: You are designing an experiment to see what condition affects the growth of bread mold. You place a slice of bread in sealed Saran wrap with a few drops of water and put it in a warm, dark place. What would be the best control for this experiment?
+Answer: A slice of bread in a sealed bag with no water in the same warm, dark place.
+
+18. Question: In your bread mold experiment, you decide to test the effect of temperature. You place one moist bread sample in a warm location and another in a cold location. What is the dependent variable?
+Answer: The amount of mold that grows.
+
+19. Question: When using a dichotomous key to identify a protist from your hay infusion, what is the process you follow at each step?
+Answer: Making a choice between two descriptive statements.
+
+20. Question: After swabbing a surface and culturing the bacteria, you observe several distinct types of colonies on your petri dish. What does the presence of different colony types (e.g., different colors, shapes, textures) indicate?
+Answer: There are multiple species of bacteria present on the surface.
 
 Unit 2: Evolution
-21. Natural selection
-22. Homologous structures
-23. Speciation
-24. The fossil record
-25. Humans, not the environment, determine which individuals reproduce.
-26. Vestigial structure
-27. All life on Earth shares a common ancestor and has changed over time.
-28. Natural selection in action.
-29. Artificial selection
-30. The black moths were better camouflaged, leading to a higher survival rate on the dark background.
-31. An entire crop could be wiped out by a single new disease or pest.
-32. Birds with large, strong beaks.
-33. They share a common ancestor.
-34. Speciation
-35. The population of dark moths will increase.
-36. The random nature of mutation.
-37. Variation in a trait (beak shape)
-38. Transfer the surviving bacteria to a new dish with a higher antibiotic concentration.
-39. In the lowest, oldest layers of rock.
-40. The genetic diversity of the island population will be lower than the original population.
+Knowledge/Understanding Questions
+
+21. Question: What is the primary mechanism of evolution, proposed by Charles Darwin, where organisms better adapted to their environment tend to survive and produce more offspring?
+Answer: Natural selection
+
+22. Question: The wing of a bird and the wing of an insect perform the same function but have different evolutionary origins. These are known as:
+Answer: Analogous structures
+
+23. Question: What term describes the formation of new and distinct species in the course of evolution?
+Answer: Speciation
+
+24. Question: Which of the following provides the most direct and preserved evidence for evolution?
+Answer: The fossil record
+
+25. Question: Artificial selection, or selective breeding, is different from natural selection because in artificial selection:
+Answer: Humans, not the environment, determine which individuals reproduce.
+
+26. Question: A structure in an organism that has lost all or most of its original function in the course of evolution, such as the appendix in humans, is known as a:
+Answer: Vestigial structure
+
+27. Question: The theory of evolution states that:
+Answer: All life on Earth shares a common ancestor and has changed over time.
+
+Application Questions
+
+28. Question: The development of antibiotic-resistant bacteria is a modern example of:
+Answer: Natural selection in action.
+
+29. Question: A farmer chooses to breed only the cows that produce the most milk. This practice is an example of:
+Answer: Artificial selection
+
+30. Question: In humans, babies with a very low or very high birth weight have historically had a lower chance of survival, while babies with an average birth weight are more likely to survive. This is an example of what type of natural selection?
+Answer: Stabilizing selection
+
+31. Question: A major disadvantage of creating genetically uniform crops through artificial selection is that:
+Answer: An entire crop could be wiped out by a single new disease or pest.
+
+32. Question: A severe drought significantly reduces the availability of small, soft seeds, leaving only large, hard-shelled seeds. In a finch population, which birds would be most likely to survive and reproduce?
+Answer: Birds with large, strong beaks.
+
+33. Question: The forelimb of a human, the wing of a bat, and the flipper of a whale all have a similar underlying bone structure, even though they have very different functions. This similarity is evidence that:
+Answer: They share a common ancestor.
+
+34. Question: Two populations of frogs are separated for thousands of years by a mountain range that they cannot cross. When the climate changes and a pass opens, the two populations meet again but are unable to produce viable offspring. This is an example of:
+Answer: Speciation
+
+Lab/Inquiry Questions
+
+35. Question: In a lab simulating peppered moths on a dark, soot-covered bark background, a 'predator' repeatedly removes the most visible moths. Which outcome is most likely to be graphed over several 'generations'?
+Answer: The population of dark moths will increase.
+
+36. Question: In a simulation of frog speciation, two populations are separated by a mountain. At each 'generation', you roll a die to see if a random mutation occurs in each population. What does the act of rolling the die represent?
+Answer: The random nature of mutation
+
+37. Question: You are conducting an experiment to show how beak shape affects feeding efficiency. You provide groups of students with different tools to pick up various 'food' items (candy). The different tools represent:
+Answer: Variation in a trait
+
+38. Question: In a classic lab investigating bacterial evolution, a strain of E. coli is grown in a petri dish with a low concentration of an antibiotic. Most bacteria die, but some survive. What is the next step to demonstrate selection has occurred?
+Answer: Transfer the surviving bacteria to a new dish with a higher antibiotic concentration.
+
+39. Question: When examining rock layers in a simulation where would you expect to find the fossils of the most ancient, simple organisms?
+Answer: In the lowest, oldest layers of rock.
+
+40. Question: In a simulation of genetic drift (the founder effect), a small group of individuals from a large, diverse population is moved to a new island. What is the most likely long-term outcome for the island population?
+Answer: The genetic diversity of the island population will be lower than the original population.
 
 Unit 3: Animals: Structure and Function
-41. Alveoli
-42. Right Atrium -> Right Ventricle -> Lungs -> Left Atrium -> Left Ventricle -> Body
-43. To maximize the absorption of nutrients.
-44. Left Ventricle
-45. The heart is pumping more blood to deliver oxygen to the muscles.
-46. Small intestine
-47. Diaphragm
-48. To supply muscles with more oxygen and remove carbon dioxide faster.
-49. The heart and arteries are under constant strain.
-50. To prevent food from entering the trachea during swallowing.
-51. By transporting absorbed nutrients from the small intestine to the body's cells.
-52. Visually diagnose disorders inside the digestive tract without major surgery.
-53. Hemoglobin in red blood cells and oxygen transport.
-54. Inability to effectively clear mucus and trapped debris from the lungs.
-55. The presence or absence of exercise.
-56. It directly measures the volume of air, whereas the balloon's elasticity can affect the result.
-57. The control tube would turn blue-black; the saliva tube would remain yellowish-brown.
-58. Lungs.
-59. Blood pressure
-60. Bag A to Bag B by diffusion.
+Knowledge/Understanding Questions
+
+41. Question: What are the tiny air sacs in the lungs where the exchange of oxygen and carbon dioxide takes place?
+Answer: Alveoli
+
+42. Question: Which of the following describes the correct path of blood flow through the heart, starting from the body?
+Answer: Right Atrium -> Right Ventricle -> Lungs -> Left Atrium -> Left Ventricle -> Body
+
+43. Question: The small intestine has a massive internal surface area due to its length and the presence of folds covered in tiny, finger-like projections. What is the primary function of these projections, called villi?
+Answer: To maximize the absorption of nutrients.
+
+44. Question: Which chamber of the heart is responsible for pumping oxygenated blood to the entire body?
+Answer: Left Ventricle
+
+45. Question: A person's blood pressure is recorded as 120/80 mmHg. What does the top number (120) represent?
+Answer: Systolic pressure, when the heart contracts
+
+46. Question: Where does the majority of chemical digestion and nutrient absorption occur in the digestive system?
+Answer: Small intestine
+
+47. Question: The muscular wall that separates the thoracic cavity from the abdominal cavity and is crucial for breathing is the:
+Answer: Diaphragm
+
+Application Questions
+
+48. Question: During vigorous exercise, why do your breathing rate and heart rate increase?
+Answer: To supply muscles with more oxygen and remove carbon dioxide faster.
+
+49. Question: A person with high blood pressure (hypertension) is at increased risk for heart attack and stroke because:
+Answer: The heart and arteries are under constant strain.
+
+50. Question: A diagram shows the human respiratory system. What is the function of the epiglottis?
+Answer: To prevent food from entering the trachea during swallowing.
+
+51. Question: How does the circulatory system support the function of the digestive system?
+Answer: By transporting absorbed nutrients from the small intestine to the body's cells.
+
+52. Question: The development of the endoscope, a flexible tube with a camera, has most significantly advanced our ability to:
+Answer: Diagnose disorders inside the digestive tract without major surgery.
+
+53. Question: A person's diet is very low in iron. This would most directly impact which component and function of their circulatory system?
+Answer: Hemoglobin in red blood cells and oxygen transport.
+
+54. Question: Smoking damages the cilia in the lining of the respiratory tract. What is a direct consequence of this damage?
+Answer: Inability to effectively clear mucus and trapped debris from the lungs.
+
+Lab/Inquiry Questions
+
+55. Question: In a lab where you measure a student's pulse rate before and after two minutes of exercise, what is the independent variable?
+Answer: The presence or absence of exercise.
+
+56. Question: A student measures their lung capacity using two methods: first by blowing up a balloon and measuring its diameter, and second by exhaling through a tube into an inverted soda bottle in a tank of water. Why is the water displacement method generally more accurate?
+Answer: It directly measures the volume of air, whereas the balloon's elasticity can affect the result.
+
+57. Question: In a lab designed to test for salivary amylase, a student adds their saliva to a starch solution in one test tube, and only water to a starch solution in a control tube. If the experiment worked correctly, what should happen after adding a few drops of Lugol's iodine to both tubes?
+Answer: The control tube would turn blue-black; the saliva tube would remain yellowish-brown.
+
+58. Question: During a pig dissection, you make an incision to open the thoracic cavity. You observe the heart located centrally between two spongy organs. These spongy organs are the:
+Answer: Lungs.
+
+59. Question: A sphygmomanometer is an instrument used in a clinical or lab setting to measure what?
+Answer: Blood pressure
+
+60. Question: A diagram shows a simplified model of gas exchange. Bag 'A' represents the alveolus and is filled with a high concentration of oxygen. Bag 'B' represents a capillary and has a low concentration of oxygen. If the bags are connected by a permeable membrane, oxygen will move from:
+Answer: Bag A to Bag B by diffusion.
 
 Unit 4: Genetics
-61. An alternative form of a gene.
-62. Four haploid cells that are genetically different from the parent cell.
-63. genotype; phenotype
-64. Crossing over
-65. Homozygous
-66. One trait.
-67. The two alleles for a trait separate from each other during meiosis, so that each gamete receives only one.
-68. 50%
-69. 25%
-70. Down Syndrome
-71. 9:3:3:1
-72. Analyze patterns of inheritance and predict the risk of a genetic disorder in a family.
-73. Both are heterozygous.
-74. Incomplete dominance
-75. Metaphase I
-76. 3:1
-77. Size (length)
-78. They cut the DNA into smaller, manageable fragments at specific sequences.
-79. As two cells, each with half the number of chromosomes as the parent cell, and with the sister chromatids still attached.
-80. Swap a small segment between two non-sister chromatids of a homologous pair.
+Knowledge/Understanding Questions
+
+61. Question: What is an allele?
+Answer: An alternative form of a gene.
+
+62. Question: Meiosis is a type of cell division that results in:
+Answer: Four haploid cells that are genetically different from the parent cell.
+
+63. Question: An organism's genetic makeup is its __________, while its observable physical traits are its __________.
+Answer: genotype; phenotype
+
+64. Question: The process during Prophase I of meiosis where homologous chromosomes pair up and exchange genetic material is called:
+Answer: Crossing over
+
+65. Question: An individual with two identical alleles for a particular trait is described as:
+Answer: Homozygous
+
+66. Question: A monohybrid cross involves tracking the inheritance of:
+Answer: One trait.
+
+67. Question: Mendel's Law of Segregation states that:
+Answer: The two alleles for a trait separate from each other during meiosis, so that each gamete receives only one.
+
+Application Questions
+
+68. Question: In pea plants, tall (T) is dominant to short (t). If a heterozygous tall plant (Tt) is crossed with a short plant (tt), what is the probability that the offspring will be short?
+Answer: 50%
+
+69. Question: A man with genotype I(A)i and a woman with genotype I(B)i have a child. What is the probability that their child will have type O blood (ii)?
+Answer: 25%
+
+70. Question: The failure of chromosomes to separate properly during meiosis is called nondisjunction. If this occurs with chromosome 21, it can lead to what genetic disorder?
+Answer: Down Syndrome
+
+71. Question: In a dihybrid cross between two pea plants that are heterozygous for both seed shape (Rr) and seed color (Yy), what is the expected phenotypic ratio of the offspring?
+Answer: 9:3:3:1
+
+72. Question: A pedigree chart for a genetic trait shows that in every generation where the trait appears, at least one parent also has the trait. Additionally, affected parents are shown to have unaffected children. What is the most likely mode of inheritance?
+Answer: Autosomal dominant
+
+73. Question: A diagram shows a pedigree chart for a recessive genetic disorder. An unaffected male and an unaffected female have one affected child and two unaffected children. What must the genotypes of the parents be?
+Answer: Both are heterozygous.
+
+74. Question: If a red-flowered plant (RR) is crossed with a white-flowered plant (rr) and all offspring have pink flowers (Rr), this pattern of inheritance is known as:
+Answer: Incomplete dominance
+
+Lab/Inquiry Questions
+
+75. Question: You are modeling meiosis with different colors of Play-Doh to represent homologous chromosomes. The step where you line up the homologous pairs along the center of the 'cell' represents:
+Answer: Metaphase I
+
+76. Question: You perform a monohybrid cross and count the offspring. Out of 400 total offspring, 301 show the dominant phenotype and 99 show the recessive phenotype. What is the approximate phenotypic ratio you observed?
+Answer: 3:1
+
+77. Question: In a simulated blood typing lab, you add Anti-B serum to a patient's blood sample. You observe that the blood clumps. What does this specific result tell you about the patient's red blood cells?
+Answer: They have B antigens on their surface.
+
+78. Question: You are testing a blood sample from a 'mystery patient.' The blood sample clumps when mixed with Anti-A serum, but does NOT clump when mixed with Anti-B serum or Anti-Rh serum. What is this patient's blood type?
+Answer: A negative
+
+79. Question: In your Play-Doh model of meiosis, how do you correctly represent a cell at the end of Meiosis I?
+Answer: As two cells, each with half the number of chromosomes as the parent cell, and with the sister chromatids still attached.
+
+80. Question: To simulate the process of 'crossing over' using your Play-Doh chromosome models, the best technique would be to:
+Answer: Swap a small segment between two non-sister chromatids of a homologous pair.
