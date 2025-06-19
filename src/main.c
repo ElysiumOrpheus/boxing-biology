@@ -514,41 +514,127 @@ int main()
 
                 if (game.showQuestion)
                 {
-                    DrawRectangle(49, 249, windowWidth - 98, 302, BLACK);
-                    DrawRectangle(50, 250, windowWidth - 100, 300, WHITE);
-                    DrawTextCentered(TextFormat("QUESTION - %0d", game.questionFramesLeft / 60), 250, 50, BLACK);
-                    const char *answerText = game.currentQuestion.question;
-                    Color textColor = BLACK;
-                    Rectangle rect = (Rectangle) {50, 300, windowWidth - 98, 70};
-                    float size = rect.height;
-                    if (MeasureText(answerText, size) > rect.width - 10)
-                    {
-                        size *= (rect.width - 10) / MeasureText(answerText, size);
-                    }
-                    if (size > MAX_TEXT_SIZE) size = MAX_TEXT_SIZE;
-                    if (size < MIN_TEXT_SIZE)
-                    {
-                        size = MIN_TEXT_SIZE;
-                        int i;
-                        for (i = 1; i < TextLength(answerText); i++)
-                        {
-                            if (MeasureText(TextSubtext(answerText, 0, i), size) > rect.width - 10) break;
-                        }
-                        int prevI = i;
-                        for (;; i--)
-                        {
-                            if (answerText[i] == ' ') break;
-                        }
-                        if (i == prevI) i--;
-                        const char *subBefore = TextSubtext(answerText, 0, i);
-                        const char *subAfter = answerText + i;
-                        const char *answerTextFormatted = TextFormat("%s\n%s", subBefore, subAfter);
-                        DrawTextNL(answerTextFormatted, rect.x + rect.width / 2, rect.y + rect.height - size, size, textColor, JUSTIFY_CENTER);
-                    }
-                    else
-                    {
-                        DrawText(answerText, rect.x + rect.width / 2 - MeasureText(answerText, size) / 2, rect.y + rect.height - size, size, textColor);
-                    }
+                    
+// Define drawing constants for easier tweaking
+#define TEXT_PADDING 10.0f
+#define LINE_SPACING 4.0f
+
+// Draw the UI boxes
+DrawRectangle(49, 249, windowWidth - 98, 302, BLACK);
+DrawRectangle(50, 250, windowWidth - 100, 300, WHITE);
+DrawTextCentered(TextFormat("QUESTION - %0d", game.questionFramesLeft / 60), 250, 50, BLACK);
+
+// --- Text Drawing Logic ---
+const char *answerText = game.currentQuestion.question;
+Color textColor = BLACK;
+
+// Define the rectangle where the question text should appear.
+// NOTE: You might want to make this rectangle larger to use more of the white box.
+// For example: Rectangle rect = { 60, 260, windowWidth - 120, 280 };
+Rectangle rect = (Rectangle) {50, 300, windowWidth - 98, 70};
+float availableWidth = rect.width - (TEXT_PADDING * 2);
+
+// Start by trying to fit the text on one line by adjusting font size
+float fontSize = rect.height - (TEXT_PADDING * 2);
+if (MeasureText(answerText, fontSize) > availableWidth)
+{
+    fontSize *= availableWidth / MeasureText(answerText, fontSize);
+}
+
+// Clamp font size to your defined limits
+if (fontSize > MAX_TEXT_SIZE) fontSize = MAX_TEXT_SIZE;
+
+// If text is still too long even at the minimum font size, we need to wrap it
+if (fontSize < MIN_TEXT_SIZE)
+{
+    fontSize = MIN_TEXT_SIZE;
+    
+    // --- Multi-line Wrapping Logic ---
+    const char *textToProcess = answerText;
+    int totalLines = 0;
+    
+    // First, do a "dry run" to count how many lines we will need
+    // This is necessary to calculate the total height for vertical centering
+    const char *tempText = textToProcess;
+    while (TextLength(tempText) > 0)
+    {
+        int charsToFit = TextLength(tempText);
+        // Find how many characters of the remaining text fit on one line
+        while (MeasureText(TextSubtext(tempText, 0, charsToFit), fontSize) > availableWidth && charsToFit > 0)
+        {
+            charsToFit--;
+        }
+
+        // Backtrack to the last space to avoid breaking words
+        int lastSpace = -1;
+        for (int i = 0; i < charsToFit; i++)
+        {
+            if (tempText[i] == ' ') lastSpace = i;
+        }
+        
+        // If a space was found and we're not at the end of the text, break there
+        if (lastSpace != -1 && (charsToFit < TextLength(tempText)))
+        {
+            charsToFit = lastSpace;
+        }
+
+        totalLines++;
+        tempText += charsToFit;
+        // Skip leading spaces on the next line
+        while (*tempText == ' ') tempText++;
+    }
+
+    // Calculate the total height of the text block to center it vertically
+    float totalTextHeight = (totalLines * fontSize) + ((totalLines - 1) * LINE_SPACING);
+    float currentY = rect.y + (rect.height - totalTextHeight) / 2.0f;
+
+    // Now, do the "real run" to draw each line
+    while (TextLength(textToProcess) > 0)
+    {
+        int charsToFit = TextLength(textToProcess);
+        while (MeasureText(TextSubtext(textToProcess, 0, charsToFit), fontSize) > availableWidth && charsToFit > 0)
+        {
+            charsToFit--;
+        }
+
+        int lastSpace = -1;
+        for (int i = 0; i < charsToFit; i++)
+        {
+            if (textToProcess[i] == ' ') lastSpace = i;
+        }
+
+        if (lastSpace != -1 && (charsToFit < TextLength(textToProcess)))
+        {
+            charsToFit = lastSpace;
+        }
+
+        // Get the substring for the current line
+        const char *line = TextSubtext(textToProcess, 0, charsToFit);
+        
+        // Calculate X position to center the line horizontally
+        float lineX = rect.x + (rect.width - MeasureText(line, fontSize)) / 2.0f;
+        
+        // Draw the line
+        DrawText(line, lineX, currentY, fontSize, textColor);
+
+        // Move to the next line's Y position
+        currentY += fontSize + LINE_SPACING;
+        
+        // Advance the text pointer
+        textToProcess += charsToFit;
+        while (*textToProcess == ' ') textToProcess++; // Skip leading space
+    }
+}
+else // The text fits on a single line
+{
+    // Calculate positions for horizontal and vertical centering
+    float textWidth = MeasureText(answerText, fontSize);
+    float xPos = rect.x + (rect.width - textWidth) / 2.0f;
+    float yPos = rect.y + (rect.height - fontSize) / 2.0f;
+    
+    DrawText(answerText, xPos, yPos, fontSize, textColor);
+}
+
 
                     bool halfsies = (game.currentQuestion.answerCount == 2);
                     for (int i = 0; i < game.currentQuestion.answerCount; i++)
@@ -741,7 +827,7 @@ int main()
                 game.state = GAMESTATE_MENU;
             }
         }
-        DrawText("v1.1.2", 0, 0, 25, WHITE);
+        DrawText("v1.1.3", 0, 0, 25, WHITE);
         EndDrawing();
         UpdateMusic();
     }
